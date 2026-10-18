@@ -408,7 +408,7 @@ function isFormationComplete() {
 
 // L'accès aux contenus payants dépend de la fonction serveur Supabase.
 function hasFullTrainingAccessForPrototype() {
-  return !!state.isAdmin || !!state.paidAccess;
+  return !!state.paidAccess;
 }
 
 async function loadPaidModules() {
