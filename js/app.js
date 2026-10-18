@@ -13,6 +13,7 @@ let state = {
   email: "",
   userId: null,
   isAdmin: false,
+  paidAccess: false,
   currentQuiz: null,
   currentQ: 0,
   selectedAnswer: null,
@@ -331,7 +332,7 @@ async function handleLogout() {
   await ensureSupabase();
   await sbClient.auth.signOut();
   state = {
-    completedModules: [], bestScore: 0, userName: "", email: "", userId: null, isAdmin: false,
+    completedModules: [], bestScore: 0, userName: "", email: "", userId: null, isAdmin: false, paidAccess: false,
     currentQuiz: null, currentQ: 0, selectedAnswer: null, score: 0,
     moduleQuizId: null, moduleQuiz: null, moduleQ: 0, moduleScore: 0, moduleSelected: null
   };
@@ -350,6 +351,7 @@ function enterApp() {
   }
   showScreen("home");
   updateHomeProgress();
+  loadPaidModules();
 }
 
 // ---------- Navigation ----------
@@ -412,7 +414,35 @@ const LEGACY_FULL_ACCESS_USERS = [
 ];
 
 function hasFullTrainingAccessForPrototype() {
-  return !!state.isAdmin || LEGACY_FULL_ACCESS_USERS.includes(state.userId);
+  return !!state.isAdmin || !!state.paidAccess;
+}
+
+async function loadPaidModules() {
+  state.paidAccess = false;
+  if (!state.userId || !sbClient) return;
+  try {
+    const { data, error } = await sbClient.functions.invoke("get-paid-modules", { body: {} });
+    if (error || !Array.isArray(data?.modules)) {
+      console.info("Accès modules payants non disponible :", error?.message || "aucun contenu retourné");
+      renderModules();
+      return;
+    }
+    let loaded = 0;
+    for (const row of data.modules) {
+      const paidModule = row?.content;
+      if (!paidModule?.id || !Array.isArray(paidModule.content) || !Array.isArray(paidModule.quiz)) continue;
+      const index = MODULES.findIndex(m => m.id === paidModule.id);
+      if (index >= 1) {
+        MODULES[index] = paidModule;
+        loaded++;
+      }
+    }
+    state.paidAccess = loaded === 7;
+    if (!state.paidAccess) console.warn("Accès autorisé mais contenus incomplets :", loaded, "/7");
+  } catch (err) {
+    console.warn("Chargement des modules payants :", err?.message || err);
+  }
+  renderModules();
 }
 
 function renderModules() {
