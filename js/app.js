@@ -406,13 +406,7 @@ function isFormationComplete() {
   return state.completedModules.length >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
 }
 
-// Prototype d'interface uniquement : ne constitue pas une protection serveur.
-const LEGACY_FULL_ACCESS_USERS = [
-  "17a6bd12-5019-4b0f-8d96-caa2b02c8d37",
-  "b376b5ec-623e-49f7-b120-2d59e3dce043",
-  "3f73090d-921d-4e55-8462-9d4005046b77"
-];
-
+// L'accès aux contenus payants dépend de la fonction serveur Supabase.
 function hasFullTrainingAccessForPrototype() {
   return !!state.isAdmin || !!state.paidAccess;
 }
