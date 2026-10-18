@@ -36,9 +36,8 @@ create policy "No direct paid content access"
 -- Préserver l'accès complet des trois comptes déjà autorisés.
 insert into public.module_access (user_id, granted_by, note)
 values
-  ('17a6bd12-5019-4b0f-8d96-caa2b02c8d37', 'migration_initiale', 'Compte existant à préserver'),
-  ('3f73090d-921d-4e55-8462-9d4005046b77', 'migration_initiale', 'Profil existant à préserver'),
   ('17a6bd12-5019-4b0f-8d96-caa2b02c8d37', 'migration_initiale', 'Profil existant à préserver'),
+  ('3f73090d-921d-4e55-8462-9d4005046b77', 'migration_initiale', 'Profil existant à préserver'),
   ('e3535c93-e5f5-4303-a57e-fda0ae6beeeb', 'migration_initiale', 'Profil existant à préserver')
 on conflict (user_id) do nothing;
 
