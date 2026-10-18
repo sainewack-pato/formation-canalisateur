@@ -404,26 +404,61 @@ function isFormationComplete() {
   return state.completedModules.length >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
 }
 
+// Prototype d'interface uniquement : ne constitue pas une protection serveur.
+const LEGACY_FULL_ACCESS_USERS = [
+  "17a6bd12-5019-4b0f-8d96-caa2b02c8d37",
+  "b376b5ec-623e-49f7-b120-2d59e3dce043",
+  "3f73090d-921d-4e55-8462-9d4005046b77"
+];
+
+function hasFullTrainingAccessForPrototype() {
+  return !!state.isAdmin || LEGACY_FULL_ACCESS_USERS.includes(state.userId);
+}
+
 function renderModules() {
   const container = document.getElementById("modules-list");
   if (!container) return;
-  container.innerHTML = MODULES.map(m => {
+  const fullAccess = hasFullTrainingAccessForPrototype();
+  container.innerHTML = MODULES.map((m, index) => {
     const done = state.completedModules.includes(m.id);
+    const isFree = index === 0;
+    const locked = !isFree && !fullAccess;
     return `
-      <div class="card module-card" onclick="openModule('${m.id}')">
-        <div class="module-icon">${m.icon}</div>
+      <div class="card module-card" ${locked ? 'onclick="showPaymentLock()"' : `onclick="openModule('${m.id}')`}">
+        <div class="module-icon">${locked ? "🔒" : m.icon}</div>
         <div class="module-info">
           <h3>${m.title}</h3>
-          <p>${m.short}</p>
+          <p>${locked ? "Accès après validation du paiement" : m.short}</p>
         </div>
-        <span class="module-status ${done ? "" : "todo"}">${done ? "Validé" : "À faire"}</span>
+        <span class="module-status ${locked ? "todo" : done ? "" : "todo"}">${locked ? "Verrouillé" : done ? "Validé" : isFree ? "Gratuit" : "À faire"}</span>
       </div>`;
   }).join("");
+}
+
+function showPaymentLock() {
+  const container = document.getElementById("module-content");
+  if (!container) return;
+  document.getElementById("module-title").textContent = "Accès aux modules payants";
+  container.innerHTML = `
+    <div class="card" style="margin-top:1rem">
+      <h3>🔒 Modules 2 à 8 réservés aux apprenants autorisés</h3>
+      <p>Tarif de la formation complète : <strong>20 000 FCFA</strong>.</p>
+      <p>Effectuez le paiement par Wave, puis envoyez votre preuve par WhatsApp. GIE I2DS vérifiera le paiement manuellement avant d'autoriser l'accès.</p>
+      <a class="btn-primary full" style="display:block;text-align:center;text-decoration:none;margin-top:1rem" href="https://pay.wave.com/m/M_sn_cyRERGTCj1dt/c/sn/" target="_blank" rel="noopener">Payer avec Wave</a>
+      <a class="btn-secondary full" style="display:block;text-align:center;text-decoration:none;margin-top:.5rem" href="https://wa.me/221775232762" target="_blank" rel="noopener">Envoyer la preuve par WhatsApp</a>
+      <p style="font-size:.85rem;margin-top:1rem">Cette version est un prototype d'interface. L'accès réel ne sera sécurisé qu'après déplacement des contenus payants vers un stockage protégé et vérification côté serveur.</p>
+      <button class="btn-secondary full" style="margin-top:.5rem" onclick="showScreen('modules')">Retour aux modules</button>
+    </div>`;
+  showScreen("module-detail");
 }
 
 function openModule(id) {
   const mod = MODULES.find(m => m.id === id);
   if (!mod) return;
+  if (MODULES.indexOf(mod) > 0 && !hasFullTrainingAccessForPrototype()) {
+    showPaymentLock();
+    return;
+  }
   document.getElementById("module-title").textContent = mod.title;
   const content = document.getElementById("module-content");
   const done = state.completedModules.includes(id);
