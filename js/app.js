@@ -424,7 +424,7 @@ function renderModules() {
     const isFree = index === 0;
     const locked = !isFree && !fullAccess;
     return `
-      <div class="card module-card" ${locked ? 'onclick="showPaymentLock()"' : `onclick="openModule('${m.id}')`}">
+      <div class="card module-card" ${locked ? 'onclick="showPaymentLock()"' : 'onclick="openModule(\\'' + m.id + '\\')'"}>
         <div class="module-icon">${locked ? "🔒" : m.icon}</div>
         <div class="module-info">
           <h3>${m.title}</h3>
