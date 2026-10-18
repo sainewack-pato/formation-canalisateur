@@ -204,15 +204,22 @@
       }
     }
 
-    async function checkAdmin(userId) {
-      const { data, error } = await sbClient
-        .from("progressions")
-        .select("is_admin")
-        .eq("user_id", userId)
-        .maybeSingle();
-      if (error || !data) return false;
-      return !!data.is_admin;
-    }
+    
+async function checkAdmin(userId) {
+  const { data, error } = await sbClient
+    .from("roles_utilisateurs")
+    .select("role")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  if (error || !data) {
+    console.error("Vérification du rôle admin :", error);
+    return false;
+  }
+
+  return data.role === "admin";
+}
+
 
     function showLogin(msg) {
       document.getElementById("admin-login").classList.remove("hidden");
