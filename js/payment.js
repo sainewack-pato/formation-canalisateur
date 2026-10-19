@@ -5,8 +5,8 @@ async function submitManualPayment(event) {
   const reference = document.getElementById("payment-reference").value.trim();
   if (!reference) return false;
   try {
-    if (!window.sbClient && typeof initSupabase === "function") initSupabase();
-    if (!window.sbClient) throw new Error("Connexion Supabase indisponible.");
+    if (typeof sbClient === "undefined" && typeof initSupabase === "function") initSupabase();
+    if (typeof sbClient === "undefined" || !sbClient) throw new Error("Connexion Supabase indisponible.");
     const { data: { user }, error: authError } = await sbClient.auth.getUser();
     if (authError || !user) throw new Error("Connectez-vous avant d'envoyer votre demande.");
     button.disabled = true;
