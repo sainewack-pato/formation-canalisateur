@@ -369,6 +369,12 @@ function enterApp() {
   loadPaidModules();
 }
 
+function showPaymentLock() {
+  showScreen("modules");
+  renderModules();
+  window.alert("Le quiz final est réservé aux apprenants dont l’accès aux modules payants a été validé.");
+}
+
 // Chargement sécurisé des modules payants depuis Supabase Edge Function.
 async function loadPaidModules() {
   state.isPaid = false;
