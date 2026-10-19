@@ -366,10 +366,42 @@ function enterApp() {
   }
   showScreen("home");
   updateHomeProgress();
+  loadPaidModules();
+}
+
+function showPaymentLock() {
+  showScreen("modules");
+  renderModules();
+  window.alert("Le quiz final est réservé aux apprenants dont l’accès aux modules payants a été validé.");
+}
+
+// Chargement sécurisé des modules payants depuis Supabase Edge Function.
+async function loadPaidModules() {
+  state.isPaid = false;
+  if (!state.userId || !sbClient) { renderModules(); return; }
+  try {
+    const { data, error } = await sbClient.functions.invoke("get-paid-modules", { body: {} });
+    if (error || !Array.isArray(data?.modules)) { renderModules(); return; }
+    let loaded = 0;
+    for (const row of data.modules) {
+      const paidModule = row?.content;
+      if (!paidModule?.id || !Array.isArray(paidModule.content) || !Array.isArray(paidModule.quiz)) continue;
+      const index = MODULES.findIndex(m => m.id === paidModule.id);
+      if (index >= 1) {
+        MODULES[index] = paidModule;
+        if (paidModule.id === "m08" && Array.isArray(paidModule.finalQuiz)) QUIZ_QUESTIONS = paidModule.finalQuiz;
+        loaded++;
+      }
+    }
+    state.isPaid = loaded === 7 && Array.isArray(QUIZ_QUESTIONS) && QUIZ_QUESTIONS.length > 0;
+  } catch (e) { console.warn("Chargement des modules payants indisponible."); }
+  renderModules();
+  updateHomeProgress();
 }
 
 // ---------- Navigation ----------
 function showScreen(id) {
+  if (id === "quiz" && state.isPaid !== true) { showPaymentLock(); return; }
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   document.getElementById(id)?.classList.add("active");
 
@@ -599,6 +631,7 @@ function resetQuizUI() {
 }
 
 function startQuiz() {
+  if (state.isPaid !== true || !Array.isArray(QUIZ_QUESTIONS) || QUIZ_QUESTIONS.length === 0) { showPaymentLock(); return; }
   state.currentQuiz = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, QUIZ_TOTAL);
   state.currentQ = 0;
   state.score = 0;
