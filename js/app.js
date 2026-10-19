@@ -428,10 +428,13 @@ async function loadPaidModules() {
       const index = MODULES.findIndex(m => m.id === paidModule.id);
       if (index >= 1) {
         MODULES[index] = paidModule;
+        if (paidModule.id === "m08" && Array.isArray(paidModule.finalQuiz)) {
+          QUIZ_QUESTIONS = paidModule.finalQuiz;
+        }
         loaded++;
       }
     }
-    state.paidAccess = loaded === 7;
+    state.paidAccess = loaded === 7 && Array.isArray(QUIZ_QUESTIONS) && QUIZ_QUESTIONS.length > 0;
     if (!state.paidAccess) console.warn("Accès autorisé mais contenus incomplets :", loaded, "/7");
   } catch (err) {
     console.warn("Chargement des modules payants :", err?.message || err);
