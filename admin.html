@@ -174,6 +174,7 @@
                 <th>Email</th>
                 <th>Modules</th>
                 <th>Quiz</th>
+                <th>Paiement</th>
                 <th>Statut</th>
                 <th>Maj</th>
               </tr>
@@ -188,7 +189,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-config.js?v=2"></script>
   <script>
     let allLearners = [];
 
@@ -204,22 +205,15 @@
       }
     }
 
-    
-async function checkAdmin(userId) {
-  const { data, error } = await sbClient
-    .from("roles_utilisateurs")
-    .select("role")
-    .eq("user_id", userId)
-    .maybeSingle();
-
-  if (error || !data) {
-    console.error("Vérification du rôle admin :", error);
-    return false;
-  }
-
-  return data.role === "admin";
-}
-
+    async function checkAdmin(userId) {
+      const { data, error } = await sbClient
+        .from("progressions")
+        .select("is_admin")
+        .eq("user_id", userId)
+        .maybeSingle();
+      if (error || !data) return false;
+      return !!data.is_admin;
+    }
 
     function showLogin(msg) {
       document.getElementById("admin-login").classList.remove("hidden");
@@ -269,135 +263,25 @@ async function checkAdmin(userId) {
       showLogin();
     });
 
-    
-async function loadLearners() {
-  const tbody = document.getElementById("learners-body");
-  tbody.innerHTML =
-    "<tr><td colspan='6'>Chargement...</td></tr>";
+    async function loadLearners() {
+      const tbody = document.getElementById("learners-body");
+      tbody.innerHTML = "<tr><td colspan='7'>Chargement...</td></tr>";
 
-  try {
-    const [
-      profilesResult,
-      rolesResult,
-      progressResult,
-      quizzesResult
-    ] = await Promise.all([
-      sbClient
-        .from("profils_apprenants")
-        .select("user_id, nom, prenom, statut_inscription, statut_paiement, created_at"),
-      sbClient
-        .from("roles_utilisateurs")
-        .select("user_id, role"),
-      sbClient
+      const { data, error } = await sbClient
         .from("progressions")
-        .select("user_id, module_id, pourcentage, statut, email, updated_at, created_at"),
-      sbClient
-        .from("tentatives_quiz")
-        .select("user_id, score, reussi, created_at")
-    ]);
+        .select("user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
+        .order("updated_at", { ascending: false });
 
-    const results = [
-      profilesResult,
-      rolesResult,
-      progressResult,
-      quizzesResult
-    ];
+      if (error) {
+        tbody.innerHTML = `<tr><td colspan="7" style="color:#c62828">Erreur : ${error.message}<br>
+          Vérifiez que la table progressions existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
+        return;
+      }
 
-    const failed = results.find(r => r.error);
-
-    if (failed) {
-      throw failed.error;
+      allLearners = data || [];
+      renderStats(allLearners);
+      renderTable(allLearners);
     }
-
-    const profiles = profilesResult.data || [];
-    const roles = rolesResult.data || [];
-    const progressions = progressResult.data || [];
-    const quizzes = quizzesResult.data || [];
-
-    const roleByUser = new Map(
-      roles.map(r => [r.user_id, r.role])
-    );
-
-    const learnerProfiles = profiles.filter(
-      p => roleByUser.get(p.user_id) !== "admin"
-    );
-
-    const userIds = new Set([
-      ...learnerProfiles.map(p => p.user_id),
-      ...progressions.map(p => p.user_id),
-      ...quizzes.map(q => q.user_id)
-    ]);
-
-    allLearners = [...userIds]
-      .filter(id => roleByUser.get(id) !== "admin")
-      .map(userId => {
-        const profile = learnerProfiles.find(
-          p => p.user_id === userId
-        );
-
-        const userProgress = progressions.filter(
-          p => p.user_id === userId
-        );
-
-        const userQuizzes = quizzes.filter(
-          q => q.user_id === userId
-        );
-
-        const completedModules = [
-          ...new Set(
-            userProgress
-              .filter(p =>
-                Number(p.pourcentage || 0) >= 100 ||
-                String(p.statut || "").toLowerCase() === "termine" ||
-                String(p.statut || "").toLowerCase() === "terminé" ||
-                String(p.statut || "").toLowerCase() === "completed"
-              )
-              .map(p => p.module_id)
-              .filter(Boolean)
-          )
-        ];
-
-        const bestScore = userQuizzes.reduce(
-          (best, q) => Math.max(best, Number(q.score || 0)),
-          0
-        );
-
-        const latestDates = [
-          ...userProgress.map(p => p.updated_at || p.created_at),
-          ...userQuizzes.map(q => q.created_at),
-          profile?.created_at
-        ].filter(Boolean).sort();
-
-        return {
-          user_id: userId,
-          user_name: [profile?.prenom, profile?.nom]
-            .filter(Boolean).join(" ") || "Nom non renseigné",
-          email: userProgress.find(p => p.email)?.email || "—",
-          completed_modules: completedModules,
-          best_score: bestScore,
-          is_admin: false,
-          statut_paiement: profile?.statut_paiement || "À vérifier",
-          updated_at: latestDates.at(-1) || null,
-          created_at: profile?.created_at || null
-        };
-      });
-
-    renderStats(allLearners);
-    renderTable(allLearners);
-
-  } catch (error) {
-    console.error("Erreur de chargement des apprenants :", error);
-    allLearners = [];
-
-    tbody.innerHTML =
-      `<tr><td colspan="6" style="color:#c62828">
-        Impossible de charger les apprenants : ${
-          escapeHtml(error.message || "Erreur inconnue")
-        }
-      </td></tr>`;
-  }
-}
-
 
     function renderStats(list) {
       const total = list.length;
@@ -428,7 +312,7 @@ async function loadLearners() {
     function renderTable(list) {
       const tbody = document.getElementById("learners-body");
       if (!list.length) {
-        tbody.innerHTML = "<tr><td colspan='6'>Aucun apprenant pour le moment.</td></tr>";
+        tbody.innerHTML = "<tr><td colspan='7'>Aucun apprenant pour le moment.</td></tr>";
         return;
       }
       tbody.innerHTML = list.map(l => `
@@ -437,6 +321,7 @@ async function loadLearners() {
           <td>${escapeHtml(l.email || "—")}</td>
           <td>${(l.completed_modules || []).length} / 8</td>
           <td>${l.best_score || 0} / 15</td>
+          <td>${l.is_paid ? '<span class="badge badge-ok">Payé</span>' : '<span class="badge badge-progress">Non payé</span>'}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
         </tr>
