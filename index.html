@@ -148,6 +148,14 @@
           J’ai payé — Envoyer la preuve (WhatsApp)
         </a>
         <p class="pay-hint">Après paiement, envoyez la capture + votre nom et email. Accès sous 24 h.</p>
+        <form id="manual-payment-form" style="margin-top:1rem" onsubmit="return submitManualPayment(event)">
+          <div class="form-group">
+            <label for="payment-reference">Référence de transaction Wave</label>
+            <input id="payment-reference" required maxlength="120" placeholder="Référence figurant sur le reçu" />
+          </div>
+          <button type="submit" class="btn-primary full">J’ai envoyé la preuve — demander validation</button>
+          <p id="payment-request-status" role="status" style="margin-top:.6rem"></p>
+        </form>
       </div>
 
       <div class="card">
@@ -293,5 +301,5 @@
   <script src="js/supabase-config.js?v=3"></script>
   <script src="js/data.js?v=4"></script>
   <script src="js/app.js?v=4"></script>
-</body>
+  <script src="js/payment.js?v=1"></script>\n</body>
 </html>
