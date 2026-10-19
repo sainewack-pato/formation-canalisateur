@@ -111,6 +111,21 @@
     .note {
       font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;
     }
+
+    .btn-unlock {
+      background: #2e7d32; color: white; border: none;
+      padding: 0.35rem 0.6rem; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 700; cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-unlock:hover { background: #1b5e20; }
+    .btn-lock {
+      background: #eee; color: #546e7a; border: 1px solid #ccc;
+      padding: 0.35rem 0.6rem; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-lock:hover { background: #e0e0e0; }
     @media (max-width: 600px) {
       table { font-size: 0.8rem; }
       th:nth-child(4), td:nth-child(4) { display: none; }
@@ -177,6 +192,7 @@
                 <th>Paiement</th>
                 <th>Statut</th>
                 <th>Maj</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="learners-body">
@@ -189,7 +205,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js?v=3"></script>
+  <script src="js/supabase-config.js?v=4"></script>
   <script>
     let allLearners = [];
 
@@ -265,7 +281,7 @@
 
     async function loadLearners() {
       const tbody = document.getElementById("learners-body");
-      tbody.innerHTML = "<tr><td colspan='7'>Chargement...</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='8'>Chargement...</td></tr>";
 
       const { data, error } = await sbClient
         .from("learner_progress")
@@ -273,7 +289,7 @@
         .order("updated_at", { ascending: false });
 
       if (error) {
-        tbody.innerHTML = `<tr><td colspan="7" style="color:#c62828">Erreur : ${error.message}<br>
+        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Erreur : ${error.message}<br>
           Vérifiez que la table learner_progress existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
         return;
       }
@@ -312,20 +328,26 @@
     function renderTable(list) {
       const tbody = document.getElementById("learners-body");
       if (!list.length) {
-        tbody.innerHTML = "<tr><td colspan='7'>Aucun apprenant pour le moment.</td></tr>";
+        tbody.innerHTML = "<tr><td colspan='8'>Aucun apprenant pour le moment.</td></tr>";
         return;
       }
-      tbody.innerHTML = list.map(l => `
+      tbody.innerHTML = list.map(l => {
+        const email = l.email || "";
+        const action = l.is_paid
+          ? `<button type="button" class="btn-lock" onclick="lockLearner('${escapeHtml(email)}')">Verrouiller</button>`
+          : `<button type="button" class="btn-unlock" onclick="unlockLearner('${escapeHtml(email)}')">Déverrouiller</button>`;
+        return `
         <tr>
           <td>${escapeHtml(l.user_name || "—")}${l.is_admin ? " 🔑" : ""}</td>
-          <td>${escapeHtml(l.email || "—")}</td>
+          <td>${escapeHtml(email || "—")}</td>
           <td>${(l.completed_modules || []).length} / 8</td>
           <td>${l.best_score || 0} / 15</td>
           <td>${l.is_paid ? '<span class="badge badge-ok">Payé</span>' : '<span class="badge badge-progress">Non payé</span>'}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
-        </tr>
-      `).join("");
+          <td>${email ? action : "—"}</td>
+        </tr>`;
+      }).join("");
     }
 
     function filterTable() {
@@ -340,6 +362,37 @@
 
     function escapeHtml(s) {
       return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+
+
+    async function unlockLearner(email) {
+      if (!email) { alert("Email manquant"); return; }
+      if (!confirm("Déverrouiller les modules 2–8 pour\n" + email + " ?\n\nConfirmez que le paiement a été validé.")) return;
+      const { error } = await sbClient
+        .from("learner_progress")
+        .update({ is_paid: true, paid_at: new Date().toISOString(), updated_at: new Date().toISOString() })
+        .eq("email", email);
+      if (error) {
+        alert("Erreur : " + error.message);
+        return;
+      }
+      alert("Déverrouillé : " + email);
+      loadLearners();
+    }
+
+    async function lockLearner(email) {
+      if (!email) return;
+      if (!confirm("Reverrouiller les modules 2–8 pour\n" + email + " ?")) return;
+      const { error } = await sbClient
+        .from("learner_progress")
+        .update({ is_paid: false, paid_at: null, updated_at: new Date().toISOString() })
+        .eq("email", email);
+      if (error) {
+        alert("Erreur : " + error.message);
+        return;
+      }
+      alert("Verrouillé : " + email);
+      loadLearners();
     }
 
     init();
