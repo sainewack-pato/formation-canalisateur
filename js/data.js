@@ -18,7 +18,58 @@ const MODULES = [
         "html": "\n          <ul>\n            <li><strong>Bloc 1</strong> — Réaliser les opérations connexes à la pose d’une canalisation enterrée</li>\n            <li><strong>Bloc 2</strong> — Construire un réseau d’assainissement en tranchée ouverte</li>\n            <li><strong>Bloc 3</strong> — Construire un réseau d’adduction d’eau potable en tranchée ouverte</li>\n          </ul>\n          <div class=\"tip\"><strong>Niveau :</strong> Titre Professionnel niveau 3 (équivalent CAP/BEP)</div>\n        "
       }
     ],
-    "quiz": []
+    "quiz": [
+      {
+        "q": "Dans quels types de réseaux intervient principalement le canalisateur ?",
+        "answers": [
+          "Uniquement plomberie intérieure",
+          "Assainissement et adduction d’eau potable",
+          "Uniquement électricité",
+          "Uniquement voirie sèche"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Sous la responsabilité de qui travaille généralement le canalisateur ?",
+        "answers": [
+          "Du maire",
+          "Du chef de chantier",
+          "Du client final uniquement",
+          "De l’architecte"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Combien de blocs de compétences composent le Titre Professionnel Canalisateur ?",
+        "answers": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Le métier de canalisateur s’exerce principalement :",
+        "answers": [
+          "En intérieur uniquement",
+          "En extérieur, sur chantier",
+          "Derrière un bureau",
+          "En laboratoire"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel niveau correspond au Titre Professionnel Canalisateur ?",
+        "answers": [
+          "Niveau 2",
+          "Niveau 3 (CAP/BEP)",
+          "Niveau 5 (BTS)",
+          "Niveau 6"
+        ],
+        "correct": 1
+      }
+    ]
   },
   {
     "id": "m02",
