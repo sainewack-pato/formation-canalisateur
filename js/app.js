@@ -356,6 +356,10 @@ function enterApp() {
 
 // ---------- Navigation ----------
 function showScreen(id) {
+  if (id === "quiz" && !hasFullTrainingAccessForPrototype()) {
+    showPaymentLock();
+    return;
+  }
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   document.getElementById(id)?.classList.add("active");
 
@@ -604,6 +608,10 @@ function resetQuizUI() {
 }
 
 function startQuiz() {
+  if (!hasFullTrainingAccessForPrototype() || !Array.isArray(QUIZ_QUESTIONS) || QUIZ_QUESTIONS.length === 0) {
+    showPaymentLock();
+    return;
+  }
   state.currentQuiz = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, QUIZ_TOTAL);
   state.currentQ = 0;
   state.score = 0;
