@@ -1,0 +1,29 @@
+name: Vérification accès modules payants
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [fix/acces-payants-main]
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Vérifier la syntaxe JavaScript
+        run: |
+          node --check js/app.js
+          node --check js/data.js
+      - name: Vérifier que les contenus payants ne sont pas publics
+        run: |
+          ! grep -q 'Habilitations indispensables' js/data.js
+          ! grep -q 'AIPR</strong>' js/data.js
+      - name: Vérifier les contrôles serveur
+        run: |
+          grep -q 'auth.getUser(token)' supabase/functions/get-paid-modules/index.ts
+          grep -q 'from("module_access")' supabase/functions/get-paid-modules/index.ts
+          grep -q 'SUPABASE_SERVICE_ROLE_KEY' supabase/functions/get-paid-modules/index.ts
