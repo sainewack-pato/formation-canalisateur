@@ -57,7 +57,7 @@ async function getSessionUser() {
 
 async function loadProgressFromCloud(userId) {
   const { data, error } = await sbClient
-    .from("progressions")
+    .from("learner_progress")
     .select("*")
     .eq("user_id", userId)
     .maybeSingle();
@@ -81,7 +81,7 @@ async function saveProgressToCloud() {
   };
 
   const { error } = await sbClient
-    .from("progressions")
+    .from("learner_progress")
     .upsert(payload, { onConflict: "user_id" });
 
   if (error) console.warn("saveProgress:", error.message);
@@ -99,7 +99,7 @@ async function ensureProgressRow(user) {
     return;
   }
   const name = user.user_metadata?.name || state.userName || "";
-  const { error } = await sbClient.from("progressions").insert({
+  const { error } = await sbClient.from("learner_progress").insert({
     user_id: user.id,
     email: user.email,
     user_name: name,

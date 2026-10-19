@@ -148,7 +148,7 @@
       </form>
       <p class="note">
         Pour devenir admin : créez d’abord un compte dans l’app, puis dans Supabase SQL Editor :<br>
-        <code>update progressions set is_admin = true where email = 'votre@email.com';</code>
+        <code>update learner_progress set is_admin = true where email = 'votre@email.com';</code>
       </p>
     </div>
 
@@ -189,7 +189,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js?v=2"></script>
+  <script src="js/supabase-config.js?v=3"></script>
   <script>
     let allLearners = [];
 
@@ -207,7 +207,7 @@
 
     async function checkAdmin(userId) {
       const { data, error } = await sbClient
-        .from("progressions")
+        .from("learner_progress")
         .select("is_admin")
         .eq("user_id", userId)
         .maybeSingle();
@@ -268,13 +268,13 @@
       tbody.innerHTML = "<tr><td colspan='7'>Chargement...</td></tr>";
 
       const { data, error } = await sbClient
-        .from("progressions")
+        .from("learner_progress")
         .select("user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
         .order("updated_at", { ascending: false });
 
       if (error) {
         tbody.innerHTML = `<tr><td colspan="7" style="color:#c62828">Erreur : ${error.message}<br>
-          Vérifiez que la table progressions existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
+          Vérifiez que la table learner_progress existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
         return;
       }
 
