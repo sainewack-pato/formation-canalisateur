@@ -881,3 +881,24 @@ body {
   flex-shrink: 0;
 }
 .admin-link:hover { background: #c8e6c9; }
+
+/* Modules payants verrouillés */
+.module-locked {
+  opacity: 0.85;
+  border: 1px dashed #90a4ae;
+}
+.module-status.locked {
+  background: #fff3e0;
+  color: #e65100;
+  font-size: 0.75rem;
+}
+.free-badge {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  vertical-align: middle;
+}

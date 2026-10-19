@@ -6,6 +6,19 @@ const QUIZ_TOTAL = 15;
 const MODULE_QUIZ_PASS = 3;
 const MODULE_QUIZ_TOTAL = 5;
 
+const FREE_MODULE_IDS = ["m01"]; // Module 1 gratuit
+const PAID_MODULE_IDS = ["m02", "m03", "m04", "m05", "m06", "m07", "m08"];
+
+function isModuleFree(id) {
+  return FREE_MODULE_IDS.includes(id);
+}
+
+function canAccessModule(id) {
+  // Module 1 toujours libre ; 2-8 uniquement si is_paid === true
+  if (isModuleFree(id)) return true;
+  return state.isPaid === true;
+}
+
 let state = {
   completedModules: [],
   bestScore: 0,
@@ -13,6 +26,7 @@ let state = {
   email: "",
   userId: null,
   isAdmin: false,
+  isPaid: false,
   currentQuiz: null,
   currentQ: 0,
   selectedAnswer: null,
@@ -80,17 +94,18 @@ async function ensureProgressRow(user) {
     state.bestScore = existing.best_score || 0;
     state.userName = existing.user_name || user.user_metadata?.name || "";
     state.isAdmin = !!existing.is_admin;
+    state.isPaid = existing.is_paid === true;
     state.email = existing.email || user.email;
     return;
   }
-  // Create row
   const name = user.user_metadata?.name || state.userName || "";
   const { error } = await sbClient.from("progressions").insert({
     user_id: user.id,
     email: user.email,
     user_name: name,
     completed_modules: [],
-    best_score: 0
+    best_score: 0,
+    is_paid: false
   });
   if (error) console.warn("insert progress:", error.message);
   state.userName = name;
@@ -98,6 +113,7 @@ async function ensureProgressRow(user) {
   state.completedModules = [];
   state.bestScore = 0;
   state.isAdmin = false;
+  state.isPaid = false;
 }
 
 // ---------- Auth UI ----------
@@ -331,7 +347,7 @@ async function handleLogout() {
   await ensureSupabase();
   await sbClient.auth.signOut();
   state = {
-    completedModules: [], bestScore: 0, userName: "", email: "", userId: null, isAdmin: false,
+    completedModules: [], bestScore: 0, userName: "", email: "", userId: null, isAdmin: false, isPaid: false,
     currentQuiz: null, currentQ: 0, selectedAnswer: null, score: 0,
     moduleQuizId: null, moduleQuiz: null, moduleQ: 0, moduleScore: 0, moduleSelected: null
   };
@@ -398,6 +414,16 @@ function updateHomeProgress() {
 
   const adminLink = document.getElementById("admin-link");
   if (adminLink) adminLink.classList.toggle("hidden", !state.isAdmin);
+
+  // Afficher / masquer carte paiement
+  const payCard = document.querySelector(".pay-card");
+  if (payCard) {
+    if (state.isPaid) {
+      payCard.innerHTML = `
+        <h2 style="color:var(--success);">✓ Formation débloquée</h2>
+        <p class="pay-desc">Accès complet aux 8 modules. Bonne formation !</p>`;
+    }
+  }
 }
 
 function isFormationComplete() {
@@ -409,14 +435,19 @@ function renderModules() {
   if (!container) return;
   container.innerHTML = MODULES.map(m => {
     const done = state.completedModules.includes(m.id);
+    const locked = !canAccessModule(m.id);
+    const status = locked
+      ? '<span class="module-status locked">🔒 Payant</span>'
+      : (done ? '<span class="module-status">Validé</span>' : '<span class="module-status todo">À faire</span>');
+    const freeBadge = isModuleFree(m.id) ? '<span class="free-badge">Gratuit</span>' : '';
     return `
-      <div class="card module-card" onclick="openModule('${m.id}')">
+      <div class="card module-card ${locked ? "module-locked" : ""}" onclick="openModule('${m.id}')">
         <div class="module-icon">${m.icon}</div>
         <div class="module-info">
-          <h3>${m.title}</h3>
+          <h3>${m.title} ${freeBadge}</h3>
           <p>${m.short}</p>
         </div>
-        <span class="module-status ${done ? "" : "todo"}">${done ? "Validé" : "À faire"}</span>
+        ${status}
       </div>`;
   }).join("");
 }
@@ -424,6 +455,33 @@ function renderModules() {
 function openModule(id) {
   const mod = MODULES.find(m => m.id === id);
   if (!mod) return;
+
+  if (!canAccessModule(id)) {
+    document.getElementById("module-title").textContent = mod.title;
+    document.getElementById("module-content").innerHTML = `
+      <div class="card" style="text-align:center; padding:1.5rem;">
+        <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔒</div>
+        <h3 style="color:var(--primary); margin-bottom:0.5rem;">Module payant</h3>
+        <p style="margin-bottom:1rem; color:var(--text-light);">
+          Le <strong>module 1</strong> est gratuit.<br>
+          Les modules 2 à 8 sont inclus dans la formation complète :<br>
+          <strong>20 000 FCFA</strong>
+        </p>
+        <a href="https://pay.wave.com/m/M_sn_cyRERGTCj1dt/c/sn/" class="btn-wave full" target="_blank" rel="noopener">
+          Payer avec Wave
+        </a>
+        <a href="https://wa.me/221775232762?text=Bonjour%2C%20j%27ai%20pay%C3%A9%20la%20Formation%20Canalisateur.%20Voici%20ma%20preuve.%20Email%20%3A%20${encodeURIComponent(state.email || '')}" class="btn-wa full" target="_blank" rel="noopener" style="margin-top:0.5rem;">
+          J’ai payé — Envoyer la preuve (WhatsApp)
+        </a>
+        <p style="font-size:0.85rem; color:var(--text-light); margin-top:1rem;">
+          Après validation du paiement par GIE I2DS, les modules 2 à 8 seront débloqués (sous 24 h).
+        </p>
+        <button class="btn-secondary full" style="margin-top:1rem;" onclick="showScreen('modules')">Retour aux modules</button>
+      </div>`;
+    showScreen("module-detail");
+    return;
+  }
+
   document.getElementById("module-title").textContent = mod.title;
   const content = document.getElementById("module-content");
   const done = state.completedModules.includes(id);
