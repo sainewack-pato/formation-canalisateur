@@ -4,8 +4,8 @@
 - `supabase/migrations/20261018_paid_module_access.sql` : crée deux tables isolées et protégées; ajoute l'accès aux trois comptes déjà autorisés sans écraser les entrées existantes.
 - `supabase/functions/get-paid-modules/index.ts` : fonction serveur qui exige une session valide, vérifie `module_access`, puis retourne le contenu stocké dans `paid_module_content`.
 - `supabase/migrations/20261018_seed_paid_module_content.sql` : prépare l'insertion des sept modules payants dans la table protégée.
-- `js/data.js` : dans cette branche, les contenus complets et les quiz spécifiques m02 à m08 ont été retirés du fichier public; les titres restent pour afficher les cartes verrouillées.
-- `js/app.js` : dans cette branche, l'application tente de charger les modules autorisés via la fonction Edge et n'affiche le contenu complet que si les sept modules sont retournés.
+- `js/data.js` : dans cette branche, les contenus complets et les quiz spécifiques m02 à m08 ainsi que le quiz final sont retirés du fichier public; les titres restent pour afficher les cartes verrouillées.
+- `js/app.js` : dans cette branche, l'application tente de charger les modules autorisés via la fonction Edge, charge aussi le quiz final depuis le contenu privé de m08, et n'active l'accès complet que si les sept modules et le quiz final sont retournés.
 
 ## Très important
 Cette préparation n'est pas encore une fonctionnalité complète et ne doit pas être publiée. Le contenu des modules m02 à m08 se trouve encore dans le fichier public `js/data.js`. Tant qu'il y reste, les contenus peuvent être téléchargés même si l'interface affiche un cadenas.
