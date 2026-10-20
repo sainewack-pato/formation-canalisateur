@@ -55,7 +55,11 @@ async function ensureSupabase() {
 
 async function getSessionUser() {
   await ensureSupabase();
+  sbClient.auth.onAuthStateChange((event) => {
+    if (event === "PASSWORD_RECOVERY") showPasswordRecoveryForm();
+  });
   const { data: { session } } = await sbClient.auth.getSession();
+  if (window.location.hash.includes("type=recovery")) showPasswordRecoveryForm();
   return session ? session.user : null;
 }
 
@@ -129,6 +133,19 @@ async function ensureProgressRow(user) {
 }
 
 // ---------- Auth UI ----------
+let isPasswordRecovery = false;
+
+function showPasswordRecoveryForm() {
+  isPasswordRecovery = true;
+  switchAuthTab("forgot");
+  document.getElementById("forgot-email-group")?.classList.add("hidden");
+  document.getElementById("forgot-password-group")?.classList.remove("hidden");
+  document.getElementById("forgot-password2-group")?.classList.remove("hidden");
+  const intro = document.getElementById("forgot-intro");
+  if (intro) intro.textContent = "Choisissez un nouveau mot de passe (au moins 6 caractères).";
+  const btn = document.querySelector('#form-forgot button[type="submit"]');
+  if (btn) btn.textContent = "Enregistrer le nouveau mot de passe";
+}
 function switchAuthTab(tab) {
   document.querySelectorAll(".auth-tab").forEach(t => {
     t.classList.toggle("active", t.dataset.tab === tab);
@@ -325,31 +342,46 @@ async function handleLogin(e) {
 
 async function handleForgot(e) {
   e.preventDefault();
-  await ensureSupabase();
-
-  const email = document.getElementById("forgot-email").value.trim().toLowerCase();
   const errEl = document.getElementById("forgot-error");
-  // For Supabase we use reset password email, ignore new password fields for cloud flow
-  const password = document.getElementById("forgot-password")?.value;
-
+  const btn = e.target.querySelector('button[type="submit"]');
   errEl.classList.add("hidden");
+  if (btn) btn.disabled = true;
 
-  // Send reset email via Supabase
-  const { error } = await sbClient.auth.resetPasswordForEmail(email, {
-    redirectTo: window.location.origin + window.location.pathname
-  });
+  try {
+    await ensureSupabase();
 
-  if (error) {
-    errEl.textContent = error.message;
+    if (isPasswordRecovery) {
+      const password = document.getElementById("forgot-password").value;
+      const password2 = document.getElementById("forgot-password2").value;
+      if (password.length < 6) throw new Error("Le mot de passe doit contenir au moins 6 caractères.");
+      if (password !== password2) throw new Error("Les deux mots de passe ne correspondent pas.");
+
+      const { error } = await sbClient.auth.updateUser({ password });
+      if (error) throw error;
+      isPasswordRecovery = false;
+      document.getElementById("form-forgot")?.reset();
+      showSuccess("Mot de passe modifié", "Votre nouveau mot de passe est enregistré. Vous pouvez maintenant vous connecter.", true);
+      return false;
+    }
+
+    const email = document.getElementById("forgot-email").value.trim().toLowerCase();
+    if (!email) throw new Error("Saisissez l’adresse e-mail de votre compte.");
+    const redirectTo = window.location.origin + window.location.pathname;
+    const { error } = await sbClient.auth.resetPasswordForEmail(email, { redirectTo });
+    if (error) throw error;
+
+    showSuccess(
+      "Lien de réinitialisation envoyé",
+      "Si un compte existe avec cette adresse, vous recevrez un e-mail. Ouvrez le lien depuis cet appareil pour choisir votre nouveau mot de passe.",
+      true
+    );
+  } catch (err) {
+    console.error("Réinitialisation du mot de passe:", err);
+    errEl.textContent = err?.message || "Impossible de réinitialiser le mot de passe. Réessayez.";
     errEl.classList.remove("hidden");
-    return false;
+  } finally {
+    if (btn) btn.disabled = false;
   }
-
-  showSuccess(
-    "Email envoyé !",
-    "Si un compte existe avec cet email, vous recevrez un lien pour réinitialiser votre mot de passe.",
-    true
-  );
   return false;
 }
 
