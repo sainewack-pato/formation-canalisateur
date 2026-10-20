@@ -200,6 +200,19 @@
           </table>
         </div>
       </div>
+
+      <section id="payment-queue" class="card">
+        <h2 style="margin-bottom:1rem">Validation des paiements Wave</h2>
+        <p style="margin-bottom:1rem">Vérifiez la preuve reçue sur WhatsApp avant de valider.</p>
+        <button class="btn btn-sm" id="refresh-payment-queue" type="button">Actualiser les demandes</button>
+        <p id="payment-queue-message" role="status" style="margin:.75rem 0"></p>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Apprenant</th><th>Email</th><th>Référence Wave</th><th>Montant</th><th>Date</th><th>Décision</th></tr></thead>
+            <tbody id="payment-queue-body"><tr><td colspan="6">Cliquez sur Actualiser.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
     </div>
   </div>
 
@@ -398,5 +411,6 @@
 
     init();
   </script>
-  <script src="js/admin-payments.js?v=1"></script>\n</body>
+  <script src="js/admin-payments.js?v=2"></script>
+</body>
 </html>
