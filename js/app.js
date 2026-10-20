@@ -56,9 +56,12 @@ async function getSessionUser() {
 }
 
 async function loadProgressFromCloud(userId) {
+  // Le schéma Supabase en production utilise progressions par module
+  // (module_id obligatoire). Le suivi global de l'apprenant est dans
+  // learner_progress : ne pas interroger progressions comme une ligne unique.
   const { data, error } = await sbClient
-    .from("progressions")
-    .select("*")
+    .from("learner_progress")
+    .select("user_id, email, user_name, completed_modules, best_score, is_admin, is_paid, paid_at, created_at, updated_at")
     .eq("user_id", userId)
     .maybeSingle();
 
@@ -80,8 +83,10 @@ async function saveProgressToCloud() {
     updated_at: new Date().toISOString()
   };
 
+  // Mettre à jour uniquement les champs de suivi : conserver is_paid,
+  // paid_at et les droits d'accès existants.
   const { error } = await sbClient
-    .from("progressions")
+    .from("learner_progress")
     .upsert(payload, { onConflict: "user_id" });
 
   if (error) console.warn("saveProgress:", error.message);
@@ -93,20 +98,23 @@ async function ensureProgressRow(user) {
     state.completedModules = existing.completed_modules || [];
     state.bestScore = existing.best_score || 0;
     state.userName = existing.user_name || user.user_metadata?.name || "";
-    state.isAdmin = !!existing.is_admin;
+    state.isAdmin = existing.is_admin === true;
     state.isPaid = existing.is_paid === true;
     state.email = existing.email || user.email;
     return;
   }
+
   const name = user.user_metadata?.name || state.userName || "";
-  const { error } = await sbClient.from("progressions").insert({
+  const { error } = await sbClient.from("learner_progress").upsert({
     user_id: user.id,
     email: user.email,
     user_name: name,
     completed_modules: [],
     best_score: 0,
+    is_admin: false,
     is_paid: false
-  });
+  }, { onConflict: "user_id" });
+
   if (error) console.warn("insert progress:", error.message);
   state.userName = name;
   state.email = user.email;
