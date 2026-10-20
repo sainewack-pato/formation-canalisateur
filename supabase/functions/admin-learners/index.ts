@@ -49,15 +49,22 @@ Deno.serve(async (req) => {
       if (!data.users || data.users.length < 1000) break;
     }
 
-    const [legacyRows, progressionRows] = await Promise.all([
+    const [legacyRows, progressionRows, paymentRows] = await Promise.all([
       admin.from("learner_progress")
         .select("user_id,email,user_name,completed_modules,best_score,is_admin,is_paid,paid_at,created_at,updated_at"),
       // progressions is per module in the production schema; only read fields
       // that exist there and aggregate rows without assuming a global unique user.
       admin.from("progressions")
         .select("user_id,email,user_name,completed_modules,best_score,is_admin,is_paid,paid_at,created_at,updated_at,module_id,statut,pourcentage"),
+      admin.from("payment_requests").select("user_id,status,submitted_at").order("submitted_at", { ascending: false }),
     ]);
     if (legacyRows.error && progressionRows.error) return reply({ error: "Lecture du suivi impossible" }, 500);
+    if (paymentRows.error) return reply({ error: "Lecture des demandes de paiement impossible" }, 500);
+
+    const latestPaymentByUser = new Map<string, string>();
+    for (const p of (paymentRows.data || [])) {
+      if (p.user_id && !latestPaymentByUser.has(p.user_id)) latestPaymentByUser.set(p.user_id, p.status);
+    }
 
     const byId = new Map<string, any>();
     for (const u of users) {
@@ -71,6 +78,7 @@ Deno.serve(async (req) => {
         is_paid: null,
         created_at: u.created_at || null,
         updated_at: u.last_sign_in_at || u.created_at || null,
+        payment_status: latestPaymentByUser.get(u.id) || null,
       });
     }
     for (const row of (legacyRows.data || [])) {
@@ -95,6 +103,9 @@ Deno.serve(async (req) => {
         created_at: row.created_at || prev.created_at || null,
         updated_at: row.updated_at || prev.updated_at || null,
       });
+    }
+    for (const learner of byId.values()) {
+      learner.payment_status = latestPaymentByUser.get(learner.user_id) || learner.payment_status || null;
     }
     return reply({ learners: [...byId.values()] });
   } catch (_error) {

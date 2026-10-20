@@ -338,6 +338,13 @@
       } catch { return "—"; }
     }
 
+    function paymentBadge(l) {
+      if (l.payment_status === "pending") return '<span class="badge badge-progress">En attente de validation</span>';
+      if (l.is_paid === true) return '<span class="badge badge-ok">Payé — accès autorisé</span>';
+      if (l.payment_status === "rejected") return '<span class="badge badge-progress">Paiement refusé</span>';
+      return '<span class="badge badge-new">En attente de paiement</span>';
+    }
+
     function renderTable(list) {
       const tbody = document.getElementById("learners-body");
       if (!list.length) {
@@ -356,7 +363,7 @@
           <td>${escapeHtml(email || "—")}</td>
           <td>${(l.completed_modules || []).length} / 8</td>
           <td>${l.best_score || 0} / 15</td>
-          <td>${l.is_paid === true ? '<span class="badge badge-ok">Payé</span>' : l.is_paid === false ? '<span class="badge badge-progress">Non payé</span>' : '<span class="badge">À vérifier</span>'}</td>
+          <td>${paymentBadge(l)}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
           <td>${email ? action : "—"}</td>
