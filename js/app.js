@@ -38,6 +38,10 @@ let state = {
   moduleSelected: null
 };
 
+// Mémorise le contenu initial de la carte paiement pour restaurer le message
+// correct si l’accès payant n’est pas confirmé.
+let defaultPayCardHtml = null;
+
 // ---------- Supabase helpers ----------
 async function ensureSupabase() {
   if (sbClient) return true;
@@ -389,7 +393,12 @@ async function loadPaidModules() {
   if (!state.userId || !sbClient) { renderModules(); return; }
   try {
     const { data, error } = await sbClient.functions.invoke("get-paid-modules", { body: {} });
-    if (error || !Array.isArray(data?.modules)) { renderModules(); return; }
+    if (error || !Array.isArray(data?.modules)) {
+      state.isPaid = false;
+      renderModules();
+      updateHomeProgress();
+      return;
+    }
     let loaded = 0;
     for (const row of data.modules) {
       const paidModule = row?.content;
@@ -402,7 +411,11 @@ async function loadPaidModules() {
       }
     }
     state.isPaid = loaded === 7 && Array.isArray(QUIZ_QUESTIONS) && QUIZ_QUESTIONS.length > 0;
-  } catch (e) { console.warn("Chargement des modules payants indisponible."); }
+  } catch (e) {
+    state.isPaid = false;
+    console.warn("Chargement des modules payants indisponible.");
+    updateHomeProgress();
+  }
   renderModules();
   updateHomeProgress();
 }
@@ -458,10 +471,17 @@ function updateHomeProgress() {
   // Afficher / masquer carte paiement
   const payCard = document.querySelector(".pay-card");
   if (payCard) {
-    if (state.isPaid) {
+    // Conserver le formulaire de paiement initial et restaurer la carte si
+    // l'accès n'est pas confirmé par get-paid-modules.
+    if (defaultPayCardHtml === null && !payCard.textContent.includes("Formation débloquée")) {
+      defaultPayCardHtml = payCard.innerHTML;
+    }
+    if (state.isPaid === true) {
       payCard.innerHTML = `
         <h2 style="color:var(--success);">✓ Formation débloquée</h2>
         <p class="pay-desc">Accès complet aux 8 modules. Bonne formation !</p>`;
+    } else if (defaultPayCardHtml !== null) {
+      payCard.innerHTML = defaultPayCardHtml;
     }
   }
 }
