@@ -314,7 +314,7 @@
         merged.set(key, {
           ...previous,
           ...l,
-          is_paid: previous.is_paid ?? false,
+          is_paid: previous.is_paid ?? null,
           is_admin: l.is_admin ?? previous.is_admin ?? false,
           email: l.email || previous.email || "",
           user_name: l.user_name || previous.user_name || "",
@@ -372,7 +372,7 @@
           <td>${escapeHtml(email || "—")}</td>
           <td>${(l.completed_modules || []).length} / 8</td>
           <td>${l.best_score || 0} / 15</td>
-          <td>${l.is_paid ? '<span class="badge badge-ok">Payé</span>' : '<span class="badge badge-progress">Non payé</span>'}</td>
+          <td>${l.is_paid === true ? '<span class="badge badge-ok">Payé</span>' : l.is_paid === false ? '<span class="badge badge-progress">Non payé</span>' : '<span class="badge">À vérifier</span>'}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
           <td>${email ? action : "—"}</td>
