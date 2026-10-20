@@ -34,8 +34,17 @@ Deno.serve(async (req) => {
   if (body.action==="approve") {
     const {error:grantErr}=await admin.from("module_access").upsert({user_id:request.user_id,granted_by:user.email||user.id,note:"Paiement Wave validé manuellement; demande "+request.id},{onConflict:"user_id"});
     if (grantErr) return reply({error:"Accès non accordé"},500);
-    const {error:progressErr}=await admin.from("progressions").update({is_paid:true,paid_at:new Date().toISOString(),updated_at:new Date().toISOString()}).eq("user_id",request.user_id);
-    if (progressErr) return reply({error:"Accès accordé mais statut apprenant non actualisé"},500);
+    const paidAt = new Date().toISOString();
+    // Synchroniser le statut global lu par le tableau de bord apprenant.
+    const {error:legacyProgressErr}=await admin.from("learner_progress")
+      .update({is_paid:true,paid_at:paidAt,updated_at:paidAt})
+      .eq("user_id",request.user_id);
+    if (legacyProgressErr) return reply({error:"Accès accordé mais statut de paiement non actualisé"},500);
+    // Garder aussi le statut historique, sans dépendre du nombre de lignes par module.
+    const {error:progressErr}=await admin.from("progressions")
+      .update({is_paid:true,paid_at:paidAt,updated_at:paidAt})
+      .eq("user_id",request.user_id);
+    if (progressErr) return reply({error:"Accès accordé mais statut de paiement secondaire non actualisé"},500);
   }
   const {error:updateErr}=await admin.from("payment_requests").update({status:body.action==="approve"?"approved":"rejected",reviewed_at:new Date().toISOString(),reviewed_by:user.id,admin_note:typeof body.note==="string"?body.note.slice(0,500):null}).eq("id",request.id);
   if (updateErr) return reply({error:"Impossible d'enregistrer la décision"},500);
