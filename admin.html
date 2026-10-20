@@ -162,8 +162,7 @@
         <button type="submit" class="btn">Se connecter</button>
       </form>
       <p class="note">
-        Pour devenir admin : créez d’abord un compte dans l’app, puis dans Supabase SQL Editor :<br>
-        <code>update learner_progress set is_admin = true where email = 'votre@email.com';</code>
+        Le rôle administrateur est vérifié dans <code>progressions</code>, avec secours sur l’ancienne table <code>learner_progress</code>. Ne modifiez pas les accès payants depuis cette page : utilisez la validation des demandes de paiement.
       </p>
     </div>
 
@@ -222,13 +221,17 @@
     }
 
     async function checkAdmin(userId) {
-      const { data, error } = await sbClient
-        .from("learner_progress")
-        .select("is_admin")
-        .eq("user_id", userId)
-        .maybeSingle();
-      if (error || !data) return false;
-      return !!data.is_admin;
+      // La table principale de l'application est progressions. L'ancienne table
+      // learner_progress reste consultée en secours pour les comptes historiques.
+      for (const table of ["progressions", "learner_progress"]) {
+        const { data, error } = await sbClient
+          .from(table)
+          .select("is_admin")
+          .eq("user_id", userId)
+          .maybeSingle();
+        if (!error && data && data.is_admin === true) return true;
+      }
+      return false;
     }
 
     function showLogin(msg) {
@@ -281,20 +284,46 @@
 
     async function loadLearners() {
       const tbody = document.getElementById("learners-body");
-      tbody.innerHTML = "<tr><td colspan='8'>Chargement...</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='8'>Chargement des apprenants...</td></tr>";
 
-      const { data, error } = await sbClient
-        .from("learner_progress")
-        .select("user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
-        .order("updated_at", { ascending: false });
+      // progressions contient les données de suivi utilisées par l'application.
+      // learner_progress est conservée pour récupérer les anciens comptes et le
+      // statut historique du paiement, sans écraser une progression plus récente.
+      const [progressResult, legacyResult] = await Promise.all([
+        sbClient.from("progressions")
+          .select("user_id, user_name, email, completed_modules, best_score, is_admin, updated_at, created_at")
+          .order("updated_at", { ascending: false }),
+        sbClient.from("learner_progress")
+          .select("user_id, user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
+          .order("updated_at", { ascending: false })
+      ]);
 
-      if (error) {
-        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Erreur : ${error.message}<br>
-          Vérifiez que la table learner_progress existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
+      if (progressResult.error && legacyResult.error) {
+        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Impossible de charger les apprenants. ${escapeHtml(progressResult.error.message)} — ${escapeHtml(legacyResult.error.message)}</td></tr>`;
         return;
       }
 
-      allLearners = data || [];
+      const merged = new Map();
+      const keyFor = (l) => l.user_id || (l.email || "").trim().toLowerCase() || (l.user_name || Math.random().toString(36));
+      // Insérer d'abord les lignes historiques, puis laisser progressions
+      // remplacer les champs de suivi lorsque la donnée principale existe.
+      for (const l of (legacyResult.data || [])) merged.set(keyFor(l), { ...l });
+      for (const l of (progressResult.data || [])) {
+        const key = keyFor(l);
+        const previous = merged.get(key) || {};
+        merged.set(key, {
+          ...previous,
+          ...l,
+          is_paid: previous.is_paid ?? false,
+          is_admin: l.is_admin ?? previous.is_admin ?? false,
+          email: l.email || previous.email || "",
+          user_name: l.user_name || previous.user_name || "",
+          created_at: l.created_at || previous.created_at
+        });
+      }
+      allLearners = Array.from(merged.values()).sort((a, b) =>
+        new Date(b.updated_at || b.created_at || 0) - new Date(a.updated_at || a.created_at || 0)
+      );
       renderStats(allLearners);
       renderTable(allLearners);
     }
@@ -333,9 +362,10 @@
       }
       tbody.innerHTML = list.map(l => {
         const email = l.email || "";
-        const action = l.is_paid
-          ? `<button type="button" class="btn-lock" onclick="lockLearner('${escapeHtml(email)}')">Verrouiller</button>`
-          : `<button type="button" class="btn-unlock" onclick="unlockLearner('${escapeHtml(email)}')">Déverrouiller</button>`;
+        // Le véritable accès aux modules 2–8 est géré par module_access.
+        // Les anciens boutons ne modifiaient que learner_progress.is_paid et
+        // pouvaient afficher un succès sans changer l'accès réel : on les retire.
+        const action = '<span class="note">Accès via paiements</span>';
         return `
         <tr>
           <td>${escapeHtml(l.user_name || "—")}${l.is_admin ? " 🔑" : ""}</td>
