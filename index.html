@@ -71,16 +71,16 @@
 
       <!-- Formulaire Mot de passe oublié -->
       <form id="form-forgot" class="auth-form hidden" onsubmit="return handleForgot(event)">
-        <p class="forgot-intro">Saisissez l’email de votre compte pour réinitialiser le mot de passe.</p>
-        <div class="form-group">
+        <p class="forgot-intro" id="forgot-intro">Saisissez l’email de votre compte. Vous recevrez un lien pour choisir un nouveau mot de passe.</p>
+        <div class="form-group" id="forgot-email-group">
           <label for="forgot-email">Email</label>
           <input type="email" id="forgot-email" required placeholder="votre@email.com" autocomplete="email" />
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" id="forgot-password-group">
           <label for="forgot-password">Nouveau mot de passe</label>
           <input type="password" id="forgot-password" required placeholder="Minimum 4 caractères" minlength="4" />
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" id="forgot-password2-group">
           <label for="forgot-password2">Confirmer le nouveau mot de passe</label>
           <input type="password" id="forgot-password2" required placeholder="Retapez le mot de passe" minlength="4" />
         </div>
