@@ -286,44 +286,15 @@
       const tbody = document.getElementById("learners-body");
       tbody.innerHTML = "<tr><td colspan='8'>Chargement des apprenants...</td></tr>";
 
-      // progressions contient les données de suivi utilisées par l'application.
-      // learner_progress est conservée pour récupérer les anciens comptes et le
-      // statut historique du paiement, sans écraser une progression plus récente.
-      const [progressResult, legacyResult] = await Promise.all([
-        sbClient.from("progressions")
-          .select("user_id, user_name, email, completed_modules, best_score, is_admin, updated_at, created_at")
-          .order("updated_at", { ascending: false }),
-        sbClient.from("learner_progress")
-          .select("user_id, user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
-          .order("updated_at", { ascending: false })
-      ]);
-
-      if (progressResult.error && legacyResult.error) {
-        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Impossible de charger les apprenants. ${escapeHtml(progressResult.error.message)} — ${escapeHtml(legacyResult.error.message)}</td></tr>`;
+      // Endpoint serveur sécurisé : inclut les comptes Auth sans ligne de suivi.
+      // Il vérifie le rôle administrateur et utilise la clé service_role uniquement côté serveur.
+      const { data, error } = await sbClient.functions.invoke("admin-learners", { body: {} });
+      if (error || data?.error) {
+        const message = data?.error || error?.message || "Erreur inconnue";
+        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Impossible de charger les comptes. Vérifiez que la fonction serveur admin-learners est déployée. ${escapeHtml(message)}</td></tr>`;
         return;
       }
-
-      const merged = new Map();
-      const keyFor = (l) => l.user_id || (l.email || "").trim().toLowerCase() || (l.user_name || Math.random().toString(36));
-      // Insérer d'abord les lignes historiques, puis laisser progressions
-      // remplacer les champs de suivi lorsque la donnée principale existe.
-      for (const l of (legacyResult.data || [])) merged.set(keyFor(l), { ...l });
-      for (const l of (progressResult.data || [])) {
-        const key = keyFor(l);
-        const previous = merged.get(key) || {};
-        merged.set(key, {
-          ...previous,
-          ...l,
-          is_paid: previous.is_paid ?? null,
-          is_admin: l.is_admin ?? previous.is_admin ?? false,
-          email: l.email || previous.email || "",
-          user_name: l.user_name || previous.user_name || "",
-          created_at: l.created_at || previous.created_at
-        });
-      }
-      allLearners = Array.from(merged.values()).sort((a, b) =>
-        new Date(b.updated_at || b.created_at || 0) - new Date(a.updated_at || a.created_at || 0)
-      );
+      allLearners = Array.isArray(data?.learners) ? data.learners : [];
       renderStats(allLearners);
       renderTable(allLearners);
     }
