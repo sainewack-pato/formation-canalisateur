@@ -808,7 +808,17 @@ async function generateCertificate() {
 // ---------- Init ----------
 (async function init() {
   await ensureSupabase();
+  // S'abonner avant getSession pour ne pas manquer l'événement PASSWORD_RECOVERY.
+  sbClient.auth.onAuthStateChange((event, session) => {
+    if (event === "PASSWORD_RECOVERY") {
+      showPasswordRecoveryForm();
+    }
+  });
   const { data: { session } } = await sbClient.auth.getSession();
+  // Fallback lorsque le lien revient avec le type de récupération dans l'URL.
+  if (window.location.hash.includes("type=recovery")) {
+    showPasswordRecoveryForm();
+  }
   if (session?.user) {
     state.userId = session.user.id;
     state.email = session.user.email;
