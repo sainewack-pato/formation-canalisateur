@@ -10,12 +10,12 @@
   "lang": "fr",
   "icons": [
     {
-      "src": "assets/icon-192.png",
+      "src": "assets/logo-gie-i2ds.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "assets/logo-gie-i2ds.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }

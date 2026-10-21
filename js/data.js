@@ -76,57 +76,918 @@ const MODULES = [
     "title": "2. Sécurité & Habilitations",
     "icon": "⚠️",
     "short": "AIPR, CACES, SST, EPI, blindage",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Habilitations indispensables",
+        "html": "\n          <ul>\n            <li><strong>AIPR</strong> — Autorisation d’Intervention à Proximité des Réseaux (niveau Opérateur minimum)</li>\n            <li><strong>CACES</strong> — Certificat d’Aptitude à la Conduite En Sécurité (engins)</li>\n            <li><strong>SST</strong> — Sauveteur Secouriste du Travail</li>\n            <li>Habilitations électriques selon les situations</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Règles de sécurité en tranchée",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Évaluer la nature du sol et la profondeur</li>\n            <li>Mettre en place un blindage ou un talutage adapté</li>\n            <li>Maintenir une distance de sécurité avec les engins</li>\n            <li>Contrôler quotidiennement la stabilité des parois</li>\n            <li>Prévoir un moyen d’évacuation rapide</li>\n            <li>Ne jamais descendre dans une tranchée non sécurisée</li>\n          </ul>\n          <div class=\"tip\"><strong>Danger n°1 :</strong> L’éboulement de tranchée. Au-delà de 1,30 m, le blindage est généralement obligatoire.</div>\n        "
+      },
+      {
+        "title": "Équipements de Protection Individuelle (EPI)",
+        "html": "\n          <ul>\n            <li>Casque de sécurité</li>\n            <li>Chaussures de sécurité</li>\n            <li>Gants adaptés aux tâches</li>\n            <li>Vêtements haute visibilité</li>\n            <li>Lunettes et protections auditives selon les travaux</li>\n          </ul>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Que signifie AIPR ?",
+        "answers": [
+          "Autorisation d’Intervention à Proximité des Réseaux",
+          "Attestation d’Installation de Protections Rapides",
+          "Autorisation Interne de Pose de Réseaux",
+          "Accréditation d’Intervention sur Parcelles Rurales"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "À partir de quelle profondeur un blindage de tranchée est-il généralement obligatoire ?",
+        "answers": [
+          "0,80 m",
+          "1,30 m",
+          "2,00 m",
+          "3,00 m"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que signifie CACES ?",
+        "answers": [
+          "Certificat d’Aptitude à la Conduite En Sécurité",
+          "Contrôle Annuel de Conformité des Engins",
+          "Carte d’Aptitude à la Conduite des Engins de Sol",
+          "Certificat d’Autorisation de Conduite des Engins Spéciaux"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Quel est le danger n°1 en tranchée ?",
+        "answers": [
+          "Le bruit",
+          "L’éboulement",
+          "La pluie",
+          "La chaleur"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Parmi ces EPI, lequel est indispensable sur un chantier de canalisation ?",
+        "answers": [
+          "Casque et chaussures de sécurité",
+          "Cravate",
+          "Sandales",
+          "Short uniquement"
+        ],
+        "correct": 0
+      }
+    ]
   },
   {
     "id": "m03",
     "title": "3. Lecture de plans & Implantation",
     "icon": "📐",
     "short": "Plans, cotations, traçage, topographie de base",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Documents de chantier",
+        "html": "\n          <ul>\n            <li>Plans de réseaux (assainissement et AEP)</li>\n            <li>Profils en long et coupes</li>\n            <li>Fiches de pose et notes de calcul</li>\n            <li>DIC – Déclaration d’Intention de Commencement de travaux</li>\n          </ul>\n          <div class=\"tip\"><strong>Important :</strong> Toujours vérifier la concordance entre les plans et le terrain avant de commencer.</div>\n        "
+      },
+      {
+        "title": "Implantation et traçage",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Repérer les axes et les points de niveau</li>\n            <li>Tracer au sol l’emprise de la tranchée</li>\n            <li>Contrôler les cotes d’altitude (pente)</li>\n            <li>Marquer les emplacements des regards et appareils</li>\n            <li>Respecter les distances par rapport aux autres réseaux</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Outils de base",
+        "html": "\n          <ul>\n            <li>Mètre, décamètre, niveau à bulle</li>\n            <li>Niveau laser ou optique</li>\n            <li>Cordeau et piquets</li>\n            <li>Bombe de peinture de chantier</li>\n          </ul>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Quel document doit être consulté avant d’ouvrir le sol ?",
+        "answers": [
+          "Le plan de prévention uniquement",
+          "Le DIC (Déclaration d’Intention de Commencement de travaux)",
+          "Le registre du personnel",
+          "Le bon de commande des tuyaux"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel outil est particulièrement utile pour contrôler la pente ?",
+        "answers": [
+          "Un simple mètre ruban",
+          "Un niveau laser ou optique",
+          "Une équerre de maçon",
+          "Un dynamomètre"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que signifie implanter un réseau ?",
+        "answers": [
+          "Le peindre en couleur",
+          "Repérer et tracer sa position au sol selon les plans",
+          "Le détruire",
+          "Le photographier uniquement"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi vérifier la concordance plans / terrain ?",
+        "answers": [
+          "Par habitude",
+          "Pour éviter les erreurs d’implantation et les conflits de réseaux",
+          "Pour gagner du temps uniquement",
+          "Ce n’est pas nécessaire"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Parmi ces documents, lequel décrit le profil en altitude du réseau ?",
+        "answers": [
+          "Le profil en long",
+          "Le registre du personnel",
+          "Le planning des congés",
+          "Le catalogue fournisseur"
+        ],
+        "correct": 0
+      }
+    ]
   },
   {
     "id": "m04",
     "title": "4. Préparation de chantier & Terrassement",
     "icon": "🚜",
     "short": "Balisage, fouille, fond de fouille, blindage",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Préparation du chantier",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Installer la signalisation et le balisage</li>\n            <li>Mettre en place les dispositifs de protection collective</li>\n            <li>Organiser les zones de stockage</li>\n            <li>Vérifier la présence des réseaux existants (AIPR)</li>\n            <li>Prévoir les accès et les circulations</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Vidéo : Pose de canalisation (vue terrain)",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/fcyFtpGs3_M\" title=\"Les bons gestes - Réseau de canalisations\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Séquence terrassement + lit de pose + pose</p>\n        "
+      },
+      {
+        "title": "Terrassement et fond de fouille",
+        "html": "\n          <p>Le canalisateur guide l’engin et contrôle la qualité du fond de fouille :</p>\n          <ul>\n            <li>Profondeur et largeur conformes aux plans</li>\n            <li>Fond de fouille stable, non remanié</li>\n            <li>Pente correcte pour les réseaux gravitaires</li>\n            <li>Blindage ou talutage selon profondeur et nature du sol</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Enrobage, remblai et compactage",
+        "html": "\n          <ul>\n            <li><strong>Lit de pose</strong> : sable ou gravier adapté</li>\n            <li><strong>Enrobage</strong> : recouvrir la canalisation sur au moins 10-15 cm</li>\n            <li><strong>Remblai</strong> : couches successives de 20-30 cm</li>\n            <li><strong>Compactage</strong> : à chaque couche</li>\n          </ul>\n          <div class=\"tip\"><strong>Erreur fréquente :</strong> Un compactage insuffisant provoque des tassements.</div>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Quelle couche se place directement sous et autour de la canalisation ?",
+        "answers": [
+          "Le remblai final",
+          "Le lit de pose / enrobage",
+          "La couche de forme",
+          "Le géotextile seul"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quelle est une cause fréquente de tassements ultérieurs ?",
+        "answers": [
+          "Un compactage insuffisant du remblai",
+          "Une pente trop forte",
+          "L’utilisation de PVC",
+          "La présence d’un regard"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Pourquoi organiser le balisage et la signalisation ?",
+        "answers": [
+          "Pour faire joli",
+          "Pour la sécurité des travailleurs et des usagers",
+          "Ce n’est pas obligatoire",
+          "Uniquement pour les photos"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que doit-on contrôler sur le fond de fouille ?",
+        "answers": [
+          "Uniquement la couleur du sol",
+          "Stabilité, profondeur, largeur et pente",
+          "Uniquement la largeur",
+          "Rien de particulier"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Les couches de remblai doivent être compactées :",
+        "answers": [
+          "Une seule fois à la fin",
+          "À chaque couche successive",
+          "Jamais",
+          "Uniquement s’il pleut"
+        ],
+        "correct": 1
+      }
+    ]
   },
   {
     "id": "m05",
     "title": "5. Pose de canalisations d’assainissement",
     "icon": "💧",
     "short": "Collecteurs, joints, pente, alignement",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Principes de pose",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Vérifier le sens d’écoulement (emboîtement)</li>\n            <li>Contrôler l’alignement et la pente</li>\n            <li>Réaliser les joints selon le type de tuyau</li>\n            <li>Protéger les joints pendant le remblai</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Vidéo : Mise en œuvre d’un réseau d’assainissement",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Réseau assainissement - Pose\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">PUM – Pose de tubes et regards</p>\n        "
+      },
+      {
+        "title": "Matériaux courants",
+        "html": "\n          <ul>\n            <li><strong>PVC</strong> — léger, économique</li>\n            <li><strong>Béton</strong> — robuste, réseaux principaux</li>\n            <li><strong>Grès</strong> — résistant aux agressions chimiques</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Pente et écoulement",
+        "html": "\n          <p>La pente est essentielle pour un bon fonctionnement gravitaire :</p>\n          <ul>\n            <li>Pente trop faible → dépôts et risques de bouchage</li>\n            <li>Pente trop forte → usure accélérée</li>\n          </ul>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Que se passe-t-il si la pente d’un réseau gravitaire est trop faible ?",
+        "answers": [
+          "Le débit devient trop important",
+          "Des dépôts se forment dans la canalisation",
+          "La pression augmente dangereusement",
+          "Les joints se desserrent"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Dans quel sens doit-on poser les tuyaux à emboîtement ?",
+        "answers": [
+          "Dans n’importe quel sens",
+          "Dans le sens de l’écoulement",
+          "Contre le sens de l’écoulement",
+          "Verticalement uniquement"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel matériau est particulièrement léger et économique en assainissement ?",
+        "answers": [
+          "Fonte",
+          "PVC",
+          "Béton armé uniquement",
+          "Acier"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi contrôler l’alignement et la pente pendant la pose ?",
+        "answers": [
+          "Pour l’esthétique",
+          "Pour assurer un bon écoulement et éviter les contre-pentes",
+          "Ce n’est pas important",
+          "Uniquement pour les photos"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Les joints doivent être protégés pendant :",
+        "answers": [
+          "Le transport uniquement",
+          "Le remblai",
+          "La peinture",
+          "Le stockage en magasin uniquement"
+        ],
+        "correct": 1
+      }
+    ]
   },
   {
     "id": "m06",
     "title": "6. Regards, branchements & ouvrages",
     "icon": "🔲",
     "short": "Regards de visite, cunettes, avaloirs, branchements",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Regards de visite",
+        "html": "\n          <p>Les regards permettent l’accès pour inspection, curage et contrôle.</p>\n          <ul>\n            <li>Implantés aux changements de direction, de pente ou de diamètre</li>\n            <li>Fond de regard (cunette) façonné pour guider l’écoulement</li>\n            <li>Étanchéité soignée entre éléments</li>\n            <li>Tampon adapté à la classe de circulation</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Vidéo : Pose de regard et raccordements",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Pose regard assainissement\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Démonstration pose de regard de visite</p>\n        "
+      },
+      {
+        "title": "Branchements particuliers",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Respecter le diamètre minimal et la pente</li>\n            <li>Utiliser des pièces homologuées</li>\n            <li>Assurer l’étanchéité</li>\n            <li>Repérer et cartographier chaque branchement</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Avaloirs et grilles",
+        "html": "\n          <p>Éléments de collecte des eaux pluviales de surface. Raccordement correct au collecteur et respect des cotes d’altitude.</p>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Quel est le rôle principal d’un regard de visite ?",
+        "answers": [
+          "Augmenter la pression",
+          "Permettre l’accès pour inspection et curage",
+          "Filtrer les eaux usées",
+          "Mesurer le débit en continu"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que désigne la « cunette » dans un regard ?",
+        "answers": [
+          "Le tampon de fermeture",
+          "Le fond façonné pour guider l’écoulement",
+          "La paroi latérale",
+          "Le système de ventilation"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Où place-t-on généralement les regards de visite ?",
+        "answers": [
+          "Uniquement en bout de réseau",
+          "Aux changements de direction, de pente ou de diamètre",
+          "Au hasard",
+          "Uniquement sous les maisons"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi cartographier les branchements particuliers ?",
+        "answers": [
+          "Pour la décoration",
+          "Pour faciliter l’entretien et les interventions futures",
+          "Ce n’est pas utile",
+          "Uniquement pour la facturation"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Le tampon de regard doit être choisi selon :",
+        "answers": [
+          "La couleur du sol",
+          "La classe de circulation (voiture, poids lourd…)",
+          "Le goût du client uniquement",
+          "La météo"
+        ],
+        "correct": 1
+      }
+    ]
   },
   {
     "id": "m07",
     "title": "7. Réseaux d’adduction d’eau potable",
     "icon": "🚰",
     "short": "PVC, fonte, PeHD, fontainerie, branchements",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Matériaux AEP",
+        "html": "\n          <ul>\n            <li><strong>PVC</strong> — économique, réseaux secondaires</li>\n            <li><strong>Fonte ductile</strong> — très robuste, réseaux principaux</li>\n            <li><strong>PeHD</strong> — flexible, soudable, zones difficiles</li>\n          </ul>\n          <div class=\"tip\"><strong>Attention :</strong> Chaque matériau a ses règles de pose et de profondeur minimale.</div>\n        "
+      },
+      {
+        "title": "Appareillages de fontainerie",
+        "html": "\n          <p>Vannes, ventouses, bouches à clé, poteaux d’incendie, etc.</p>\n          <ul class=\"checklist\">\n            <li>Positionner selon les plans</li>\n            <li>Assurer l’accessibilité pour la maintenance</li>\n            <li>Protéger contre le gel et les chocs</li>\n            <li>Vérifier le sens de montage</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Branchements AEP",
+        "html": "\n          <ul>\n            <li>Réaliser les différents types de branchements</li>\n            <li>Respecter distances et profondeurs</li>\n            <li>Assurer l’étanchéité parfaite</li>\n          </ul>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Quel matériau est particulièrement adapté aux zones difficiles grâce à sa flexibilité ?",
+        "answers": [
+          "PVC",
+          "Fonte ductile",
+          "PeHD",
+          "Béton"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Que signifie AEP ?",
+        "answers": [
+          "Assainissement des Eaux Pluviales",
+          "Adduction d’Eau Potable",
+          "Association des Entreprises de Plomberie",
+          "Appareillage Électrique de Protection"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi protéger les appareillages de fontainerie contre le gel ?",
+        "answers": [
+          "Pour l’esthétique",
+          "Pour éviter les ruptures et dysfonctionnements",
+          "Ce n’est pas nécessaire au Sénégal",
+          "Uniquement en hiver en Europe"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "La fonte ductile est surtout utilisée pour :",
+        "answers": [
+          "Les réseaux secondaires uniquement",
+          "Les réseaux principaux (robustesse)",
+          "Les branchements intérieurs uniquement",
+          "Les regards uniquement"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Sur un branchement AEP, l’étanchéité doit être :",
+        "answers": [
+          "Approximative",
+          "Parfaite",
+          "Optionnelle",
+          "Vérifiée uniquement après 1 an"
+        ],
+        "correct": 1
+      }
+    ]
   },
   {
     "id": "m08",
     "title": "8. Essais, mise en service & Qualité",
     "icon": "✅",
     "short": "Rinçage, désinfection, essais de pression, contrôles",
-    "content": [],
-    "quiz": []
+    "content": [
+      {
+        "title": "Avant la mise en service",
+        "html": "\n          <p>Un réseau d’eau potable ne peut être mis en service qu’après :</p>\n          <ul class=\"checklist\">\n            <li>Rinçage abondant</li>\n            <li>Désinfection (chloration selon protocole)</li>\n            <li>Essai d’étanchéité / essai de pression</li>\n            <li>Contrôles et analyses d’eau si nécessaire</li>\n          </ul>\n          <div class=\"tip\"><strong>Règle d’or :</strong> Ne jamais mettre en service un réseau d’eau potable sans validation des essais.</div>\n        "
+      },
+      {
+        "title": "Essais sur réseaux d’assainissement",
+        "html": "\n          <ul>\n            <li>Contrôle d’étanchéité (air ou eau)</li>\n            <li>Inspection télévisée (ITV) sur certains marchés</li>\n            <li>Vérification des pentes et des raccordements</li>\n          </ul>\n        "
+      },
+      {
+        "title": "Qualité et traçabilité",
+        "html": "\n          <ul>\n            <li>Renseigner les fiches de pose et les plans de récolement</li>\n            <li>Photographier les points particuliers avant remblai</li>\n            <li>Signaler tout écart par rapport aux plans</li>\n          </ul>\n        "
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Avant la mise en service d’un réseau d’eau potable, que doit-on faire ?",
+        "answers": [
+          "Uniquement un rinçage",
+          "Rinçage, désinfection et essais de pression",
+          "Un simple contrôle visuel",
+          "Ouvrir toutes les vannes immédiatement"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi réaliser un essai de pression ?",
+        "answers": [
+          "Pour décorer le chantier",
+          "Pour vérifier l’étanchéité du réseau",
+          "Pour mesurer la température de l’eau",
+          "Ce n’est jamais obligatoire"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que signifie ITV dans le contexte des réseaux ?",
+        "answers": [
+          "Inspection Télévisée",
+          "Intervention Technique Visuelle",
+          "Institut Technique de la Voirie",
+          "Installation de Tuyaux Verticaux"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Les plans de récolement servent à :",
+        "answers": [
+          "Planifier les congés",
+          "Documenter l’ouvrage tel qu’il a été réalisé",
+          "Commander les matériaux",
+          "Remplacer les plans d’exécution dès le début"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Peut-on mettre en service un réseau d’eau potable sans essais validés ?",
+        "answers": [
+          "Oui, toujours",
+          "Non, jamais",
+          "Seulement le week-end",
+          "Uniquement pour les petits diamètres"
+        ],
+        "correct": 1
+      }
+    ]
   }
 ];
 
-let QUIZ_QUESTIONS = [];
+const QUIZ_QUESTIONS = [
+  {
+    "q": "Dans quels types de réseaux intervient principalement le canalisateur ?",
+    "answers": [
+      "Uniquement plomberie intérieure",
+      "Assainissement et adduction d’eau potable",
+      "Uniquement électricité",
+      "Uniquement voirie sèche"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Sous la responsabilité de qui travaille généralement le canalisateur ?",
+    "answers": [
+      "Du maire",
+      "Du chef de chantier",
+      "Du client final uniquement",
+      "De l’architecte"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Combien de blocs de compétences composent le Titre Professionnel Canalisateur ?",
+    "answers": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Le métier de canalisateur s’exerce principalement :",
+    "answers": [
+      "En intérieur uniquement",
+      "En extérieur, sur chantier",
+      "Derrière un bureau",
+      "En laboratoire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel niveau correspond au Titre Professionnel Canalisateur ?",
+    "answers": [
+      "Niveau 2",
+      "Niveau 3 (CAP/BEP)",
+      "Niveau 5 (BTS)",
+      "Niveau 6"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie AIPR ?",
+    "answers": [
+      "Autorisation d’Intervention à Proximité des Réseaux",
+      "Attestation d’Installation de Protections Rapides",
+      "Autorisation Interne de Pose de Réseaux",
+      "Accréditation d’Intervention sur Parcelles Rurales"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "À partir de quelle profondeur un blindage de tranchée est-il généralement obligatoire ?",
+    "answers": [
+      "0,80 m",
+      "1,30 m",
+      "2,00 m",
+      "3,00 m"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie CACES ?",
+    "answers": [
+      "Certificat d’Aptitude à la Conduite En Sécurité",
+      "Contrôle Annuel de Conformité des Engins",
+      "Carte d’Aptitude à la Conduite des Engins de Sol",
+      "Certificat d’Autorisation de Conduite des Engins Spéciaux"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Quel est le danger n°1 en tranchée ?",
+    "answers": [
+      "Le bruit",
+      "L’éboulement",
+      "La pluie",
+      "La chaleur"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Parmi ces EPI, lequel est indispensable sur un chantier de canalisation ?",
+    "answers": [
+      "Casque et chaussures de sécurité",
+      "Cravate",
+      "Sandales",
+      "Short uniquement"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Quel document doit être consulté avant d’ouvrir le sol ?",
+    "answers": [
+      "Le plan de prévention uniquement",
+      "Le DIC (Déclaration d’Intention de Commencement de travaux)",
+      "Le registre du personnel",
+      "Le bon de commande des tuyaux"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel outil est particulièrement utile pour contrôler la pente ?",
+    "answers": [
+      "Un simple mètre ruban",
+      "Un niveau laser ou optique",
+      "Une équerre de maçon",
+      "Un dynamomètre"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie implanter un réseau ?",
+    "answers": [
+      "Le peindre en couleur",
+      "Repérer et tracer sa position au sol selon les plans",
+      "Le détruire",
+      "Le photographier uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi vérifier la concordance plans / terrain ?",
+    "answers": [
+      "Par habitude",
+      "Pour éviter les erreurs d’implantation et les conflits de réseaux",
+      "Pour gagner du temps uniquement",
+      "Ce n’est pas nécessaire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Parmi ces documents, lequel décrit le profil en altitude du réseau ?",
+    "answers": [
+      "Le profil en long",
+      "Le registre du personnel",
+      "Le planning des congés",
+      "Le catalogue fournisseur"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Quelle couche se place directement sous et autour de la canalisation ?",
+    "answers": [
+      "Le remblai final",
+      "Le lit de pose / enrobage",
+      "La couche de forme",
+      "Le géotextile seul"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quelle est une cause fréquente de tassements ultérieurs ?",
+    "answers": [
+      "Un compactage insuffisant du remblai",
+      "Une pente trop forte",
+      "L’utilisation de PVC",
+      "La présence d’un regard"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Pourquoi organiser le balisage et la signalisation ?",
+    "answers": [
+      "Pour faire joli",
+      "Pour la sécurité des travailleurs et des usagers",
+      "Ce n’est pas obligatoire",
+      "Uniquement pour les photos"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que doit-on contrôler sur le fond de fouille ?",
+    "answers": [
+      "Uniquement la couleur du sol",
+      "Stabilité, profondeur, largeur et pente",
+      "Uniquement la largeur",
+      "Rien de particulier"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Les couches de remblai doivent être compactées :",
+    "answers": [
+      "Une seule fois à la fin",
+      "À chaque couche successive",
+      "Jamais",
+      "Uniquement s’il pleut"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que se passe-t-il si la pente d’un réseau gravitaire est trop faible ?",
+    "answers": [
+      "Le débit devient trop important",
+      "Des dépôts se forment dans la canalisation",
+      "La pression augmente dangereusement",
+      "Les joints se desserrent"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Dans quel sens doit-on poser les tuyaux à emboîtement ?",
+    "answers": [
+      "Dans n’importe quel sens",
+      "Dans le sens de l’écoulement",
+      "Contre le sens de l’écoulement",
+      "Verticalement uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel matériau est particulièrement léger et économique en assainissement ?",
+    "answers": [
+      "Fonte",
+      "PVC",
+      "Béton armé uniquement",
+      "Acier"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi contrôler l’alignement et la pente pendant la pose ?",
+    "answers": [
+      "Pour l’esthétique",
+      "Pour assurer un bon écoulement et éviter les contre-pentes",
+      "Ce n’est pas important",
+      "Uniquement pour les photos"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Les joints doivent être protégés pendant :",
+    "answers": [
+      "Le transport uniquement",
+      "Le remblai",
+      "La peinture",
+      "Le stockage en magasin uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel est le rôle principal d’un regard de visite ?",
+    "answers": [
+      "Augmenter la pression",
+      "Permettre l’accès pour inspection et curage",
+      "Filtrer les eaux usées",
+      "Mesurer le débit en continu"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que désigne la « cunette » dans un regard ?",
+    "answers": [
+      "Le tampon de fermeture",
+      "Le fond façonné pour guider l’écoulement",
+      "La paroi latérale",
+      "Le système de ventilation"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Où place-t-on généralement les regards de visite ?",
+    "answers": [
+      "Uniquement en bout de réseau",
+      "Aux changements de direction, de pente ou de diamètre",
+      "Au hasard",
+      "Uniquement sous les maisons"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi cartographier les branchements particuliers ?",
+    "answers": [
+      "Pour la décoration",
+      "Pour faciliter l’entretien et les interventions futures",
+      "Ce n’est pas utile",
+      "Uniquement pour la facturation"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Le tampon de regard doit être choisi selon :",
+    "answers": [
+      "La couleur du sol",
+      "La classe de circulation (voiture, poids lourd…)",
+      "Le goût du client uniquement",
+      "La météo"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel matériau est particulièrement adapté aux zones difficiles grâce à sa flexibilité ?",
+    "answers": [
+      "PVC",
+      "Fonte ductile",
+      "PeHD",
+      "Béton"
+    ],
+    "correct": 2
+  },
+  {
+    "q": "Que signifie AEP ?",
+    "answers": [
+      "Assainissement des Eaux Pluviales",
+      "Adduction d’Eau Potable",
+      "Association des Entreprises de Plomberie",
+      "Appareillage Électrique de Protection"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi protéger les appareillages de fontainerie contre le gel ?",
+    "answers": [
+      "Pour l’esthétique",
+      "Pour éviter les ruptures et dysfonctionnements",
+      "Ce n’est pas nécessaire au Sénégal",
+      "Uniquement en hiver en Europe"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "La fonte ductile est surtout utilisée pour :",
+    "answers": [
+      "Les réseaux secondaires uniquement",
+      "Les réseaux principaux (robustesse)",
+      "Les branchements intérieurs uniquement",
+      "Les regards uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Sur un branchement AEP, l’étanchéité doit être :",
+    "answers": [
+      "Approximative",
+      "Parfaite",
+      "Optionnelle",
+      "Vérifiée uniquement après 1 an"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Avant la mise en service d’un réseau d’eau potable, que doit-on faire ?",
+    "answers": [
+      "Uniquement un rinçage",
+      "Rinçage, désinfection et essais de pression",
+      "Un simple contrôle visuel",
+      "Ouvrir toutes les vannes immédiatement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi réaliser un essai de pression ?",
+    "answers": [
+      "Pour décorer le chantier",
+      "Pour vérifier l’étanchéité du réseau",
+      "Pour mesurer la température de l’eau",
+      "Ce n’est jamais obligatoire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie ITV dans le contexte des réseaux ?",
+    "answers": [
+      "Inspection Télévisée",
+      "Intervention Technique Visuelle",
+      "Institut Technique de la Voirie",
+      "Installation de Tuyaux Verticaux"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Les plans de récolement servent à :",
+    "answers": [
+      "Planifier les congés",
+      "Documenter l’ouvrage tel qu’il a été réalisé",
+      "Commander les matériaux",
+      "Remplacer les plans d’exécution dès le début"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Peut-on mettre en service un réseau d’eau potable sans essais validés ?",
+    "answers": [
+      "Oui, toujours",
+      "Non, jamais",
+      "Seulement le week-end",
+      "Uniquement pour les petits diamètres"
+    ],
+    "correct": 1
+  }
+];

@@ -38,10 +38,6 @@ let state = {
   moduleSelected: null
 };
 
-// Mémorise le contenu initial de la carte paiement pour restaurer le message
-// correct si l’accès payant n’est pas confirmé.
-let defaultPayCardHtml = null;
-
 // ---------- Supabase helpers ----------
 async function ensureSupabase() {
   if (sbClient) return true;
@@ -55,21 +51,14 @@ async function ensureSupabase() {
 
 async function getSessionUser() {
   await ensureSupabase();
-  sbClient.auth.onAuthStateChange((event) => {
-    if (event === "PASSWORD_RECOVERY") showPasswordRecoveryForm();
-  });
   const { data: { session } } = await sbClient.auth.getSession();
-  if (window.location.hash.includes("type=recovery")) showPasswordRecoveryForm();
   return session ? session.user : null;
 }
 
 async function loadProgressFromCloud(userId) {
-  // Le schéma Supabase en production utilise progressions par module
-  // (module_id obligatoire). Le suivi global de l'apprenant est dans
-  // learner_progress : ne pas interroger progressions comme une ligne unique.
   const { data, error } = await sbClient
     .from("learner_progress")
-    .select("user_id, email, user_name, completed_modules, best_score, is_admin, is_paid, paid_at, created_at, updated_at")
+    .select("*")
     .eq("user_id", userId)
     .maybeSingle();
 
@@ -91,8 +80,6 @@ async function saveProgressToCloud() {
     updated_at: new Date().toISOString()
   };
 
-  // Mettre à jour uniquement les champs de suivi : conserver is_paid,
-  // paid_at et les droits d'accès existants.
   const { error } = await sbClient
     .from("learner_progress")
     .upsert(payload, { onConflict: "user_id" });
@@ -106,23 +93,20 @@ async function ensureProgressRow(user) {
     state.completedModules = existing.completed_modules || [];
     state.bestScore = existing.best_score || 0;
     state.userName = existing.user_name || user.user_metadata?.name || "";
-    state.isAdmin = existing.is_admin === true;
+    state.isAdmin = !!existing.is_admin;
     state.isPaid = existing.is_paid === true;
     state.email = existing.email || user.email;
     return;
   }
-
   const name = user.user_metadata?.name || state.userName || "";
-  const { error } = await sbClient.from("learner_progress").upsert({
+  const { error } = await sbClient.from("learner_progress").insert({
     user_id: user.id,
     email: user.email,
     user_name: name,
     completed_modules: [],
     best_score: 0,
-    is_admin: false,
     is_paid: false
-  }, { onConflict: "user_id" });
-
+  });
   if (error) console.warn("insert progress:", error.message);
   state.userName = name;
   state.email = user.email;
@@ -133,37 +117,27 @@ async function ensureProgressRow(user) {
 }
 
 // ---------- Auth UI ----------
-let isPasswordRecovery = false;
-
-function showPasswordRecoveryForm() {
-  isPasswordRecovery = true;
-  switchAuthTab("forgot");
-  document.getElementById("forgot-email-group")?.classList.add("hidden");
-  document.getElementById("forgot-password-group")?.classList.remove("hidden");
-  document.getElementById("forgot-password2-group")?.classList.remove("hidden");
-  const intro = document.getElementById("forgot-intro");
-  if (intro) intro.textContent = "Choisissez un nouveau mot de passe (au moins 6 caractères).";
-  const btn = document.querySelector('#form-forgot button[type="submit"]');
-  if (btn) btn.textContent = "Enregistrer le nouveau mot de passe";
-}
 function switchAuthTab(tab) {
   document.querySelectorAll(".auth-tab").forEach(t => {
     t.classList.toggle("active", t.dataset.tab === tab);
   });
   const tabs = document.querySelector(".auth-tabs");
-  if (tabs) tabs.style.display = tab === "forgot" ? "none" : "flex";
+  const hideTabs = (tab === "forgot" || tab === "new-password");
+  if (tabs) tabs.style.display = hideTabs ? "none" : "flex";
 
   const login = document.getElementById("form-login");
   const reg = document.getElementById("form-register");
   const forgot = document.getElementById("form-forgot");
+  const newPass = document.getElementById("form-new-password");
   const success = document.getElementById("auth-success");
 
   if (login) login.classList.toggle("hidden", tab !== "login");
   if (reg) reg.classList.toggle("hidden", tab !== "register");
   if (forgot) forgot.classList.toggle("hidden", tab !== "forgot");
+  if (newPass) newPass.classList.toggle("hidden", tab !== "new-password");
   if (success) success.classList.add("hidden");
 
-  ["login-error", "register-error", "forgot-error"].forEach(id => {
+  ["login-error", "register-error", "forgot-error", "newpass-error"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });
@@ -173,6 +147,7 @@ function showSuccess(title, message, thenLogin) {
   document.getElementById("form-login")?.classList.add("hidden");
   document.getElementById("form-register")?.classList.add("hidden");
   document.getElementById("form-forgot")?.classList.add("hidden");
+  document.getElementById("form-new-password")?.classList.add("hidden");
   const tabs = document.querySelector(".auth-tabs");
   if (tabs) tabs.style.display = "none";
 
@@ -344,43 +319,83 @@ async function handleForgot(e) {
   e.preventDefault();
   const errEl = document.getElementById("forgot-error");
   const btn = e.target.querySelector('button[type="submit"]');
-  errEl.classList.add("hidden");
-  if (btn) btn.disabled = true;
-
   try {
     await ensureSupabase();
+    const email = document.getElementById("forgot-email").value.trim().toLowerCase();
+    if (!email) {
+      errEl.textContent = "Saisissez votre email.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    errEl.classList.add("hidden");
+    if (btn) { btn.disabled = true; btn.textContent = "Envoi..."; }
 
-    if (isPasswordRecovery) {
-      const password = document.getElementById("forgot-password").value;
-      const password2 = document.getElementById("forgot-password2").value;
-      if (password.length < 6) throw new Error("Le mot de passe doit contenir au moins 6 caractères.");
-      if (password !== password2) throw new Error("Les deux mots de passe ne correspondent pas.");
+    // Lien de retour vers l'app (GitHub Pages)
+    const redirectTo = window.location.origin + window.location.pathname.replace(/index\.html$/, "");
 
-      const { error } = await sbClient.auth.updateUser({ password });
-      if (error) throw error;
-      isPasswordRecovery = false;
-      document.getElementById("form-forgot")?.reset();
-      showSuccess("Mot de passe modifié", "Votre nouveau mot de passe est enregistré. Vous pouvez maintenant vous connecter.", true);
+    const { error } = await sbClient.auth.resetPasswordForEmail(email, { redirectTo });
+
+    if (btn) { btn.disabled = false; btn.textContent = "Envoyer le lien"; }
+
+    if (error) {
+      errEl.textContent = error.message || "Impossible d'envoyer l'email.";
+      errEl.classList.remove("hidden");
       return false;
     }
 
-    const email = document.getElementById("forgot-email").value.trim().toLowerCase();
-    if (!email) throw new Error("Saisissez l’adresse e-mail de votre compte.");
-    const redirectTo = window.location.origin + window.location.pathname;
-    const { error } = await sbClient.auth.resetPasswordForEmail(email, { redirectTo });
-    if (error) throw error;
-
     showSuccess(
-      "Lien de réinitialisation envoyé",
-      "Si un compte existe avec cette adresse, vous recevrez un e-mail. Ouvrez le lien depuis cet appareil pour choisir votre nouveau mot de passe.",
+      "Email envoyé !",
+      "Vérifiez votre boîte mail (et les spams). Cliquez sur le lien reçu pour choisir un nouveau mot de passe.",
       true
     );
   } catch (err) {
-    console.error("Réinitialisation du mot de passe:", err);
-    errEl.textContent = err?.message || "Impossible de réinitialiser le mot de passe. Réessayez.";
+    if (btn) { btn.disabled = false; btn.textContent = "Envoyer le lien"; }
+    errEl.textContent = err.message || "Erreur réseau.";
     errEl.classList.remove("hidden");
-  } finally {
-    if (btn) btn.disabled = false;
+  }
+  return false;
+}
+
+async function handleUpdatePassword(e) {
+  e.preventDefault();
+  const errEl = document.getElementById("newpass-error");
+  const btn = e.target.querySelector('button[type="submit"]');
+  try {
+    await ensureSupabase();
+    const p1 = document.getElementById("new-password").value;
+    const p2 = document.getElementById("new-password2").value;
+    if (p1.length < 6) {
+      errEl.textContent = "Minimum 6 caractères.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    if (p1 !== p2) {
+      errEl.textContent = "Les mots de passe ne correspondent pas.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    errEl.classList.add("hidden");
+    if (btn) { btn.disabled = true; btn.textContent = "Enregistrement..."; }
+
+    const { error } = await sbClient.auth.updateUser({ password: p1 });
+
+    if (btn) { btn.disabled = false; btn.textContent = "Enregistrer le mot de passe"; }
+
+    if (error) {
+      errEl.textContent = error.message || "Échec de la mise à jour.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+
+    showSuccess(
+      "Mot de passe mis à jour !",
+      "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      true
+    );
+  } catch (err) {
+    if (btn) { btn.disabled = false; btn.textContent = "Enregistrer le mot de passe"; }
+    errEl.textContent = err.message || "Erreur réseau.";
+    errEl.classList.remove("hidden");
   }
   return false;
 }
@@ -410,51 +425,10 @@ function enterApp() {
   }
   showScreen("home");
   updateHomeProgress();
-  loadPaidModules();
-}
-
-function showPaymentLock() {
-  showScreen("modules");
-  renderModules();
-  window.alert("Le quiz final est réservé aux apprenants dont l’accès aux modules payants a été validé.");
-}
-
-// Chargement sécurisé des modules payants depuis Supabase Edge Function.
-async function loadPaidModules() {
-  state.isPaid = false;
-  if (!state.userId || !sbClient) { renderModules(); return; }
-  try {
-    const { data, error } = await sbClient.functions.invoke("get-paid-modules", { body: {} });
-    if (error || !Array.isArray(data?.modules)) {
-      state.isPaid = false;
-      renderModules();
-      updateHomeProgress();
-      return;
-    }
-    let loaded = 0;
-    for (const row of data.modules) {
-      const paidModule = row?.content;
-      if (!paidModule?.id || !Array.isArray(paidModule.content) || !Array.isArray(paidModule.quiz)) continue;
-      const index = MODULES.findIndex(m => m.id === paidModule.id);
-      if (index >= 1) {
-        MODULES[index] = paidModule;
-        if (paidModule.id === "m08" && Array.isArray(paidModule.finalQuiz)) QUIZ_QUESTIONS = paidModule.finalQuiz;
-        loaded++;
-      }
-    }
-    state.isPaid = loaded === 7 && Array.isArray(QUIZ_QUESTIONS) && QUIZ_QUESTIONS.length > 0;
-  } catch (e) {
-    state.isPaid = false;
-    console.warn("Chargement des modules payants indisponible.");
-    updateHomeProgress();
-  }
-  renderModules();
-  updateHomeProgress();
 }
 
 // ---------- Navigation ----------
 function showScreen(id) {
-  if (id === "quiz" && state.isPaid !== true) { showPaymentLock(); return; }
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   document.getElementById(id)?.classList.add("active");
 
@@ -503,17 +477,10 @@ function updateHomeProgress() {
   // Afficher / masquer carte paiement
   const payCard = document.querySelector(".pay-card");
   if (payCard) {
-    // Conserver le formulaire de paiement initial et restaurer la carte si
-    // l'accès n'est pas confirmé par get-paid-modules.
-    if (defaultPayCardHtml === null && !payCard.textContent.includes("Formation débloquée")) {
-      defaultPayCardHtml = payCard.innerHTML;
-    }
-    if (state.isPaid === true) {
+    if (state.isPaid) {
       payCard.innerHTML = `
         <h2 style="color:var(--success);">✓ Formation débloquée</h2>
         <p class="pay-desc">Accès complet aux 8 modules. Bonne formation !</p>`;
-    } else if (defaultPayCardHtml !== null) {
-      payCard.innerHTML = defaultPayCardHtml;
     }
   }
 }
@@ -691,7 +658,6 @@ function resetQuizUI() {
 }
 
 function startQuiz() {
-  if (state.isPaid !== true || !Array.isArray(QUIZ_QUESTIONS) || QUIZ_QUESTIONS.length === 0) { showPaymentLock(); return; }
   state.currentQuiz = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, QUIZ_TOTAL);
   state.currentQ = 0;
   state.score = 0;
@@ -808,18 +774,34 @@ async function generateCertificate() {
 // ---------- Init ----------
 (async function init() {
   await ensureSupabase();
-  // S'abonner avant getSession pour ne pas manquer l'événement PASSWORD_RECOVERY.
-  sbClient.auth.onAuthStateChange((event, session) => {
+
+  // Détection du lien "réinitialiser le mot de passe"
+  sbClient.auth.onAuthStateChange(async (event, session) => {
     if (event === "PASSWORD_RECOVERY") {
-      showPasswordRecoveryForm();
+      showScreen("auth");
+      switchAuthTab("new-password");
+      return;
     }
   });
-  const { data: { session } } = await sbClient.auth.getSession();
-  // Fallback lorsque le lien revient avec le type de récupération dans l'URL.
-  if (window.location.hash.includes("type=recovery")) {
-    showPasswordRecoveryForm();
+
+  // Hash recovery tokens (Supabase met les tokens dans l'URL)
+  const hash = window.location.hash || "";
+  if (hash.includes("type=recovery") || hash.includes("type%3Drecovery")) {
+    showScreen("auth");
+    switchAuthTab("new-password");
+    // Laisser Supabase parser le hash
+    await new Promise(r => setTimeout(r, 500));
   }
+
+  const { data: { session } } = await sbClient.auth.getSession();
   if (session?.user) {
+    // Si on est en recovery, ne pas entrer dans l'app tout de suite
+    const isRecovery = hash.includes("type=recovery") || hash.includes("type%3Drecovery");
+    if (isRecovery) {
+      showScreen("auth");
+      switchAuthTab("new-password");
+      return;
+    }
     state.userId = session.user.id;
     state.email = session.user.email;
     await ensureProgressRow(session.user);

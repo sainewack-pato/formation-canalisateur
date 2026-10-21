@@ -162,7 +162,8 @@
         <button type="submit" class="btn">Se connecter</button>
       </form>
       <p class="note">
-        Le rôle administrateur est vérifié dans <code>progressions</code>, avec secours sur l’ancienne table <code>learner_progress</code>. Ne modifiez pas les accès payants depuis cette page : utilisez la validation des demandes de paiement.
+        Pour devenir admin : créez d’abord un compte dans l’app, puis dans Supabase SQL Editor :<br>
+        <code>update learner_progress set is_admin = true where email = 'votre@email.com';</code>
       </p>
     </div>
 
@@ -200,19 +201,6 @@
           </table>
         </div>
       </div>
-
-      <section id="payment-queue" class="card">
-        <h2 style="margin-bottom:1rem">Validation des paiements Wave</h2>
-        <p style="margin-bottom:1rem">Vérifiez la preuve reçue sur WhatsApp avant de valider.</p>
-        <button class="btn btn-sm" id="refresh-payment-queue" type="button">Actualiser les demandes</button>
-        <p id="payment-queue-message" role="status" style="margin:.75rem 0"></p>
-        <div style="overflow-x:auto">
-          <table>
-            <thead><tr><th>Apprenant</th><th>Email</th><th>Référence Wave</th><th>Montant</th><th>Date</th><th>Décision</th></tr></thead>
-            <tbody id="payment-queue-body"><tr><td colspan="6">Cliquez sur Actualiser.</td></tr></tbody>
-          </table>
-        </div>
-      </section>
     </div>
   </div>
 
@@ -234,17 +222,13 @@
     }
 
     async function checkAdmin(userId) {
-      // La table principale de l'application est progressions. L'ancienne table
-      // learner_progress reste consultée en secours pour les comptes historiques.
-      for (const table of ["progressions", "learner_progress"]) {
-        const { data, error } = await sbClient
-          .from(table)
-          .select("is_admin")
-          .eq("user_id", userId)
-          .maybeSingle();
-        if (!error && data && data.is_admin === true) return true;
-      }
-      return false;
+      const { data, error } = await sbClient
+        .from("learner_progress")
+        .select("is_admin")
+        .eq("user_id", userId)
+        .maybeSingle();
+      if (error || !data) return false;
+      return !!data.is_admin;
     }
 
     function showLogin(msg) {
@@ -297,17 +281,20 @@
 
     async function loadLearners() {
       const tbody = document.getElementById("learners-body");
-      tbody.innerHTML = "<tr><td colspan='8'>Chargement des apprenants...</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='8'>Chargement...</td></tr>";
 
-      // Endpoint serveur sécurisé : inclut les comptes Auth sans ligne de suivi.
-      // Il vérifie le rôle administrateur et utilise la clé service_role uniquement côté serveur.
-      const { data, error } = await sbClient.functions.invoke("admin-learners", { body: {} });
-      if (error || data?.error) {
-        const message = data?.error || error?.message || "Erreur inconnue";
-        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Impossible de charger les comptes. Vérifiez que la fonction serveur admin-learners est déployée. ${escapeHtml(message)}</td></tr>`;
+      const { data, error } = await sbClient
+        .from("learner_progress")
+        .select("user_name, email, completed_modules, best_score, is_admin, is_paid, updated_at, created_at")
+        .order("updated_at", { ascending: false });
+
+      if (error) {
+        tbody.innerHTML = `<tr><td colspan="8" style="color:#c62828">Erreur : ${error.message}<br>
+          Vérifiez que la table learner_progress existe et que les policies RLS autorisent la lecture admin.</td></tr>`;
         return;
       }
-      allLearners = Array.isArray(data?.learners) ? data.learners : [];
+
+      allLearners = data || [];
       renderStats(allLearners);
       renderTable(allLearners);
     }
@@ -338,13 +325,6 @@
       } catch { return "—"; }
     }
 
-    function paymentBadge(l) {
-      if (l.payment_status === "pending") return '<span class="badge badge-progress">En attente de validation</span>';
-      if (l.is_paid === true) return '<span class="badge badge-ok">Payé — accès autorisé</span>';
-      if (l.payment_status === "rejected") return '<span class="badge badge-progress">Paiement refusé</span>';
-      return '<span class="badge badge-new">En attente de paiement</span>';
-    }
-
     function renderTable(list) {
       const tbody = document.getElementById("learners-body");
       if (!list.length) {
@@ -353,17 +333,16 @@
       }
       tbody.innerHTML = list.map(l => {
         const email = l.email || "";
-        // Le véritable accès aux modules 2–8 est géré par module_access.
-        // Les anciens boutons ne modifiaient que learner_progress.is_paid et
-        // pouvaient afficher un succès sans changer l'accès réel : on les retire.
-        const action = '<span class="note">Accès via paiements</span>';
+        const action = l.is_paid
+          ? `<button type="button" class="btn-lock" onclick="lockLearner('${escapeHtml(email)}')">Verrouiller</button>`
+          : `<button type="button" class="btn-unlock" onclick="unlockLearner('${escapeHtml(email)}')">Déverrouiller</button>`;
         return `
         <tr>
           <td>${escapeHtml(l.user_name || "—")}${l.is_admin ? " 🔑" : ""}</td>
           <td>${escapeHtml(email || "—")}</td>
           <td>${(l.completed_modules || []).length} / 8</td>
           <td>${l.best_score || 0} / 15</td>
-          <td>${paymentBadge(l)}</td>
+          <td>${l.is_paid ? '<span class="badge badge-ok">Payé</span>' : '<span class="badge badge-progress">Non payé</span>'}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
           <td>${email ? action : "—"}</td>
@@ -418,6 +397,5 @@
 
     init();
   </script>
-  <script src="js/admin-payments.js?v=2"></script>
 </body>
 </html>
