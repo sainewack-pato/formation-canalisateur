@@ -25,6 +25,7 @@ let state = {
   userName: "",
   email: "",
   userId: null,
+  certificateNumber: null,
   isAdmin: false,
   isPaid: false,
   currentQuiz: null,
@@ -727,16 +728,8 @@ function getCertificateProfile() {
   catch (_) { return {}; }
 }
 function getCertificateNumber() {
-  const key = "i2ds_certificate_number_" + (state.userId || state.email || "local");
-  let number = "";
-  try { number = localStorage.getItem(key) || ""; } catch (_) {}
-  if (!number) {
-    const identity = String(state.userId || state.email || "apprenant").replace(/[^a-z0-9]/gi, "").toUpperCase();
-    const suffix = identity.slice(-8).padStart(8, "0");
-    number = "I2DS-" + new Date().getFullYear() + "-" + suffix;
-    try { localStorage.setItem(key, number); } catch (_) {}
-  }
-  return number;
+  // Le numéro officiel provient de Supabase, jamais du navigateur.
+  return state.certificateNumber || "Attribué à la délivrance";
 }
 function formatBirthDate(value) {
   if (!value) return "—";
@@ -754,17 +747,28 @@ async function generateCertificate() {
     alert("L’attestation est disponible après validation des 8 modules et obtention d’au moins 12/15 au quiz final."); return;
   }
   state.userName = name;
-  const profile = {birthDate, birthPlace, issuePlace};
+  const profile = {birthDate, birthPlace, issuePlace: "Dakar"};
   try { localStorage.setItem(certificateStorageKey(), JSON.stringify(profile)); } catch (_) {}
   await saveProgressToCloud();
+
+  // Numéro et date officiels attribués de manière centralisée par Supabase.
+  const { data: issued, error: issueError } = await sbClient.rpc("issue_attestation");
+  if (issueError || !issued || !issued.length || !issued[0].numero) {
+    console.error("Émission attestation:", issueError?.message || "Réponse invalide");
+    alert("Impossible d’enregistrer l’attestation. Vérifiez la connexion et les droits Supabase, puis réessayez. Aucun numéro provisoire ne sera affiché.");
+    return;
+  }
+  const attestation = issued[0];
+  state.certificateNumber = attestation.numero;
   document.getElementById("cert-name").textContent = name;
-  document.getElementById("cert-number").textContent = getCertificateNumber();
+  document.getElementById("cert-number").textContent = attestation.numero;
   document.getElementById("cert-birth-date").textContent = formatBirthDate(birthDate);
   document.getElementById("cert-birth-place").textContent = birthPlace;
   document.getElementById("cert-modules").textContent = getCompletedModuleCount();
   document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-  document.getElementById("cert-issue-place").textContent = issuePlace;
-  document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
+  document.getElementById("cert-issue-place").textContent = "Dakar";
+  const issuedDate = new Date(attestation.date_delivrance + "T12:00:00");
+  document.getElementById("cert-date").textContent = issuedDate.toLocaleDateString("fr-FR", {
     day: "numeric", month: "long", year: "numeric"
   });
 }
