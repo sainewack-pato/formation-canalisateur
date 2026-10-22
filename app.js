@@ -749,16 +749,15 @@ async function generateCertificate() {
   state.userName = name;
   const profile = {birthDate, birthPlace, issuePlace: "Dakar"};
   try { localStorage.setItem(certificateStorageKey(), JSON.stringify(profile)); } catch (_) {}
-  await saveProgressToCloud();
-
-  // Numéro et date officiels attribués de manière centralisée par Supabase.
+  // Ne pas réécrire la progression ici : les résultats sont déjà synchronisés.
+  // L’émission vérifie directement les données conservées dans Supabase.
   const { data: issued, error: issueError } = await sbClient.rpc("issue_attestation");
-  if (issueError || !issued || !issued.length || !issued[0].numero) {
+  const attestation = Array.isArray(issued) ? issued[0] : issued;
+  if (issueError || !attestation || !attestation.numero || !attestation.date_delivrance) {
     console.error("Émission attestation:", issueError?.message || "Réponse invalide");
     alert("Impossible d’enregistrer l’attestation. Vérifiez la connexion et les droits Supabase, puis réessayez. Aucun numéro provisoire ne sera affiché.");
     return;
   }
-  const attestation = issued[0];
   state.certificateNumber = attestation.numero;
   document.getElementById("cert-name").textContent = name;
   document.getElementById("cert-number").textContent = attestation.numero;
