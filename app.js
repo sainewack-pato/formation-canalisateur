@@ -696,13 +696,13 @@ function updateAttestationScreen() {
     const issuePlaceInput = document.getElementById("user-issue-place");
     if (birthDateInput && !birthDateInput.value) birthDateInput.value = profile.birthDate || "";
     if (birthPlaceInput && !birthPlaceInput.value) birthPlaceInput.value = profile.birthPlace || "";
-    if (issuePlaceInput && profile.issuePlace) issuePlaceInput.value = profile.issuePlace;
+    if (issuePlaceInput) issuePlaceInput.value = "Dakar";
     document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
     document.getElementById("cert-modules").textContent = getCompletedModuleCount();
     document.getElementById("cert-number").textContent = getCertificateNumber();
     document.getElementById("cert-birth-date").textContent = formatBirthDate(profile.birthDate);
     document.getElementById("cert-birth-place").textContent = profile.birthPlace || "—";
-    document.getElementById("cert-issue-place").textContent = profile.issuePlace || "Ziguinchor";
+    document.getElementById("cert-issue-place").textContent = "Dakar";
     document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
       day: "numeric", month: "long", year: "numeric"
     });
