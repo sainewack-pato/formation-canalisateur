@@ -75,9 +75,7 @@ begin
   v_numero := v_prefix || lpad(v_next::text, 4, '0');
 
   insert into public.attestations (user_id, numero, date_delivrance)
-    values (v_user_id, v_numero, current_date)
-    returning public.attestations.numero, public.attestations.date_delivrance
-    into v_numero, v_year;
+    values (v_user_id, v_numero, current_date);
 
   return query
     select a.numero, a.date_delivrance
