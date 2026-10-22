@@ -83,71 +83,79 @@ const MODULES = [
     "id": "m02",
     "title": "2. Sécurité & Habilitations",
     "icon": "⚠️",
-    "short": "AIPR, CACES, SST, EPI, blindage",
+    "short": "Comprendre le danger et le risque, prévenir les accidents, sécuriser les tranchées et utiliser les EPI",
     "content": [
       {
-        "title": "Habilitations indispensables",
-        "html": "\n          <ul>\n            <li><strong>AIPR</strong> — Autorisation d’Intervention à Proximité des Réseaux (niveau Opérateur minimum)</li>\n            <li><strong>CACES</strong> — Certificat d’Aptitude à la Conduite En Sécurité (engins)</li>\n            <li><strong>SST</strong> — Sauveteur Secouriste du Travail</li>\n            <li>Habilitations électriques selon les situations</li>\n          </ul>\n        "
+        "title": "Comprendre le risque professionnel",
+        "html": "<p><strong>Objectif :</strong> distinguer le danger, le risque et le dommage, puis apprendre à repérer les situations dangereuses avant d’intervenir.</p>\n<h4>Danger, risque et dommage</h4>\n<ul><li><strong>Danger :</strong> source ou situation susceptible de causer une blessure, une maladie ou un autre dommage.</li><li><strong>Risque :</strong> possibilité qu’une personne soit exposée à un danger et qu’un dommage survienne. Son appréciation tient compte notamment de la probabilité et de la gravité possibles.</li><li><strong>Dommage :</strong> conséquence pouvant toucher une personne, un équipement ou l’environnement.</li><li><strong>Exposition :</strong> situation dans laquelle une personne se trouve en contact avec un danger.</li><li><strong>Prévention :</strong> mesures prises pour éviter le risque ou le réduire à la source.</li><li><strong>Protection :</strong> moyens qui limitent l’exposition ou les conséquences lorsque le risque ne peut pas être totalement supprimé.</li></ul>\n<h4>Exemples sur un chantier de canalisation</h4>\n<table><thead><tr><th>Danger</th><th>Risque</th><th>Dommage possible</th></tr></thead><tbody><tr><td>Parois de tranchée instables</td><td>Éboulement</td><td>Ensevelissement, blessures graves ou décès</td></tr><tr><td>Engin en mouvement</td><td>Heurt ou écrasement</td><td>Traumatisme grave</td></tr><tr><td>Câble électrique endommagé</td><td>Contact électrique</td><td>Brûlures ou électrocution</td></tr><tr><td>Sol encombré ou glissant</td><td>Chute</td><td>Entorse ou fracture</td></tr><tr><td>Atmosphère dangereuse dans un regard</td><td>Intoxication ou asphyxie</td><td>Perte de connaissance ou décès</td></tr></tbody></table>\n<h4>Comment évaluer un risque ?</h4><ol><li>Repérer les dangers présents dans la zone de travail.</li><li>Identifier les personnes susceptibles d’être exposées et les circonstances d’exposition.</li><li>Apprécier la probabilité d’un accident et la gravité du dommage possible.</li><li>Choisir les mesures de prévention et de protection adaptées, puis vérifier leur efficacité.</li></ol>\n<div class=\"tip\"><strong>Règle essentielle :</strong> ne jamais commencer une tâche si un danger grave n’est pas maîtrisé. Arrêter le travail et alerter le responsable en cas de situation dangereuse.</div>\n<h4>Activité pratique</h4><p>Sur un chantier imaginaire, relevez trois dangers. Pour chacun, décrivez le risque, le dommage possible et une mesure de prévention.</p>"
       },
       {
-        "title": "Règles de sécurité en tranchée",
-        "html": "\n          <ul class=\"checklist\">\n            <li>Évaluer la nature du sol et la profondeur</li>\n            <li>Mettre en place un blindage ou un talutage adapté</li>\n            <li>Maintenir une distance de sécurité avec les engins</li>\n            <li>Contrôler quotidiennement la stabilité des parois</li>\n            <li>Prévoir un moyen d’évacuation rapide</li>\n            <li>Ne jamais descendre dans une tranchée non sécurisée</li>\n          </ul>\n          <div class=\"tip\"><strong>Danger n°1 :</strong> L’éboulement de tranchée. Au-delà de 1,30 m, le blindage est généralement obligatoire.</div>\n        "
+        "title": "Habilitations et compétences indispensables",
+        "html": "<p><strong>Objectif :</strong> comprendre que les tâches confiées doivent correspondre à la formation, aux compétences et aux autorisations nécessaires.</p>\n<ul><li><strong>AIPR :</strong> dispositif français relatif aux interventions à proximité des réseaux. Ne pas le présenter comme une autorisation automatiquement applicable au Sénégal ; vérifier les exigences du marché, du maître d’ouvrage et des règles locales.</li><li><strong>CACES :</strong> certificat français attestant des connaissances et du savoir-faire pour conduire certains équipements. Il ne remplace pas à lui seul l’autorisation de conduite éventuellement requise par l’employeur.</li><li><strong>SST :</strong> sauveteur secouriste du travail, formé pour porter les premiers secours et contribuer à la prévention.</li><li><strong>Habilitation électrique :</strong> autorisation adaptée aux opérations électriques concernées et délivrée selon les règles applicables.</li></ul>\n<p>Avant chaque intervention, vérifier les consignes du chantier, les compétences requises, les documents de formation et les autorisations nécessaires. Ne jamais conduire un engin ou intervenir sur une installation sans y être autorisé et formé.</p>\n<h4>Activité</h4><p>Associez chaque tâche à la compétence ou autorisation à vérifier : conduite d’un engin, intervention près d’un réseau enterré, premiers secours et travaux électriques.</p>"
       },
       {
-        "title": "Équipements de Protection Individuelle (EPI)",
-        "html": "\n          <ul>\n            <li>Casque de sécurité</li>\n            <li>Chaussures de sécurité</li>\n            <li>Gants adaptés aux tâches</li>\n            <li>Vêtements haute visibilité</li>\n            <li>Lunettes et protections auditives selon les travaux</li>\n          </ul>\n        "
+        "title": "Sécurité en tranchée et sur le chantier",
+        "html": "<p><strong>Objectif :</strong> identifier les principaux risques liés aux fouilles et appliquer les mesures de prévention avant et pendant les travaux.</p>\n<h4>Avant l’ouverture de la tranchée</h4><ul class=\"checklist\"><li>Repérer les réseaux existants et consulter les plans disponibles.</li><li>Délimiter et baliser la zone de travaux.</li><li>Vérifier les accès, la circulation des engins et la présence des personnes.</li><li>Évaluer le terrain, l’eau, les vibrations, les charges proches des bords et la profondeur prévue.</li><li>Prévoir une méthode de fouille et un dispositif de soutènement, de blindage ou de talutage adapté.</li></ul>\n<h4>Pendant les travaux</h4><ul class=\"checklist\"><li>Ne jamais entrer dans une tranchée non sécurisée.</li><li>Éloigner les déblais et les charges du bord selon les consignes techniques.</li><li>Maintenir les personnes hors de la zone de manœuvre des engins.</li><li>Contrôler l’état des parois et du dispositif de protection, notamment après la pluie ou un changement de conditions.</li><li>Prévoir un accès et une évacuation sûrs.</li><li>Arrêter le travail et alerter si des fissures, infiltrations, mouvements de terrain ou autres signes d’instabilité apparaissent.</li></ul>\n<div class=\"tip\"><strong>Attention :</strong> il n’existe pas une profondeur unique qui rende toutes les tranchées sûres ou impose partout le même dispositif. Les mesures exigées dépendent des règles applicables, du sol, de la géométrie, de l’eau et des conditions du chantier. Faire valider la méthode par le responsable compétent.</div>\n<h4>Autres risques à surveiller</h4><p>Circulation routière, manutention, bruit, poussières, chaleur, réseaux enterrés, atmosphères dangereuses dans les regards et risques liés aux équipements mécaniques.</p>"
+      },
+      {
+        "title": "Équipements de protection individuelle (EPI)",
+        "html": "<p><strong>Objectif :</strong> choisir, vérifier et utiliser les EPI adaptés à la tâche et aux risques identifiés.</p>\n<table><thead><tr><th>Équipement</th><th>Protection apportée</th><th>Vérification</th></tr></thead><tbody><tr><td>Casque</td><td>Chocs et objets susceptibles de tomber</td><td>État, ajustement, durée d’utilisation selon fabricant</td></tr><tr><td>Chaussures de sécurité</td><td>Écrasement, perforation ou glissade selon le modèle</td><td>Semelles, embout et état général</td></tr><tr><td>Gants adaptés</td><td>Abrasion, coupure ou autres risques selon la tâche</td><td>Choix approprié, absence de déchirure</td></tr><tr><td>Vêtement haute visibilité</td><td>Améliore la visibilité auprès des engins et de la circulation</td><td>Propreté, visibilité et état</td></tr><tr><td>Lunettes ou écran facial</td><td>Projections et particules selon l’opération</td><td>Écran intact et adapté</td></tr><tr><td>Protection auditive</td><td>Réduit l’exposition au bruit</td><td>Type adapté et bon ajustement</td></tr></tbody></table>\n<p>Les EPI doivent être adaptés aux risques, à la taille de l’utilisateur et aux instructions du fabricant. Ils complètent les mesures de prévention collective ; ils ne les remplacent pas. Signaler tout équipement détérioré et ne pas utiliser un EPI inadapté.</p>\n<h4>Activité pratique</h4><p>Pour une tâche de découpe, une fouille et une opération de manutention, listez les risques et choisissez les EPI adaptés avec l’encadrement du chantier.</p>"
+      },
+      {
+        "title": "Évaluation et glossaire — Module 2",
+        "html": "<h4>Évaluation pratique</h4><p>Pour une intervention fictive dans une tranchée, l’apprenant doit :</p><ol><li>Repérer au moins trois dangers.</li><li>Décrire pour chacun le risque et le dommage possible.</li><li>Proposer des mesures de prévention avant de commencer.</li><li>Choisir les EPI adaptés.</li><li>Expliquer quand arrêter le travail et alerter le responsable.</li></ol>\n<h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>AIPR</td><td>Autorisation d’intervention à proximité des réseaux, dispositif français ; vérifier les règles applicables au Sénégal.</td></tr>\n<tr><td>Blindage</td><td>Dispositif de soutènement destiné à limiter l’effondrement des parois d’une fouille.</td></tr>\n<tr><td>CACES</td><td>Certificat français relatif à la conduite en sécurité de certains équipements.</td></tr>\n<tr><td>Balisage</td><td>Signalisation et délimitation d’une zone de travail ou de danger.</td></tr>\n<tr><td>Danger</td><td>Source ou situation susceptible de causer un dommage.</td></tr>\n<tr><td>Dommage</td><td>Blessure, atteinte à la santé, dégât matériel ou atteinte à l’environnement.</td></tr>\n<tr><td>Éboulement</td><td>Chute ou effondrement de terre dans une fouille ou une tranchée.</td></tr>\n<tr><td>EPI</td><td>Équipement de protection individuelle porté ou utilisé par une personne.</td></tr>\n<tr><td>Exposition</td><td>Situation dans laquelle une personne est en contact avec un danger.</td></tr>\n<tr><td>Gravité</td><td>Importance des conséquences possibles d’un dommage.</td></tr>\n<tr><td>Habilitation</td><td>Reconnaissance ou autorisation nécessaire pour certaines opérations, selon les règles applicables.</td></tr>\n<tr><td>Prévention</td><td>Ensemble des mesures visant à éviter les risques ou à les réduire.</td></tr>\n<tr><td>Probabilité</td><td>Possibilité qu’un événement dangereux survienne dans les circonstances considérées.</td></tr>\n<tr><td>Risque</td><td>Possibilité qu’un danger provoque un dommage, en tenant compte notamment de la probabilité et de la gravité.</td></tr>\n<tr><td>SST</td><td>Sauveteur secouriste du travail, formé aux premiers secours et à la prévention.</td></tr>\n<tr><td>Consignation</td><td>Procédure de mise en sécurité d’un équipement ou d’une installation avant certaines interventions.</td></tr>\n<tr><td>Espace confiné</td><td>Espace où l’accès, la ventilation ou l’atmosphère peuvent présenter des risques particuliers.</td></tr>\n<tr><td>Plan de prévention</td><td>Document d’organisation de la prévention lorsque les règles applicables l’exigent.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez au quiz de cinq questions du module. Le quiz doit notamment vérifier la distinction entre danger et risque, la sécurité en tranchée, les EPI et les autorisations liées aux tâches.</p>"
       }
     ],
     "quiz": [
       {
-        "q": "Que signifie AIPR ?",
+        "q": "Quelle différence décrit correctement le danger et le risque ?",
         "answers": [
-          "Autorisation d’Intervention à Proximité des Réseaux",
-          "Attestation d’Installation de Protections Rapides",
-          "Autorisation Interne de Pose de Réseaux",
-          "Accréditation d’Intervention sur Parcelles Rurales"
+          "Le danger peut causer un dommage ; le risque est la possibilité que ce dommage survienne",
+          "Le danger et le risque sont toujours synonymes",
+          "Le risque est toujours un équipement de protection",
+          "Le danger ne concerne que les machines"
         ],
         "correct": 0
       },
       {
-        "q": "À partir de quelle profondeur un blindage de tranchée est-il généralement obligatoire ?",
+        "q": "Quel est un signe qui impose d’arrêter le travail et d’alerter en tranchée ?",
         "answers": [
-          "0,80 m",
-          "1,30 m",
-          "2,00 m",
-          "3,00 m"
+          "Une fissure ou un mouvement des parois",
+          "Un balisage bien posé",
+          "Une zone dégagée",
+          "Des EPI adaptés"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Quel est le rôle principal des EPI ?",
+        "answers": [
+          "Remplacer toutes les mesures collectives",
+          "Réduire certains risques résiduels et protéger l’utilisateur",
+          "Permettre de travailler sans formation",
+          "Garantir qu’aucun accident ne peut arriver"
         ],
         "correct": 1
       },
       {
-        "q": "Que signifie CACES ?",
+        "q": "Que faire avant d’intervenir près d’un réseau enterré ?",
         "answers": [
-          "Certificat d’Aptitude à la Conduite En Sécurité",
-          "Contrôle Annuel de Conformité des Engins",
-          "Carte d’Aptitude à la Conduite des Engins de Sol",
-          "Certificat d’Autorisation de Conduite des Engins Spéciaux"
-        ],
-        "correct": 0
-      },
-      {
-        "q": "Quel est le danger n°1 en tranchée ?",
-        "answers": [
-          "Le bruit",
-          "L’éboulement",
-          "La pluie",
-          "La chaleur"
+          "Creuser immédiatement",
+          "Repérer les réseaux et appliquer la procédure de chantier",
+          "Se fier uniquement à la mémoire",
+          "Enlever le balisage"
         ],
         "correct": 1
       },
       {
-        "q": "Parmi ces EPI, lequel est indispensable sur un chantier de canalisation ?",
+        "q": "Comment réduire un risque professionnel ?",
         "answers": [
-          "Casque et chaussures de sécurité",
-          "Cravate",
-          "Sandales",
-          "Short uniquement"
+          "Ignorer les dangers peu visibles",
+          "Identifier les dangers, évaluer le risque et appliquer des mesures adaptées",
+          "Porter seulement des gants dans toutes les situations",
+          "Continuer même si les conditions changent"
         ],
-        "correct": 0
+        "correct": 1
       }
     ]
   },
