@@ -153,73 +153,85 @@ const MODULES = [
   },
   {
     "id": "m03",
-    "title": "3. Lecture de plans & Implantation",
+    "title": "3. Lecture de plans et implantation",
     "icon": "📐",
-    "short": "Plans, cotations, traçage, topographie de base",
+    "short": "Lire les plans, comprendre les cotes et implanter un tracé de réseau sur le terrain",
     "content": [
       {
-        "title": "Documents de chantier",
-        "html": "\n          <ul>\n            <li>Plans de réseaux (assainissement et AEP)</li>\n            <li>Profils en long et coupes</li>\n            <li>Fiches de pose et notes de calcul</li>\n            <li>DIC – Déclaration d’Intention de Commencement de travaux</li>\n          </ul>\n          <div class=\"tip\"><strong>Important :</strong> Toujours vérifier la concordance entre les plans et le terrain avant de commencer.</div>\n        "
+        "title": "Leçon 3.1 — Les types de plans utilisés",
+        "html": "<p><strong>Objectif :</strong> reconnaître les principaux documents graphiques d’un chantier de canalisation et savoir à quoi ils servent.</p><h4>1. Le plan de masse ou plan d’ensemble</h4><p>Il situe le projet dans son environnement : rues, bâtiments, limites de parcelles, voirie et tracé général des réseaux. Il permet de repérer le parcours et les points de raccordement.</p><h4>2. Le plan de réseau</h4><p>Il montre le tracé des conduites, les regards, les branchements, les diamètres, les matériaux et les points particuliers. Il faut lire la légende avant d’interpréter les symboles.</p><h4>3. Le profil en long</h4><p>Il représente le réseau dans le sens de son parcours et montre notamment les distances, les altitudes du terrain et du fil d’eau, les profondeurs et les pentes. Il est essentiel pour vérifier l’écoulement gravitaire d’un réseau d’assainissement.</p><h4>4. La coupe transversale</h4><p>Elle représente une section perpendiculaire au tracé : largeur de fouille, position des conduites, couches de remblai et distances entre réseaux.</p><div class=\"tip\"><strong>Bonne pratique :</strong> vérifier le numéro, la date et l’indice de révision du plan. En cas de contradiction entre le plan et le terrain, suspendre l’implantation concernée et demander confirmation au responsable.</div><h4>Activité</h4><p>Sur un plan fourni par le formateur, repérez le tracé, le sens d’écoulement, les regards et les points de raccordement. Indiquez quel document consulter pour connaître les altitudes.</p>"
       },
       {
-        "title": "Implantation et traçage",
-        "html": "\n          <ul class=\"checklist\">\n            <li>Repérer les axes et les points de niveau</li>\n            <li>Tracer au sol l’emprise de la tranchée</li>\n            <li>Contrôler les cotes d’altitude (pente)</li>\n            <li>Marquer les emplacements des regards et appareils</li>\n            <li>Respecter les distances par rapport aux autres réseaux</li>\n          </ul>\n        "
+        "title": "Leçon 3.2 — Symboles, cotations, pentes et niveaux",
+        "html": "<p><strong>Objectif :</strong> lire les informations qui déterminent la position et l’altitude de la canalisation.</p><h4>Symboles et légende</h4><p>Les symboles peuvent représenter une conduite, un regard, une vanne, un branchement, un changement de direction ou un point de raccordement. Leur signification varie selon le projet : utilisez toujours la légende du plan et non une supposition.</p><h4>Cotations et niveaux</h4><ul><li><strong>Distance :</strong> longueur entre deux points, généralement en mètres.</li><li><strong>Cote altimétrique :</strong> altitude d’un point par rapport au référentiel indiqué sur le plan.</li><li><strong>Profondeur :</strong> différence entre le niveau de référence du terrain et le niveau de la conduite.</li><li><strong>Fil d’eau :</strong> niveau intérieur de référence pour l’écoulement dans une conduite gravitaire.</li></ul><h4>Calcul simple de pente</h4><p>Pour une différence de niveau ΔH sur une longueur L, la pente en pourcentage se calcule par : <strong>pente (%) = (ΔH ÷ L) × 100</strong>, avec ΔH et L exprimés dans la même unité.</p><p><strong>Exemple pédagogique :</strong> une différence de niveau de 0,30 m sur 30 m donne une pente de 1 %. Cet exemple ne remplace pas la pente prescrite par le plan du projet.</p><h4>Contrôles</h4><ul><li>Vérifier les unités, le sens d’écoulement et les cotes de départ et d’arrivée.</li><li>Ne jamais inventer une cote manquante.</li><li>Faire confirmer toute incohérence par le chef de chantier ou le responsable technique.</li></ul><h4>Activité</h4><p>Calculez la pente correspondant à une différence de niveau de 0,20 m sur 20 m. Comparez votre résultat à la valeur indiquée sur un profil en long d’exercice.</p>"
       },
       {
-        "title": "Outils de base",
-        "html": "\n          <ul>\n            <li>Mètre, décamètre, niveau à bulle</li>\n            <li>Niveau laser ou optique</li>\n            <li>Cordeau et piquets</li>\n            <li>Bombe de peinture de chantier</li>\n          </ul>\n        "
+        "title": "Leçon 3.3 — Matériel de topographie de base",
+        "html": "<p><strong>Objectif :</strong> identifier les outils courants de mesure et comprendre leur usage et leurs limites.</p><table><thead><tr><th>Matériel</th><th>Utilisation</th><th>Précaution</th></tr></thead><tbody><tr><td>Mètre ou décamètre</td><td>Mesurer des distances courtes ou longues.</td><td>Garder le ruban aligné et lire la graduation correctement.</td></tr><tr><td>Jalons et piquets</td><td>Matérialiser un axe ou des points.</td><td>Vérifier leur stabilité et leur visibilité.</td></tr><tr><td>Cordeau et marquage</td><td>Tracer une ligne ou une emprise.</td><td>Respecter les règles de marquage du chantier.</td></tr><tr><td>Niveau laser ou optique</td><td>Transférer ou contrôler des niveaux.</td><td>Installer, calibrer et utiliser l’appareil selon sa notice.</td></tr><tr><td>GPS/GNSS de chantier</td><td>Repérer des coordonnées lorsque la précision de l’appareil et les conditions le permettent.</td><td>Un GPS ordinaire peut être insuffisamment précis pour une implantation fine.</td></tr></tbody></table><p>Avant toute mesure, vérifier l’état du matériel, les unités, le réglage et le repère de référence. Pour les opérations nécessitant une précision topographique, travailler avec la personne qualifiée et l’équipement adaptés.</p><h4>Activité</h4><p>Associez chaque outil à une tâche : mesurer une longueur, matérialiser un axe, contrôler une différence de niveau et relever une position géographique.</p>"
+      },
+      {
+        "title": "Leçon 3.4 — Implanter et piqueter un tracé de tranchée",
+        "html": "<p><strong>Objectif :</strong> transférer le tracé prévu sur le terrain avant le terrassement.</p><ol><li>Étudier les plans à jour, les consignes, les limites du chantier et les points de raccordement.</li><li>Reconnaître le terrain et confirmer les repères de référence avec le responsable.</li><li>Vérifier les informations disponibles sur les réseaux existants et faire réaliser les vérifications nécessaires avant toute excavation.</li><li>Matérialiser les points caractéristiques : départ, arrivée, changements de direction, regards et branchements.</li><li>Mesurer les distances et reporter les alignements à l’aide des instruments adaptés.</li><li>Marquer l’emprise de la tranchée selon les plans et les consignes de sécurité.</li><li>Contrôler les distances, les cotes et les pentes prévues ; faire vérifier l’implantation avant le début du terrassement.</li><li>Protéger les repères contre leur déplacement et signaler toute anomalie.</li></ol><h4>À retenir</h4><p>Le piquetage indique où travailler, mais ne remplace ni le repérage des réseaux enterrés ni l’autorisation de commencer les fouilles. Ne pas déplacer un repère sans accord et ne pas improviser un tracé si les plans sont incomplets.</p><h4>Exercice d’implantation</h4><p>Sur un terrain fictif ou une maquette, implantez un tracé de 25 m comportant un départ, un changement de direction et un regard. Matérialisez les points, contrôlez les distances et expliquez comment les niveaux seront vérifiés.</p>"
+      },
+      {
+        "title": "Leçon 3.5 — Repérer les réseaux existants avant les travaux",
+        "html": "<p><strong>Objectif :</strong> prévenir les dommages aux conduites et câbles existants avant de creuser.</p><p>Les réseaux enterrés peuvent comprendre l’eau potable, l’assainissement, l’électricité, les télécommunications et d’autres conduites. Leur position supposée sur un plan doit être vérifiée sur le terrain selon les procédures applicables.</p><h4>Démarche de prudence</h4><ul><li>Consulter les plans disponibles auprès du maître d’ouvrage, du gestionnaire du réseau et des responsables du projet.</li><li>Identifier les gestionnaires concernés et obtenir les informations ou autorisations requises avant les travaux.</li><li>Organiser le repérage et le marquage au sol avec les intervenants compétents.</li><li>Faire confirmer la méthode d’approche des réseaux sensibles et les éventuels sondages de reconnaissance.</li><li>Informer l’équipe, baliser la zone et respecter les consignes du responsable de chantier.</li><li>En cas de réseau inconnu, d’écart entre le plan et le terrain ou de découverte inattendue, arrêter les travaux dans la zone concernée et alerter le responsable.</li></ul><div class=\"tip\"><strong>Contexte sénégalais :</strong> les termes et procédures français « DT-DICT » ou « DICT » ne doivent pas être appliqués automatiquement comme s’ils constituaient la procédure locale. Au Sénégal, suivre les exigences du maître d’ouvrage, les règles nationales et locales applicables ainsi que les procédures des concessionnaires et gestionnaires concernés. Faire confirmer la procédure avant le chantier.</div><h4>Activité</h4><p>À partir d’un plan fictif où une conduite d’eau croise un câble électrique, indiquez les informations à obtenir, les acteurs à prévenir et les précautions à prendre avant d’ouvrir la tranchée.</p>"
+      },
+      {
+        "title": "Évaluation du module 3 — Lecture de plan et implantation",
+        "html": "<h4>Épreuve pratique</h4><p>À partir d’un plan d’exercice fourni par le formateur :</p><ol><li>Identifier le plan de masse, le profil en long et la coupe transversale.</li><li>Repérer le tracé, les regards, les cotes et le sens d’écoulement.</li><li>Calculer une pente à partir d’une longueur et d’une différence de niveau.</li><li>Choisir les instruments adaptés et expliquer leur utilisation.</li><li>Implanter un tracé fictif, marquer les points caractéristiques et expliquer comment vérifier les réseaux existants avant excavation.</li></ol><p><strong>Critères d’évaluation :</strong> lecture correcte de la légende, exactitude des mesures et calculs, choix adapté des outils, qualité du piquetage, respect des procédures de sécurité et signalement des anomalies.</p><h4>Grille d’auto-contrôle</h4><ul><li>J’ai vérifié la version et la légende du plan.</li><li>J’ai identifié les distances et les cotes utiles.</li><li>J’ai contrôlé les unités et le sens d’écoulement.</li><li>J’ai choisi les instruments adaptés.</li><li>J’ai pris en compte les réseaux existants et les consignes avant excavation.</li></ul>"
       }
     ],
     "quiz": [
       {
-        "q": "Quel document doit être consulté avant d’ouvrir le sol ?",
-        "answers": [
-          "Le plan de prévention uniquement",
-          "Le DIC (Déclaration d’Intention de Commencement de travaux)",
-          "Le registre du personnel",
-          "Le bon de commande des tuyaux"
-        ],
-        "correct": 1
-      },
-      {
-        "q": "Quel outil est particulièrement utile pour contrôler la pente ?",
-        "answers": [
-          "Un simple mètre ruban",
-          "Un niveau laser ou optique",
-          "Une équerre de maçon",
-          "Un dynamomètre"
-        ],
-        "correct": 1
-      },
-      {
-        "q": "Que signifie implanter un réseau ?",
-        "answers": [
-          "Le peindre en couleur",
-          "Repérer et tracer sa position au sol selon les plans",
-          "Le détruire",
-          "Le photographier uniquement"
-        ],
-        "correct": 1
-      },
-      {
-        "q": "Pourquoi vérifier la concordance plans / terrain ?",
-        "answers": [
-          "Par habitude",
-          "Pour éviter les erreurs d’implantation et les conflits de réseaux",
-          "Pour gagner du temps uniquement",
-          "Ce n’est pas nécessaire"
-        ],
-        "correct": 1
-      },
-      {
-        "q": "Parmi ces documents, lequel décrit le profil en altitude du réseau ?",
+        "q": "Quel document représente le réseau dans le sens de son parcours et indique notamment les niveaux et les pentes ?",
         "answers": [
           "Le profil en long",
           "Le registre du personnel",
-          "Le planning des congés",
-          "Le catalogue fournisseur"
+          "Le bon de livraison",
+          "Le plan de congés"
         ],
         "correct": 0
+      },
+      {
+        "q": "Quelle est la formule de calcul de la pente en pourcentage ?",
+        "answers": [
+          "Longueur ÷ différence de niveau",
+          "Différence de niveau ÷ longueur × 100",
+          "Longueur × différence de niveau",
+          "Différence de niveau + longueur"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel instrument est conçu pour transférer ou contrôler des niveaux sur un chantier ?",
+        "answers": [
+          "Un niveau laser ou optique",
+          "Une pince universelle",
+          "Un marteau uniquement",
+          "Une clé à molette"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "Que faut-il faire si le plan ne correspond pas aux éléments observés sur le terrain ?",
+        "answers": [
+          "Modifier le tracé de sa propre initiative",
+          "Continuer le terrassement",
+          "Suspendre l’opération concernée et demander confirmation au responsable",
+          "Ignorer l’écart"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "Que faire avant de creuser à proximité de réseaux enterrés existants ?",
+        "answers": [
+          "Se fier uniquement à sa mémoire",
+          "Consulter les informations des gestionnaires et suivre les procédures applicables de repérage et de sécurité",
+          "Creuser rapidement",
+          "Supposer que les réseaux sont à la profondeur standard"
+        ],
+        "correct": 1
       }
     ]
   },
