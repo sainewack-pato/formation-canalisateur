@@ -1,81 +1,73 @@
 const MODULES = [
   {
     "id": "m01",
-    "title": "1. Introduction au métier de canaliseur",
+    "title": "1. Le métier de canalisateur",
     "icon": "👷",
-    "short": "Découvrir le métier, les réseaux, les responsabilités et les débouchés au Sénégal",
+    "short": "Rôle, environnement, compétences attendues",
     "content": [
       {
-        "title": "Leçon 1.1 — Présentation du métier de canaliseur",
-        "html": "<p><strong>Durée indicative :</strong> 6 à 8 heures · <strong>Niveau :</strong> débutant.</p><p><strong>Objectif général :</strong> comprendre le métier de canaliseur, ses enjeux au Sénégal et les possibilités d’évolution professionnelle.</p><h4>Objectifs</h4><ul><li>Définir le métier.</li><li>Distinguer les principaux réseaux.</li><li>Identifier les acteurs du secteur au Sénégal.</li></ul><p>Le <strong>canaliseur</strong> installe, raccorde, contrôle et entretient les canalisations enterrées qui transportent l’eau potable ou évacuent les eaux usées et pluviales. Il travaille en équipe, selon les plans, les consignes et les règles de sécurité.</p><table><thead><tr><th>Réseau</th><th>Sigle</th><th>Fonction</th><th>Couleur indicative</th></tr></thead><tbody><tr><td>Adduction d’eau potable</td><td>AEP</td><td>Transporter l’eau potable</td><td>Bleu</td></tr><tr><td>Eaux usées</td><td>EU</td><td>Collecter et transporter les eaux usées</td><td>Marron/gris</td></tr><tr><td>Eaux pluviales</td><td>EP</td><td>Collecter les eaux de pluie</td><td>Vert/gris</td></tr></tbody></table><p><em>Les couleurs sont indicatives : toujours vérifier la légende des plans et les marquages applicables sur le chantier.</em></p><h4>Différences entre métiers</h4><ul><li><strong>Plombier sanitaire :</strong> travaille principalement sur les installations des bâtiments.</li><li><strong>Terrassier :</strong> réalise les fouilles et les terrassements.</li><li><strong>Canaliseur :</strong> prépare la pose, installe et raccorde les canalisations et participe aux contrôles.</li></ul><h4>Acteurs au Sénégal</h4><ul><li><strong>SEN’EAU :</strong> opérateur du service d’eau potable dans son périmètre de concession.</li><li><strong>ONAS :</strong> acteur national de l’assainissement.</li><li>Entreprises de travaux publics et entreprises spécialisées.</li><li>État, collectivités territoriales, bureaux d’études et partenaires techniques et financiers.</li></ul><div class=\"tip\"><strong>Visuel 1 :</strong> canaliseur équipé d’un casque, d’un gilet haute visibilité et de chaussures de sécurité posant une conduite dans une tranchée sécurisée.</div><div class=\"tip\"><strong>Visuel 2 :</strong> schéma de trois conduites étiquetées AEP (bleu), EU (marron/gris) et EP (vert/gris).</div><h4>Activité</h4><p>Citez quatre situations où un canaliseur peut intervenir dans votre région : extension d’un quartier, réparation de fuite, branchement d’un ménage ou collecte des eaux de pluie.</p>"
+        "title": "Qu’est-ce qu’un canalisateur ?",
+        "html": "\n          <p>Le canalisateur intervient dans la construction et la maintenance des réseaux enterrés :</p>\n          <ul>\n            <li>Réseaux d’<strong>assainissement</strong> (eaux usées et eaux pluviales)</li>\n            <li>Réseaux d’<strong>adduction d’eau potable</strong> (AEP)</li>\n          </ul>\n          <p>Il travaille sous la responsabilité d’un chef de chantier, en entreprise de travaux publics.</p>\n        "
       },
       {
-        "title": "Leçon 1.2 — Rôle et responsabilités",
-        "html": "<h4>Objectifs</h4><ul><li>Connaître les missions principales.</li><li>Comprendre la place du canaliseur dans l’équipe.</li></ul><p>Selon l’organisation du chantier, le canaliseur travaille sous la responsabilité du chef de chantier ou du chef d’équipe et coopère avec les conducteurs d’engins, terrassiers et topographes.</p><ol><li>Lire les plans et les consignes.</li><li>Participer à l’implantation et au piquetage.</li><li>Guider les engins selon la procédure convenue et contribuer à sécuriser les fouilles.</li><li>Préparer et contrôler le lit de pose.</li><li>Poser, aligner et assembler les conduites.</li><li>Réaliser ou aider à réaliser regards et branchements.</li><li>Participer aux essais d’étanchéité ou de pression prévus.</li><li>Contribuer à l’entretien et aux réparations.</li></ol><h4>Responsabilités clés</h4><ul><li>Respecter plans, cotes et consignes.</li><li>Préserver les conduites et la qualité des assemblages.</li><li>Porter les EPI et appliquer les règles de sécurité.</li><li>Signaler toute anomalie ou situation dangereuse.</li><li>Ne jamais entrer dans une tranchée non sécurisée.</li></ul><div class=\"tip\"><strong>Visuel 3 :</strong> organisation d’équipe : chef de chantier → chef d’équipe → canaliseurs, en coordination avec le conducteur d’engin.</div><div class=\"tip\"><strong>Visuel 4 :</strong> canaliseur guidant une mini-pelle depuis une zone sûre, avec visibilité mutuelle et gestes convenus.</div><h4>Activité</h4><p>Classez les huit missions en trois catégories : préparation, pose/raccordement, contrôle/entretien. Certaines missions peuvent relever de plusieurs catégories.</p>"
+        "title": "Vidéo : Les bons gestes – Réseau de canalisations",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/fcyFtpGs3_M\" title=\"Les bons gestes en maçonnerie - Réseau de canalisations\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Agence Qualité Construction – Vue d’ensemble de la pose d’un réseau (3 min 35)</p>\n        "
       },
       {
-        "title": "Leçon 1.3 — Qualités et profil professionnel",
-        "html": "<h4>Objectifs</h4><ul><li>Identifier les qualités nécessaires.</li><li>Connaître les évolutions professionnelles possibles.</li></ul><table><thead><tr><th>Qualités</th><th>Exemples</th></tr></thead><tbody><tr><td>Physiques</td><td>Endurance, capacité à travailler en extérieur, attention à la chaleur et à l’hydratation.</td></tr><tr><td>Techniques</td><td>Précision, lecture de plans, mesure et habileté manuelle.</td></tr><tr><td>Comportementales</td><td>Rigueur, ponctualité, esprit d’équipe, communication et responsabilité.</td></tr></tbody></table><p>La sécurité et la capacité à apprendre sont essentielles. Il faut utiliser les équipements adaptés et éviter toute prise de risque inutile.</p><h4>Évolution possible</h4><p>Ouvrier qualifié → chef d’équipe → chef de chantier → conducteur de travaux. L’évolution dépend de l’expérience, des compétences, des formations et des possibilités de l’entreprise.</p><div class=\"tip\"><strong>Visuel 5 :</strong> infographie en quatre niveaux représentant l’évolution professionnelle.</div><div class=\"tip\"><strong>Visuel 6 :</strong> portrait professionnel d’un jeune canaliseur sénégalais en tenue de chantier adaptée.</div><h4>Auto-évaluation</h4><p>Notez de 1 à 5 votre endurance, votre précision, votre lecture de plans, votre esprit d’équipe, votre rigueur et votre respect de la sécurité. Choisissez une qualité à renforcer et expliquez comment progresser.</p>"
-      },
-      {
-        "title": "Leçon 1.4 — Un métier d’avenir au Sénégal",
-        "html": "<h4>Objectifs</h4><ul><li>Comprendre les enjeux de l’eau et de l’assainissement.</li><li>Identifier des opportunités professionnelles.</li></ul><p>Le métier contribue à l’accès à l’eau potable et à l’assainissement, en lien avec l’Objectif de développement durable n° 6. Les besoins peuvent concerner l’extension des quartiers, le renouvellement des réseaux, la réduction des fuites et la gestion des eaux pluviales.</p><ul><li>Développement urbain et nouveaux quartiers.</li><li>Renouvellement et réparation des réseaux existants.</li><li>Besoins de main-d’œuvre qualifiée dans les travaux publics.</li><li>Projets menés par opérateurs, État, collectivités et partenaires.</li></ul><p>Les opportunités varient selon les régions et les chantiers : vérifiez les informations auprès des entreprises et organismes concernés.</p><div class=\"tip\"><strong>Visuel 7 :</strong> carte pédagogique du Sénégal avec repères à Dakar, Thiès, Saint-Louis, Kaolack et Ziguinchor. Ne pas présenter ces repères comme des projets en cours sans sources vérifiées.</div><div class=\"tip\"><strong>Visuel 8 :</strong> chantier d’extension de réseau avec tranchée balisée et canalisation visible.</div><h4>Activité</h4><p>Recherchez un projet d’eau ou d’assainissement dans votre région. Notez le lieu, l’objectif, les acteurs et la source ; distinguez les faits vérifiés des suppositions.</p>"
-      },
-      {
-        "title": "Évaluation, synthèse et glossaire — Module 1",
-        "html": "<h4>À retenir</h4><ul><li>Le canaliseur pose, raccorde, contrôle et entretient les réseaux enterrés.</li><li>AEP désigne l’adduction d’eau potable ; EU les eaux usées ; EP les eaux pluviales.</li><li>Le métier exige précision, travail d’équipe et respect strict de la sécurité.</li><li>Les débouchés peuvent concerner les travaux neufs, l’entretien et les réparations.</li></ul><h4>Évaluation</h4><p><strong>Partie 1 :</strong> QCM de validation de cinq questions dans la plateforme.</p><p><strong>Partie 2 :</strong> expliquez la différence entre canaliseur, plombier et terrassier ; indiquez pourquoi les contrôles sont importants.</p><p><strong>Partie 3 :</strong> rédigez « Pourquoi ai-je choisi de me former au métier de canaliseur ? »</p><h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody><tr><td>Canaliseur</td><td>Professionnel qui pose, raccorde et entretient les réseaux de canalisations.</td></tr><tr><td>AEP</td><td>Adduction d’eau potable.</td></tr><tr><td>EU</td><td>Eaux usées.</td></tr><tr><td>EP</td><td>Eaux pluviales.</td></tr><tr><td>Tranchée</td><td>Fouille destinée à recevoir une canalisation.</td></tr><tr><td>Regard de visite</td><td>Ouvrage donnant accès au réseau pour inspection ou entretien.</td></tr><tr><td>Branchement</td><td>Raccordement d’un usager ou d’une installation au réseau.</td></tr><tr><td>Lit de pose</td><td>Couche préparée sur laquelle repose la canalisation.</td></tr><tr><td>Étanchéité</td><td>Capacité d’un assemblage ou d’un réseau à empêcher les fuites selon les exigences applicables.</td></tr><tr><td>SEN’EAU</td><td>Opérateur du service d’eau potable dans son périmètre de concession.</td></tr><tr><td>ONAS</td><td>Office national de l’assainissement du Sénégal.</td></tr></tbody></table>"
+        "title": "Les 3 blocs du Titre Professionnel",
+        "html": "\n          <ul>\n            <li><strong>Bloc 1</strong> — Réaliser les opérations connexes à la pose d’une canalisation enterrée</li>\n            <li><strong>Bloc 2</strong> — Construire un réseau d’assainissement en tranchée ouverte</li>\n            <li><strong>Bloc 3</strong> — Construire un réseau d’adduction d’eau potable en tranchée ouverte</li>\n          </ul>\n          <div class=\"tip\"><strong>Niveau :</strong> Titre Professionnel niveau 3 (équivalent CAP/BEP)</div>\n        "
       }
     ],
     "quiz": [
       {
-        "q": "Quel est le rôle principal du canaliseur ?",
+        "q": "Dans quels types de réseaux intervient principalement le canalisateur ?",
         "answers": [
-          "Installer et entretenir les réseaux enterrés d’eau et d’assainissement",
-          "Installer uniquement les prises électriques",
-          "Peindre les bâtiments",
-          "Conduire tous les engins sans autorisation"
-        ],
-        "correct": 0
-      },
-      {
-        "q": "Que signifie AEP ?",
-        "answers": [
-          "Assainissement des eaux pluviales",
-          "Adduction d’eau potable",
-          "Autorisation d’engin de chantier",
-          "Alimentation électrique publique"
+          "Uniquement plomberie intérieure",
+          "Assainissement et adduction d’eau potable",
+          "Uniquement électricité",
+          "Uniquement voirie sèche"
         ],
         "correct": 1
       },
       {
-        "q": "Quel réseau sert principalement à transporter les eaux de pluie ?",
+        "q": "Sous la responsabilité de qui travaille généralement le canalisateur ?",
         "answers": [
-          "AEP",
-          "EU uniquement",
-          "EP",
-          "Réseau électrique"
-        ],
-        "correct": 2
-      },
-      {
-        "q": "Sous la responsabilité de qui travaille généralement le canaliseur ?",
-        "answers": [
-          "Du chef de chantier ou du chef d’équipe selon l’organisation",
+          "Du maire",
+          "Du chef de chantier",
           "Du client final uniquement",
-          "D’aucun responsable",
-          "Du fournisseur de tuyaux"
+          "De l’architecte"
         ],
-        "correct": 0
+        "correct": 1
       },
       {
-        "q": "Que faire si une tranchée est dangereuse ou si un réseau n’est pas identifié ?",
+        "q": "Combien de blocs de compétences composent le Titre Professionnel Canalisateur ?",
         "answers": [
-          "Continuer rapidement",
-          "Entrer pour vérifier de près",
-          "Signaler le danger et suivre la procédure de sécurité",
-          "Ignorer la situation"
+          "2",
+          "3",
+          "4",
+          "5"
         ],
-        "correct": 2
+        "correct": 1
+      },
+      {
+        "q": "Le métier de canalisateur s’exerce principalement :",
+        "answers": [
+          "En intérieur uniquement",
+          "En extérieur, sur chantier",
+          "Derrière un bureau",
+          "En laboratoire"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel niveau correspond au Titre Professionnel Canalisateur ?",
+        "answers": [
+          "Niveau 2",
+          "Niveau 3 (CAP/BEP)",
+          "Niveau 5 (BTS)",
+          "Niveau 6"
+        ],
+        "correct": 1
       }
     ]
   },
