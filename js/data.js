@@ -78,7 +78,7 @@ const MODULES = [
         "correct": 2
       }
     ]
-  }
+  },
   {
     "id": "m02",
     "title": "2. Sécurité & Habilitations",
