@@ -684,7 +684,6 @@ function selectAnswer(index) {
   if (state.selectedAnswer !== null) return;
   state.selectedAnswer = index;
   const q = state.currentQuiz[state.currentQ];
-  q._selected = index;
   document.querySelectorAll("#answers .answer-btn").forEach((btn, i) => {
     btn.disabled = true;
     if (i === q.correct) btn.classList.add("correct");
@@ -718,18 +717,6 @@ async function finishQuiz() {
   document.getElementById("result-title").textContent = title;
   document.getElementById("result-score").textContent = `Vous avez obtenu ${score} / ${QUIZ_TOTAL}`;
   document.getElementById("result-message").textContent = message;
-  const correctionArea = document.getElementById("quiz-corrections");
-  if (correctionArea) {
-    correctionArea.innerHTML = '<h3 style="margin:1rem 0 0.5rem;">Corrections et bonnes réponses</h3>' + state.currentQuiz.map((q, i) => {
-      const selected = q.answers[state.currentQuiz[i]._selected];
-      const good = q.answers[q.correct];
-      return '<div class="card" style="margin:0.75rem 0;padding:0.9rem;">' +
-        '<p><strong>' + (i + 1) + '. ' + q.q + '</strong></p>' +
-        '<p style="margin-top:0.4rem;">Bonne réponse : <strong>' + good + '</strong></p>' +
-        '<p style="margin-top:0.35rem;font-size:0.92rem;">' + (q.explanation || '') + '</p>' +
-        '</div>';
-    }).join('');
-  }
 
   if (score > state.bestScore) {
     state.bestScore = score;
@@ -753,12 +740,8 @@ function updateAttestationScreen() {
     ready?.classList.remove("hidden");
     const name = state.userName || "";
     const nameInput = document.getElementById("user-name");
-    if (nameInput) nameInput.value = name;
-    document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-    document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
-      day: "numeric", month: "long", year: "numeric"
-    });
-    if (name) document.getElementById("cert-name").textContent = name;
+    if (nameInput && name) nameInput.value = name;
+    fillCertificateFields();
   } else {
     locked?.classList.remove("hidden");
     ready?.classList.add("hidden");
@@ -772,16 +755,50 @@ function updateAttestationScreen() {
   }
 }
 
-async function generateCertificate() {
-  const name = document.getElementById("user-name").value.trim();
-  if (!name) { alert("Veuillez saisir votre prénom et nom."); return; }
-  state.userName = name;
-  await saveProgressToCloud();
-  document.getElementById("cert-name").textContent = name;
-  document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-  document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
+function buildCertNumber() {
+  const y = new Date().getFullYear();
+  const uid = (state.userId || "0000").replace(/-/g, "").slice(0, 6).toUpperCase();
+  const score = String(state.bestScore || 0).padStart(2, "0");
+  return "ECO-SUD-" + y + "-" + uid + "-" + score;
+}
+
+function fillCertificateFields() {
+  const name = (document.getElementById("user-name")?.value || state.userName || "").trim();
+  const birthDateRaw = document.getElementById("user-birth-date")?.value || "";
+  const birthPlace = (document.getElementById("user-birth-place")?.value || "").trim();
+
+  let birthDateFmt = "—";
+  if (birthDateRaw) {
+    const d = new Date(birthDateRaw + "T12:00:00");
+    birthDateFmt = d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  }
+
+  const nameEl = document.getElementById("cert-name");
+  if (nameEl) nameEl.textContent = name || "________________";
+  const bd = document.getElementById("cert-birth-date");
+  if (bd) bd.textContent = birthDateFmt;
+  const bp = document.getElementById("cert-birth-place");
+  if (bp) bp.textContent = birthPlace || "—";
+  const scoreEl = document.getElementById("cert-score");
+  if (scoreEl) scoreEl.textContent = state.bestScore + " / " + QUIZ_TOTAL;
+  const dateEl = document.getElementById("cert-date");
+  if (dateEl) dateEl.textContent = new Date().toLocaleDateString("fr-FR", {
     day: "numeric", month: "long", year: "numeric"
   });
+  const numEl = document.getElementById("cert-number");
+  if (numEl) numEl.textContent = buildCertNumber();
+}
+
+async function generateCertificate() {
+  const name = document.getElementById("user-name").value.trim();
+  const birthDate = document.getElementById("user-birth-date")?.value || "";
+  const birthPlace = document.getElementById("user-birth-place")?.value.trim() || "";
+  if (!name) { alert("Veuillez saisir votre prénom et nom."); return; }
+  if (!birthDate) { alert("Veuillez saisir votre date de naissance."); return; }
+  if (!birthPlace) { alert("Veuillez saisir votre lieu de naissance."); return; }
+  state.userName = name;
+  await saveProgressToCloud();
+  fillCertificateFields();
 }
 
 // ---------- Init ----------

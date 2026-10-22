@@ -7,7 +7,7 @@
   <meta name="description" content="Formation au métier de Canalisateur - Titre Professionnel" />
   <title>Formation Canalisateur</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
 </head>
 <body>
   <!-- Écran Auth (Connexion / Inscription) -->
@@ -231,7 +231,6 @@
         <h2 id="result-title">Résultat</h2>
         <p id="result-score"></p>
         <p id="result-message" style="margin-top:0.75rem; font-size:0.95rem;"></p>
-        <div id="quiz-corrections"></div>
         <button class="btn-primary full" onclick="resetQuiz()">Recommencer</button>
       </div>
     </main>
@@ -260,27 +259,29 @@
         </div>
 
         <div id="certificate" class="certificate">
-          <div class="cert-logos">
-            <img src="assets/logo-eco-sud.png" alt="Logo ECO-SUD" class="cert-logo-img cert-logo-eco" onerror="this.style.display='none'" />
-            <img src="assets/logo-gie-i2ds.jpg" alt="Logo GIE I2DS" class="cert-logo-img cert-logo-i2ds" />
-          </div>
           <div class="cert-header">
+            <img src="assets/logo-gie-i2ds.jpg" alt="GIE I2DS" class="cert-logo-img" />
             <h2>ATTESTATION DE FIN DE FORMATION</h2>
             <p class="cert-sub">Formation Canalisateur</p>
             <p class="cert-org">GIE I2DS – ECO-SUD</p>
-            <p class="cert-number">N° <strong id="cert-number">En attente de connexion</strong></p>
+            <p class="cert-num">N° <span id="cert-number">—</span></p>
           </div>
           <div class="cert-body">
             <p>Je soussigné(e), pour le compte de <strong>GIE I2DS – ECO-SUD</strong>,</p>
             <p>atteste que</p>
             <p class="cert-name" id="cert-name">________________</p>
-            <p>Né(e) le <strong id="cert-birth-date">—</strong> à <strong id="cert-birth-place">—</strong></p>
-            <p>a validé <strong><span id="cert-modules">0</span> module(s) sur 8</strong> du parcours de formation « Formation Canalisateur ».</p>
-            <p>Score au quiz final : <strong id="cert-score">–</strong></p>
-            <p class="cert-date">Fait à <span id="cert-issue-place">Ziguinchor</span>, le <span id="cert-date"></span></p>
-            <div class="cert-signatures">
-              <div class="cert-signature-block"><p><strong>Cachet officiel</strong></p><img src="assets/cachet-i2ds.png" alt="Cachet officiel GIE I2DS" class="cert-seal" onerror="this.style.display='none'" /></div>
-              <div class="cert-signature-block"><p><strong>Le Président</strong></p><img src="assets/signature-president.png" alt="Signature autorisée du Président" class="cert-signature" onerror="this.style.display='none'" /><p>Signature</p></div>
+            <p class="cert-birth">Né(e) le <strong id="cert-birth-date">—</strong> à <strong id="cert-birth-place">—</strong></p>
+            <p>a suivi avec assiduité le parcours de formation</p>
+            <p class="cert-title">« Formation Canalisateur »</p>
+            <p>comportant <strong>8 modules</strong> de formation théorique et pratique<br>
+            et a obtenu un score de <strong id="cert-score">–</strong> au quiz de validation.</p>
+            <p class="cert-date">Fait à <strong>Dakar</strong>, le <span id="cert-date"></span></p>
+          </div>
+          <div class="cert-signatures">
+            <div class="cert-sign-block">
+              <img src="assets/cachet-president-i2ds.png" alt="Cachet et signature du Président GIE I2DS" class="cert-stamp-img" />
+              <p class="sign-label">Le Président</p>
+              <p class="sign-org">GIE I2DS – ECO-SUD</p>
             </div>
           </div>
           <div class="cert-footer">
@@ -289,22 +290,18 @@
             300 U5 Keur Massar, Dakar • Antenne Ziguinchor<br>
             33 902 00 20 • WhatsApp 77 523 27 62<br>
             CONTACT@I2DS.SN</p>
-            <p style="margin-top:0.6rem;">Cette attestation valorise les compétences acquises au cours de la formation.<br>
-            Elle ne constitue pas un diplôme et ne se substitue pas à un titre professionnel officiel.</p>
+            <p style="margin-top:0.6rem;">Attestation délivrée à <strong>Dakar</strong> par GIE I2DS – ECO-SUD.<br>
+            Elle ne se substitue pas à un titre professionnel officiel.</p>
           </div>
         </div>
 
         <div style="margin-top:1.25rem;">
-          <div class="certificate-fields">
-            <label for="user-name">Prénom et nom de l’apprenant</label>
-            <input type="text" id="user-name" placeholder="Prénom NOM" autocomplete="name" />
-            <label for="user-birth-date">Date de naissance</label>
-            <input type="date" id="user-birth-date" />
-            <label for="user-birth-place">Lieu de naissance</label>
-            <input type="text" id="user-birth-place" placeholder="Ville / commune" autocomplete="off" />
-            <label for="user-issue-place">Lieu de délivrance</label>
-            <input type="text" id="user-issue-place" value="Ziguinchor" />
-          </div>
+          <label style="font-size:0.9rem; color:#5f6368;">Nom complet</label>
+          <input type="text" id="user-name" placeholder="Prénom Nom" style="width:100%; padding:0.75rem; margin:0.35rem 0 0.75rem; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem;" />
+          <label style="font-size:0.9rem; color:#5f6368;">Date de naissance</label>
+          <input type="date" id="user-birth-date" style="width:100%; padding:0.75rem; margin:0.35rem 0 0.75rem; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem;" />
+          <label style="font-size:0.9rem; color:#5f6368;">Lieu de naissance</label>
+          <input type="text" id="user-birth-place" placeholder="Ville, pays" style="width:100%; padding:0.75rem; margin:0.35rem 0 0.75rem; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem;" />
           <button class="btn-primary full" onclick="generateCertificate()">Générer / Mettre à jour l’attestation</button>
           <button class="btn-secondary full" onclick="window.print()" style="margin-top:0.5rem;">Imprimer / Enregistrer en PDF</button>
         </div>
@@ -313,8 +310,8 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js?v=5"></script>
-  <script src="js/data.js?v=26"></script>
-  <script src="js/app.js?v=9"></script>
+  <script src="js/supabase-config.js?v=7"></script>
+  <script src="js/data.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
 </body>
 </html>

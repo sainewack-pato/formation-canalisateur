@@ -1,29 +1,21 @@
 const MODULES = [
   {
     "id": "m01",
-    "title": "1. Introduction au métier de canaliseur",
+    "title": "1. Le métier de canalisateur",
     "icon": "👷",
-    "short": "Découvrir le métier, les réseaux, les responsabilités et les débouchés au Sénégal",
+    "short": "Rôle, environnement, compétences attendues",
     "content": [
       {
-        "title": "Leçon 1.1 — Présentation du métier de canaliseur",
-        "html": "<p><strong>Durée indicative du module :</strong> 6 à 8 heures. <strong>Niveau :</strong> débutant.</p><p><strong>Objectif général :</strong> comprendre le métier de canaliseur, ses enjeux au Sénégal et les possibilités d’évolution professionnelle.</p><h4>Objectifs de la leçon</h4><ul><li>Définir le métier de canaliseur.</li><li>Distinguer les réseaux AEP, EU et EP.</li><li>Identifier les principaux acteurs du secteur au Sénégal.</li></ul><p>Le <strong>canaliseur</strong> est le professionnel qui installe, raccorde, contrôle et entretient les canalisations enterrées destinées à transporter l’eau potable ou à évacuer les eaux usées et les eaux pluviales. Il intervient sur des chantiers de travaux publics, travaille en équipe et suit les plans ainsi que les consignes de sécurité.</p><table><thead><tr><th>Réseau</th><th>Sigle</th><th>Fonction principale</th><th>Couleur indicative</th></tr></thead><tbody><tr><td>Adduction d’eau potable</td><td>AEP</td><td>Acheminer l’eau potable</td><td>Bleu</td></tr><tr><td>Eaux usées</td><td>EU</td><td>Collecter et transporter les eaux usées</td><td>Marron ou gris</td></tr><tr><td>Eaux pluviales</td><td>EP</td><td>Collecter et évacuer les eaux de pluie</td><td>Vert ou gris</td></tr></tbody></table><p><em>Les couleurs sont indicatives et peuvent varier selon les plans et les pratiques locales. Toujours vérifier la légende du plan et les consignes du chantier.</em></p><h4>Différences entre métiers</h4><ul><li><strong>Plombier sanitaire :</strong> intervient principalement sur les installations des bâtiments.</li><li><strong>Terrassier :</strong> réalise les fouilles et les terrassements.</li><li><strong>Canaliseur :</strong> prépare la pose, installe et raccorde les canalisations et participe aux contrôles.</li></ul><h4>Acteurs au Sénégal</h4><ul><li><strong>SEN’EAU :</strong> opérateur du service d’eau potable dans son périmètre de concession.</li><li><strong>ONAS :</strong> acteur national de l’assainissement.</li><li>Entreprises de travaux publics et entreprises spécialisées en réseaux.</li><li>État, collectivités territoriales, bureaux d’études et partenaires techniques et financiers.</li></ul><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-1-canaliseur-chantier.jpg\" alt=\"Canaliseur en tenue de sécurité posant une canalisation dans une tranchée\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 1 — Un canaliseur en intervention sur un chantier d’eau potable.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-2-reseaux-AEP-EU-EP.jpg\" alt=\"Schéma des réseaux AEP, eaux usées et eaux pluviales\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 2 — Les réseaux AEP, EU et EP. Couleurs indicatives.</figcaption></figure><h4>Activité</h4><p>Citez quatre situations où un canaliseur peut intervenir dans votre région : extension d’un quartier, réparation d’une fuite, branchement d’un ménage ou amélioration de l’évacuation des eaux pluviales.</p>"
+        "title": "Qu’est-ce qu’un canalisateur ?",
+        "html": "\n          <p>Le canalisateur intervient dans la construction et la maintenance des réseaux enterrés :</p>\n          <ul>\n            <li>Réseaux d’<strong>assainissement</strong> (eaux usées et eaux pluviales)</li>\n            <li>Réseaux d’<strong>adduction d’eau potable</strong> (AEP)</li>\n          </ul>\n          <p>Il travaille sous la responsabilité d’un chef de chantier, en entreprise de travaux publics.</p>\n        "
       },
       {
-        "title": "Leçon 1.2 — Rôle et responsabilités du canaliseur",
-        "html": "<h4>Objectifs</h4><ul><li>Connaître les missions principales.</li><li>Comprendre la place du canaliseur dans l’équipe de chantier.</li></ul><p>Le canaliseur travaille sous la responsabilité du chef de chantier ou du chef d’équipe selon l’organisation. Il coopère avec les conducteurs d’engins, les terrassiers, les topographes et les autres intervenants.</p><h4>Les principales missions</h4><ol><li>Lire les plans et les consignes.</li><li>Participer à l’implantation et au piquetage.</li><li>Guider les engins selon la procédure convenue et contribuer à sécuriser les fouilles.</li><li>Préparer et contrôler le lit de pose.</li><li>Poser, aligner et assembler les canalisations.</li><li>Réaliser ou aider à réaliser les regards et branchements.</li><li>Participer aux essais d’étanchéité ou de pression prévus.</li><li>Contribuer à l’entretien, au diagnostic et aux réparations.</li></ol><h4>Responsabilités essentielles</h4><ul><li>Respecter les plans, les cotes et les consignes.</li><li>Préserver les conduites et la qualité des assemblages.</li><li>Porter les équipements de protection individuelle (EPI).</li><li>Signaler toute anomalie ou situation dangereuse.</li><li>Ne jamais entrer dans une tranchée non sécurisée.</li></ul><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-3-equipe-chantier.jpg\" alt=\"Équipe de chantier de canalisations coordonnant les travaux\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 3 — L’équipe de chantier et la coordination des rôles.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-4-guidage-mini-pelle.jpg\" alt=\"Canaliseur guidant une mini-pelle depuis une zone sûre\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 4 — Le guidage d’un engin exige une visibilité mutuelle et des gestes convenus.</figcaption></figure><h4>Activité</h4><p>Classez les huit missions en trois catégories : <strong>Préparation</strong>, <strong>Pose et raccordement</strong>, <strong>Contrôle et entretien</strong>. Certaines missions peuvent relever de plusieurs catégories.</p>"
+        "title": "Vidéo : Les bons gestes – Réseau de canalisations",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/fcyFtpGs3_M\" title=\"Les bons gestes en maçonnerie - Réseau de canalisations\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Agence Qualité Construction – Vue d’ensemble de la pose d’un réseau (3 min 35)</p>\n        "
       },
       {
-        "title": "Leçon 1.3 — Qualités et profil professionnel",
-        "html": "<h4>Objectifs</h4><ul><li>Identifier les qualités nécessaires au métier.</li><li>Connaître les possibilités d’évolution professionnelle.</li></ul><table><thead><tr><th>Type de qualité</th><th>Exemples</th></tr></thead><tbody><tr><td>Physiques</td><td>Endurance, capacité à travailler en extérieur, attention à la chaleur et à l’hydratation.</td></tr><tr><td>Techniques</td><td>Précision, lecture de plans, mesure et habileté manuelle.</td></tr><tr><td>Comportementales</td><td>Rigueur, ponctualité, esprit d’équipe, communication et sens des responsabilités.</td></tr></tbody></table><p>La sécurité et la capacité à apprendre sont essentielles. Les travaux doivent être réalisés avec les équipements adaptés et sans prise de risque inutile.</p><h4>Évolution possible</h4><p>Ouvrier qualifié → chef d’équipe → chef de chantier → conducteur de travaux. Cette évolution dépend notamment de l’expérience, des compétences, des formations complémentaires et des possibilités dans l’entreprise.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-5-evolution-carriere.jpg\" alt=\"Illustration de l’évolution professionnelle du canaliseur\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 5 — Des évolutions possibles avec l’expérience et la formation.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-6-portrait-canaliseur.jpg\" alt=\"Portrait professionnel d’un canaliseur en tenue de chantier\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 6 — Le profil professionnel du canaliseur.</figcaption></figure><h4>Auto-évaluation</h4><p>Notez de 1 à 5 votre endurance, votre précision, votre capacité à lire un plan, votre esprit d’équipe, votre rigueur et votre respect de la sécurité. Choisissez une qualité à renforcer et décrivez comment vous allez progresser.</p>"
-      },
-      {
-        "title": "Leçon 1.4 — Un métier d’avenir au Sénégal",
-        "html": "<h4>Objectifs</h4><ul><li>Comprendre les enjeux de l’eau et de l’assainissement.</li><li>Identifier des opportunités professionnelles.</li></ul><p>Le métier contribue à l’accès à l’eau potable et à l’assainissement, en lien avec l’Objectif de développement durable n° 6. Les besoins peuvent concerner l’extension des quartiers, le renouvellement des réseaux, la réduction des fuites, l’amélioration de l’assainissement et la gestion des eaux pluviales.</p><ul><li>Développement urbain et nouveaux quartiers.</li><li>Renouvellement et réparation des réseaux existants.</li><li>Besoins de main-d’œuvre qualifiée dans les travaux publics.</li><li>Projets menés par les opérateurs, l’État, les collectivités et des partenaires.</li></ul><p>Les opportunités varient selon les régions et les chantiers. Il faut vérifier les informations auprès des entreprises et organismes concernés.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-7-carte-senegal.jpg\" alt=\"Carte pédagogique du Sénégal avec des repères régionaux\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 7 — Repères pédagogiques au Sénégal ; ils ne constituent pas une liste de projets confirmés.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module1/visuel-8-extension-reseau.jpg\" alt=\"Chantier d’extension d’un réseau d’eau potable\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Visuel 8 — Exemple d’intervention sur un réseau d’eau potable.</figcaption></figure><h4>Activité</h4><p>Recherchez un projet d’eau ou d’assainissement dans votre région. Notez le lieu, l’objectif, les acteurs et la source de l’information. Distinguez les faits vérifiés des suppositions.</p>"
-      },
-      {
-        "title": "Synthèse, évaluation et glossaire — Module 1",
-        "html": "<h4>À retenir</h4><ul><li>Le canaliseur pose, raccorde, contrôle et entretient les réseaux enterrés.</li><li>AEP désigne l’adduction d’eau potable ; EU, les eaux usées ; EP, les eaux pluviales.</li><li>Le métier exige précision, esprit d’équipe et respect des règles de sécurité.</li><li>Les interventions concernent les travaux neufs, l’entretien et les réparations.</li></ul><h4>Évaluation</h4><p><strong>Partie 1 :</strong> QCM de cinq questions dans la plateforme.</p><p><strong>Partie 2 :</strong> expliquez la différence entre canaliseur, plombier et terrassier ; indiquez pourquoi les contrôles sont importants.</p><p><strong>Partie 3 :</strong> rédigez un court texte intitulé « Pourquoi ai-je choisi de me former au métier de canaliseur ? »</p><h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody><tr><td>Canaliseur</td><td>Professionnel qui pose, raccorde et entretient les réseaux de canalisations.</td></tr><tr><td>AEP</td><td>Adduction d’eau potable.</td></tr><tr><td>EU</td><td>Eaux usées.</td></tr><tr><td>EP</td><td>Eaux pluviales.</td></tr><tr><td>Tranchée</td><td>Fouille destinée à recevoir une canalisation.</td></tr><tr><td>Regard de visite</td><td>Ouvrage permettant l’accès au réseau pour inspection ou entretien.</td></tr><tr><td>Branchement</td><td>Raccordement d’un usager ou d’une installation au réseau.</td></tr><tr><td>Lit de pose</td><td>Couche préparée sur laquelle repose la canalisation.</td></tr><tr><td>Étanchéité</td><td>Capacité d’un assemblage ou d’un réseau à empêcher les fuites selon les exigences applicables.</td></tr><tr><td>SEN’EAU</td><td>Opérateur du service d’eau potable dans son périmètre de concession.</td></tr><tr><td>ONAS</td><td>Office national de l’assainissement du Sénégal.</td></tr></tbody></table>"
+        "title": "Les 3 blocs du Titre Professionnel",
+        "html": "\n          <ul>\n            <li><strong>Bloc 1</strong> — Réaliser les opérations connexes à la pose d’une canalisation enterrée</li>\n            <li><strong>Bloc 2</strong> — Construire un réseau d’assainissement en tranchée ouverte</li>\n            <li><strong>Bloc 3</strong> — Construire un réseau d’adduction d’eau potable en tranchée ouverte</li>\n          </ul>\n          <div class=\"tip\"><strong>Niveau :</strong> Titre Professionnel niveau 3 (équivalent CAP/BEP)</div>\n        "
       }
     ],
     "quiz": [
@@ -83,163 +75,143 @@ const MODULES = [
     "id": "m02",
     "title": "2. Sécurité & Habilitations",
     "icon": "⚠️",
-    "short": "Comprendre le danger et le risque, prévenir les accidents, sécuriser les tranchées et utiliser les EPI",
+    "short": "AIPR, CACES, SST, EPI, blindage",
     "content": [
       {
-        "title": "Comprendre le risque professionnel",
-        "html": "<p><strong>Objectif :</strong> distinguer le danger, le risque et le dommage, puis apprendre à repérer les situations dangereuses avant d’intervenir.</p>\n<h4>Danger, risque et dommage</h4>\n<ul><li><strong>Danger :</strong> source ou situation susceptible de causer une blessure, une maladie ou un autre dommage.</li><li><strong>Risque :</strong> possibilité qu’une personne soit exposée à un danger et qu’un dommage survienne. Son appréciation tient compte notamment de la probabilité et de la gravité possibles.</li><li><strong>Dommage :</strong> conséquence pouvant toucher une personne, un équipement ou l’environnement.</li><li><strong>Exposition :</strong> situation dans laquelle une personne se trouve en contact avec un danger.</li><li><strong>Prévention :</strong> mesures prises pour éviter le risque ou le réduire à la source.</li><li><strong>Protection :</strong> moyens qui limitent l’exposition ou les conséquences lorsque le risque ne peut pas être totalement supprimé.</li></ul>\n<h4>Exemples sur un chantier de canalisation</h4>\n<table><thead><tr><th>Danger</th><th>Risque</th><th>Dommage possible</th></tr></thead><tbody><tr><td>Parois de tranchée instables</td><td>Éboulement</td><td>Ensevelissement, blessures graves ou décès</td></tr><tr><td>Engin en mouvement</td><td>Heurt ou écrasement</td><td>Traumatisme grave</td></tr><tr><td>Câble électrique endommagé</td><td>Contact électrique</td><td>Brûlures ou électrocution</td></tr><tr><td>Sol encombré ou glissant</td><td>Chute</td><td>Entorse ou fracture</td></tr><tr><td>Atmosphère dangereuse dans un regard</td><td>Intoxication ou asphyxie</td><td>Perte de connaissance ou décès</td></tr></tbody></table>\n<h4>Comment évaluer un risque ?</h4><ol><li>Repérer les dangers présents dans la zone de travail.</li><li>Identifier les personnes susceptibles d’être exposées et les circonstances d’exposition.</li><li>Apprécier la probabilité d’un accident et la gravité du dommage possible.</li><li>Choisir les mesures de prévention et de protection adaptées, puis vérifier leur efficacité.</li></ol>\n<div class=\"tip\"><strong>Règle essentielle :</strong> ne jamais commencer une tâche si un danger grave n’est pas maîtrisé. Arrêter le travail et alerter le responsable en cas de situation dangereuse.</div>\n<h4>Activité pratique</h4><p>Sur un chantier imaginaire, relevez trois dangers. Pour chacun, décrivez le risque, le dommage possible et une mesure de prévention.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-1-risque-professionnel.jpg\" alt=\"Illustration des risques professionnels sur un chantier\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Repérer les dangers, évaluer les risques et prévenir les accidents.</figcaption></figure>"
+        "title": "Habilitations indispensables",
+        "html": "\n          <ul>\n            <li><strong>AIPR</strong> — Autorisation d’Intervention à Proximité des Réseaux (niveau Opérateur minimum)</li>\n            <li><strong>CACES</strong> — Certificat d’Aptitude à la Conduite En Sécurité (engins)</li>\n            <li><strong>SST</strong> — Sauveteur Secouriste du Travail</li>\n            <li>Habilitations électriques selon les situations</li>\n          </ul>\n        "
       },
       {
-        "title": "Habilitations et compétences indispensables",
-        "html": "<p><strong>Objectif :</strong> comprendre que les tâches confiées doivent correspondre à la formation, aux compétences et aux autorisations nécessaires.</p>\n<ul><li><strong>AIPR :</strong> dispositif français relatif aux interventions à proximité des réseaux. Ne pas le présenter comme une autorisation automatiquement applicable au Sénégal ; vérifier les exigences du marché, du maître d’ouvrage et des règles locales.</li><li><strong>CACES :</strong> certificat français attestant des connaissances et du savoir-faire pour conduire certains équipements. Il ne remplace pas à lui seul l’autorisation de conduite éventuellement requise par l’employeur.</li><li><strong>SST :</strong> sauveteur secouriste du travail, formé pour porter les premiers secours et contribuer à la prévention.</li><li><strong>Habilitation électrique :</strong> autorisation adaptée aux opérations électriques concernées et délivrée selon les règles applicables.</li></ul>\n<p>Avant chaque intervention, vérifier les consignes du chantier, les compétences requises, les documents de formation et les autorisations nécessaires. Ne jamais conduire un engin ou intervenir sur une installation sans y être autorisé et formé.</p>\n<h4>Activité</h4><p>Associez chaque tâche à la compétence ou autorisation à vérifier : conduite d’un engin, intervention près d’un réseau enterré, premiers secours et travaux électriques.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-2-habilitations.jpg\" alt=\"Illustration des habilitations et compétences professionnelles\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier les compétences, la formation et les autorisations requises avant toute tâche.</figcaption></figure>"
+        "title": "Règles de sécurité en tranchée",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Évaluer la nature du sol et la profondeur</li>\n            <li>Mettre en place un blindage ou un talutage adapté</li>\n            <li>Maintenir une distance de sécurité avec les engins</li>\n            <li>Contrôler quotidiennement la stabilité des parois</li>\n            <li>Prévoir un moyen d’évacuation rapide</li>\n            <li>Ne jamais descendre dans une tranchée non sécurisée</li>\n          </ul>\n          <div class=\"tip\"><strong>Danger n°1 :</strong> L’éboulement de tranchée. Au-delà de 1,30 m, le blindage est généralement obligatoire.</div>\n        "
       },
       {
-        "title": "Sécurité en tranchée et sur le chantier",
-        "html": "<p><strong>Objectif :</strong> identifier les principaux risques liés aux fouilles et appliquer les mesures de prévention avant et pendant les travaux.</p>\n<h4>Avant l’ouverture de la tranchée</h4><ul class=\"checklist\"><li>Repérer les réseaux existants et consulter les plans disponibles.</li><li>Délimiter et baliser la zone de travaux.</li><li>Vérifier les accès, la circulation des engins et la présence des personnes.</li><li>Évaluer le terrain, l’eau, les vibrations, les charges proches des bords et la profondeur prévue.</li><li>Prévoir une méthode de fouille et un dispositif de soutènement, de blindage ou de talutage adapté.</li></ul>\n<h4>Pendant les travaux</h4><ul class=\"checklist\"><li>Ne jamais entrer dans une tranchée non sécurisée.</li><li>Éloigner les déblais et les charges du bord selon les consignes techniques.</li><li>Maintenir les personnes hors de la zone de manœuvre des engins.</li><li>Contrôler l’état des parois et du dispositif de protection, notamment après la pluie ou un changement de conditions.</li><li>Prévoir un accès et une évacuation sûrs.</li><li>Arrêter le travail et alerter si des fissures, infiltrations, mouvements de terrain ou autres signes d’instabilité apparaissent.</li></ul>\n<div class=\"tip\"><strong>Attention :</strong> il n’existe pas une profondeur unique qui rende toutes les tranchées sûres ou impose partout le même dispositif. Les mesures exigées dépendent des règles applicables, du sol, de la géométrie, de l’eau et des conditions du chantier. Faire valider la méthode par le responsable compétent.</div>\n<h4>Autres risques à surveiller</h4><p>Circulation routière, manutention, bruit, poussières, chaleur, réseaux enterrés, atmosphères dangereuses dans les regards et risques liés aux équipements mécaniques.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-3-securite-tranchee.jpg\" alt=\"Illustration de la sécurité en tranchée\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Sécuriser la fouille, contrôler les parois et prévoir un accès sûr.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-5-balisage-signalisation.jpg\" alt=\"Illustration du balisage et de la signalisation du chantier\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Délimiter clairement la zone de travail et protéger les usagers.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-6-reseaux-existants.jpg\" alt=\"Illustration des réseaux enterrés existants\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Rechercher et repérer les réseaux avant de commencer à creuser.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-7-espaces-confines.jpg\" alt=\"Illustration des risques dans les espaces confinés\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Un regard ou un espace peu ventilé peut présenter un risque d’asphyxie : ne pas y entrer sans procédure et moyens adaptés.</figcaption></figure>"
-      },
-      {
-        "title": "Équipements de protection individuelle (EPI)",
-        "html": "<p><strong>Objectif :</strong> choisir, vérifier et utiliser les EPI adaptés à la tâche et aux risques identifiés.</p>\n<table><thead><tr><th>Équipement</th><th>Protection apportée</th><th>Vérification</th></tr></thead><tbody><tr><td>Casque</td><td>Chocs et objets susceptibles de tomber</td><td>État, ajustement, durée d’utilisation selon fabricant</td></tr><tr><td>Chaussures de sécurité</td><td>Écrasement, perforation ou glissade selon le modèle</td><td>Semelles, embout et état général</td></tr><tr><td>Gants adaptés</td><td>Abrasion, coupure ou autres risques selon la tâche</td><td>Choix approprié, absence de déchirure</td></tr><tr><td>Vêtement haute visibilité</td><td>Améliore la visibilité auprès des engins et de la circulation</td><td>Propreté, visibilité et état</td></tr><tr><td>Lunettes ou écran facial</td><td>Projections et particules selon l’opération</td><td>Écran intact et adapté</td></tr><tr><td>Protection auditive</td><td>Réduit l’exposition au bruit</td><td>Type adapté et bon ajustement</td></tr></tbody></table>\n<p>Les EPI doivent être adaptés aux risques, à la taille de l’utilisateur et aux instructions du fabricant. Ils complètent les mesures de prévention collective ; ils ne les remplacent pas. Signaler tout équipement détérioré et ne pas utiliser un EPI inadapté.</p>\n<h4>Activité pratique</h4><p>Pour une tâche de découpe, une fouille et une opération de manutention, listez les risques et choisissez les EPI adaptés avec l’encadrement du chantier.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-4-equipements-epi.jpg\" alt=\"Illustration des équipements de protection individuelle\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Choisir les EPI selon les risques identifiés et les consignes du chantier.</figcaption></figure>"
-      },
-      {
-        "title": "Évaluation et glossaire — Module 2",
-        "html": "<h4>Évaluation pratique</h4><p>Pour une intervention fictive dans une tranchée, l’apprenant doit :</p><ol><li>Repérer au moins trois dangers.</li><li>Décrire pour chacun le risque et le dommage possible.</li><li>Proposer des mesures de prévention avant de commencer.</li><li>Choisir les EPI adaptés.</li><li>Expliquer quand arrêter le travail et alerter le responsable.</li></ol>\n<h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>AIPR</td><td>Autorisation d’intervention à proximité des réseaux, dispositif français ; vérifier les règles applicables au Sénégal.</td></tr>\n<tr><td>Blindage</td><td>Dispositif de soutènement destiné à limiter l’effondrement des parois d’une fouille.</td></tr>\n<tr><td>CACES</td><td>Certificat français relatif à la conduite en sécurité de certains équipements.</td></tr>\n<tr><td>Balisage</td><td>Signalisation et délimitation d’une zone de travail ou de danger.</td></tr>\n<tr><td>Danger</td><td>Source ou situation susceptible de causer un dommage.</td></tr>\n<tr><td>Dommage</td><td>Blessure, atteinte à la santé, dégât matériel ou atteinte à l’environnement.</td></tr>\n<tr><td>Éboulement</td><td>Chute ou effondrement de terre dans une fouille ou une tranchée.</td></tr>\n<tr><td>EPI</td><td>Équipement de protection individuelle porté ou utilisé par une personne.</td></tr>\n<tr><td>Exposition</td><td>Situation dans laquelle une personne est en contact avec un danger.</td></tr>\n<tr><td>Gravité</td><td>Importance des conséquences possibles d’un dommage.</td></tr>\n<tr><td>Habilitation</td><td>Reconnaissance ou autorisation nécessaire pour certaines opérations, selon les règles applicables.</td></tr>\n<tr><td>Prévention</td><td>Ensemble des mesures visant à éviter les risques ou à les réduire.</td></tr>\n<tr><td>Probabilité</td><td>Possibilité qu’un événement dangereux survienne dans les circonstances considérées.</td></tr>\n<tr><td>Risque</td><td>Possibilité qu’un danger provoque un dommage, en tenant compte notamment de la probabilité et de la gravité.</td></tr>\n<tr><td>SST</td><td>Sauveteur secouriste du travail, formé aux premiers secours et à la prévention.</td></tr>\n<tr><td>Consignation</td><td>Procédure de mise en sécurité d’un équipement ou d’une installation avant certaines interventions.</td></tr>\n<tr><td>Espace confiné</td><td>Espace où l’accès, la ventilation ou l’atmosphère peuvent présenter des risques particuliers.</td></tr>\n<tr><td>Plan de prévention</td><td>Document d’organisation de la prévention lorsque les règles applicables l’exigent.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez au quiz de cinq questions du module. Le quiz doit notamment vérifier la distinction entre danger et risque, la sécurité en tranchée, les EPI et les autorisations liées aux tâches.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module2/visuel-8-gestes-urgence.jpg\" alt=\"Illustration des gestes à adopter en situation d’urgence\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Arrêter le travail, sécuriser sans se mettre en danger et alerter les secours ou le responsable.</figcaption></figure>"
+        "title": "Équipements de Protection Individuelle (EPI)",
+        "html": "\n          <ul>\n            <li>Casque de sécurité</li>\n            <li>Chaussures de sécurité</li>\n            <li>Gants adaptés aux tâches</li>\n            <li>Vêtements haute visibilité</li>\n            <li>Lunettes et protections auditives selon les travaux</li>\n          </ul>\n        "
       }
     ],
     "quiz": [
       {
-        "q": "Quelle différence décrit correctement le danger et le risque ?",
+        "q": "Que signifie AIPR ?",
         "answers": [
-          "Le danger peut causer un dommage ; le risque est la possibilité que ce dommage survienne",
-          "Le danger et le risque sont toujours synonymes",
-          "Le risque est toujours un équipement de protection",
-          "Le danger ne concerne que les machines"
+          "Autorisation d’Intervention à Proximité des Réseaux",
+          "Attestation d’Installation de Protections Rapides",
+          "Autorisation Interne de Pose de Réseaux",
+          "Accréditation d’Intervention sur Parcelles Rurales"
         ],
         "correct": 0
       },
       {
-        "q": "Quel est un signe qui impose d’arrêter le travail et d’alerter en tranchée ?",
+        "q": "À partir de quelle profondeur un blindage de tranchée est-il généralement obligatoire ?",
         "answers": [
-          "Une fissure ou un mouvement des parois",
-          "Un balisage bien posé",
-          "Une zone dégagée",
-          "Des EPI adaptés"
+          "0,80 m",
+          "1,30 m",
+          "2,00 m",
+          "3,00 m"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que signifie CACES ?",
+        "answers": [
+          "Certificat d’Aptitude à la Conduite En Sécurité",
+          "Contrôle Annuel de Conformité des Engins",
+          "Carte d’Aptitude à la Conduite des Engins de Sol",
+          "Certificat d’Autorisation de Conduite des Engins Spéciaux"
         ],
         "correct": 0
       },
       {
-        "q": "Quel est le rôle principal des EPI ?",
+        "q": "Quel est le danger n°1 en tranchée ?",
         "answers": [
-          "Remplacer toutes les mesures collectives",
-          "Réduire certains risques résiduels et protéger l’utilisateur",
-          "Permettre de travailler sans formation",
-          "Garantir qu’aucun accident ne peut arriver"
+          "Le bruit",
+          "L’éboulement",
+          "La pluie",
+          "La chaleur"
         ],
         "correct": 1
       },
       {
-        "q": "Que faire avant d’intervenir près d’un réseau enterré ?",
+        "q": "Parmi ces EPI, lequel est indispensable sur un chantier de canalisation ?",
         "answers": [
-          "Creuser immédiatement",
-          "Repérer les réseaux et appliquer la procédure de chantier",
-          "Se fier uniquement à la mémoire",
-          "Enlever le balisage"
+          "Casque et chaussures de sécurité",
+          "Cravate",
+          "Sandales",
+          "Short uniquement"
         ],
-        "correct": 1
-      },
-      {
-        "q": "Comment réduire un risque professionnel ?",
-        "answers": [
-          "Ignorer les dangers peu visibles",
-          "Identifier les dangers, évaluer le risque et appliquer des mesures adaptées",
-          "Porter seulement des gants dans toutes les situations",
-          "Continuer même si les conditions changent"
-        ],
-        "correct": 1
+        "correct": 0
       }
     ]
   },
   {
     "id": "m03",
-    "title": "3. Lecture de plans et implantation",
+    "title": "3. Lecture de plans & Implantation",
     "icon": "📐",
-    "short": "Lire les plans, comprendre les cotes et implanter un tracé de réseau sur le terrain",
+    "short": "Plans, cotations, traçage, topographie de base",
     "content": [
       {
-        "title": "Leçon 3.1 — Les types de plans utilisés",
-        "html": "<p><strong>Objectif :</strong> reconnaître les principaux documents graphiques d’un chantier de canalisation et savoir à quoi ils servent.</p><h4>1. Le plan de masse ou plan d’ensemble</h4><p>Il situe le projet dans son environnement : rues, bâtiments, limites de parcelles, voirie et tracé général des réseaux. Il permet de repérer le parcours et les points de raccordement.</p><h4>2. Le plan de réseau</h4><p>Il montre le tracé des conduites, les regards, les branchements, les diamètres, les matériaux et les points particuliers. Il faut lire la légende avant d’interpréter les symboles.</p><h4>3. Le profil en long</h4><p>Il représente le réseau dans le sens de son parcours et montre notamment les distances, les altitudes du terrain et du fil d’eau, les profondeurs et les pentes. Il est essentiel pour vérifier l’écoulement gravitaire d’un réseau d’assainissement.</p><h4>4. La coupe transversale</h4><p>Elle représente une section perpendiculaire au tracé : largeur de fouille, position des conduites, couches de remblai et distances entre réseaux.</p><div class=\"tip\"><strong>Bonne pratique :</strong> vérifier le numéro, la date et l’indice de révision du plan. En cas de contradiction entre le plan et le terrain, suspendre l’implantation concernée et demander confirmation au responsable.</div><h4>Activité</h4><p>Sur un plan fourni par le formateur, repérez le tracé, le sens d’écoulement, les regards et les points de raccordement. Indiquez quel document consulter pour connaître les altitudes.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-1-plan-de-masse.jpg\" alt=\"Plan de masse — vue d’ensemble de l’emprise et des ouvrages.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Plan de masse — vue d’ensemble de l’emprise et des ouvrages.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-2-profil-en-long.jpg\" alt=\"Profil en long — tracé et niveaux du réseau.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Profil en long — tracé et niveaux du réseau.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-3-coupe-transversale.jpg\" alt=\"Coupe transversale — disposition des éléments dans la tranchée.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Coupe transversale — disposition des éléments dans la tranchée.</figcaption></figure>"
+        "title": "Documents de chantier",
+        "html": "\n          <ul>\n            <li>Plans de réseaux (assainissement et AEP)</li>\n            <li>Profils en long et coupes</li>\n            <li>Fiches de pose et notes de calcul</li>\n            <li>DIC – Déclaration d’Intention de Commencement de travaux</li>\n          </ul>\n          <div class=\"tip\"><strong>Important :</strong> Toujours vérifier la concordance entre les plans et le terrain avant de commencer.</div>\n        "
       },
       {
-        "title": "Leçon 3.2 — Symboles, cotations, pentes et niveaux",
-        "html": "<p><strong>Objectif :</strong> lire les informations qui déterminent la position et l’altitude de la canalisation.</p><h4>Symboles et légende</h4><p>Les symboles peuvent représenter une conduite, un regard, une vanne, un branchement, un changement de direction ou un point de raccordement. Leur signification varie selon le projet : utilisez toujours la légende du plan et non une supposition.</p><h4>Cotations et niveaux</h4><ul><li><strong>Distance :</strong> longueur entre deux points, généralement en mètres.</li><li><strong>Cote altimétrique :</strong> altitude d’un point par rapport au référentiel indiqué sur le plan.</li><li><strong>Profondeur :</strong> différence entre le niveau de référence du terrain et le niveau de la conduite.</li><li><strong>Fil d’eau :</strong> niveau intérieur de référence pour l’écoulement dans une conduite gravitaire.</li></ul><h4>Calcul simple de pente</h4><p>Pour une différence de niveau ΔH sur une longueur L, la pente en pourcentage se calcule par : <strong>pente (%) = (ΔH ÷ L) × 100</strong>, avec ΔH et L exprimés dans la même unité.</p><p><strong>Exemple pédagogique :</strong> une différence de niveau de 0,30 m sur 30 m donne une pente de 1 %. Cet exemple ne remplace pas la pente prescrite par le plan du projet.</p><h4>Contrôles</h4><ul><li>Vérifier les unités, le sens d’écoulement et les cotes de départ et d’arrivée.</li><li>Ne jamais inventer une cote manquante.</li><li>Faire confirmer toute incohérence par le chef de chantier ou le responsable technique.</li></ul><h4>Activité</h4><p>Calculez la pente correspondant à une différence de niveau de 0,20 m sur 20 m. Comparez votre résultat à la valeur indiquée sur un profil en long d’exercice.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-4-symboles-cotations.jpg\" alt=\"Symboles, cotations et indications à relever sur le plan.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Symboles, cotations et indications à relever sur le plan.</figcaption></figure>"
+        "title": "Implantation et traçage",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Repérer les axes et les points de niveau</li>\n            <li>Tracer au sol l’emprise de la tranchée</li>\n            <li>Contrôler les cotes d’altitude (pente)</li>\n            <li>Marquer les emplacements des regards et appareils</li>\n            <li>Respecter les distances par rapport aux autres réseaux</li>\n          </ul>\n        "
       },
       {
-        "title": "Leçon 3.3 — Matériel de topographie de base",
-        "html": "<p><strong>Objectif :</strong> identifier les outils courants de mesure et comprendre leur usage et leurs limites.</p><table><thead><tr><th>Matériel</th><th>Utilisation</th><th>Précaution</th></tr></thead><tbody><tr><td>Mètre ou décamètre</td><td>Mesurer des distances courtes ou longues.</td><td>Garder le ruban aligné et lire la graduation correctement.</td></tr><tr><td>Jalons et piquets</td><td>Matérialiser un axe ou des points.</td><td>Vérifier leur stabilité et leur visibilité.</td></tr><tr><td>Cordeau et marquage</td><td>Tracer une ligne ou une emprise.</td><td>Respecter les règles de marquage du chantier.</td></tr><tr><td>Niveau laser ou optique</td><td>Transférer ou contrôler des niveaux.</td><td>Installer, calibrer et utiliser l’appareil selon sa notice.</td></tr><tr><td>GPS/GNSS de chantier</td><td>Repérer des coordonnées lorsque la précision de l’appareil et les conditions le permettent.</td><td>Un GPS ordinaire peut être insuffisamment précis pour une implantation fine.</td></tr></tbody></table><p>Avant toute mesure, vérifier l’état du matériel, les unités, le réglage et le repère de référence. Pour les opérations nécessitant une précision topographique, travailler avec la personne qualifiée et l’équipement adaptés.</p><h4>Activité</h4><p>Associez chaque outil à une tâche : mesurer une longueur, matérialiser un axe, contrôler une différence de niveau et relever une position géographique.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-5-materiel-topographie.jpg\" alt=\"Matériel de topographie utilisé pour les mesures et le report sur le terrain.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Matériel de topographie utilisé pour les mesures et le report sur le terrain.</figcaption></figure>"
-      },
-      {
-        "title": "Leçon 3.4 — Implanter et piqueter un tracé de tranchée",
-        "html": "<p><strong>Objectif :</strong> transférer le tracé prévu sur le terrain avant le terrassement.</p><ol><li>Étudier les plans à jour, les consignes, les limites du chantier et les points de raccordement.</li><li>Reconnaître le terrain et confirmer les repères de référence avec le responsable.</li><li>Vérifier les informations disponibles sur les réseaux existants et faire réaliser les vérifications nécessaires avant toute excavation.</li><li>Matérialiser les points caractéristiques : départ, arrivée, changements de direction, regards et branchements.</li><li>Mesurer les distances et reporter les alignements à l’aide des instruments adaptés.</li><li>Marquer l’emprise de la tranchée selon les plans et les consignes de sécurité.</li><li>Contrôler les distances, les cotes et les pentes prévues ; faire vérifier l’implantation avant le début du terrassement.</li><li>Protéger les repères contre leur déplacement et signaler toute anomalie.</li></ol><h4>À retenir</h4><p>Le piquetage indique où travailler, mais ne remplace ni le repérage des réseaux enterrés ni l’autorisation de commencer les fouilles. Ne pas déplacer un repère sans accord et ne pas improviser un tracé si les plans sont incomplets.</p><h4>Exercice d’implantation</h4><p>Sur un terrain fictif ou une maquette, implantez un tracé de 25 m comportant un départ, un changement de direction et un regard. Matérialisez les points, contrôlez les distances et expliquez comment les niveaux seront vérifiés.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-6-implantation-piquetage.jpg\" alt=\"Implantation et piquetage du tracé avant le terrassement.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Implantation et piquetage du tracé avant le terrassement.</figcaption></figure>"
-      },
-      {
-        "title": "Leçon 3.5 — Repérer les réseaux existants avant les travaux",
-        "html": "<p><strong>Objectif :</strong> prévenir les dommages aux conduites et câbles existants avant de creuser.</p><p>Les réseaux enterrés peuvent comprendre l’eau potable, l’assainissement, l’électricité, les télécommunications et d’autres conduites. Leur position supposée sur un plan doit être vérifiée sur le terrain selon les procédures applicables.</p><h4>Démarche de prudence</h4><ul><li>Consulter les plans disponibles auprès du maître d’ouvrage, du gestionnaire du réseau et des responsables du projet.</li><li>Identifier les gestionnaires concernés et obtenir les informations ou autorisations requises avant les travaux.</li><li>Organiser le repérage et le marquage au sol avec les intervenants compétents.</li><li>Faire confirmer la méthode d’approche des réseaux sensibles et les éventuels sondages de reconnaissance.</li><li>Informer l’équipe, baliser la zone et respecter les consignes du responsable de chantier.</li><li>En cas de réseau inconnu, d’écart entre le plan et le terrain ou de découverte inattendue, arrêter les travaux dans la zone concernée et alerter le responsable.</li></ul><div class=\"tip\"><strong>Contexte sénégalais :</strong> les termes et procédures français « DT-DICT » ou « DICT » ne doivent pas être appliqués automatiquement comme s’ils constituaient la procédure locale. Au Sénégal, suivre les exigences du maître d’ouvrage, les règles nationales et locales applicables ainsi que les procédures des concessionnaires et gestionnaires concernés. Faire confirmer la procédure avant le chantier.</div><h4>Activité</h4><p>À partir d’un plan fictif où une conduite d’eau croise un câble électrique, indiquez les informations à obtenir, les acteurs à prévenir et les précautions à prendre avant d’ouvrir la tranchée.</p><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-7-reseaux-existants.jpg\" alt=\"Repérage des réseaux existants avant toute ouverture de tranchée.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Repérage des réseaux existants avant toute ouverture de tranchée.</figcaption></figure><figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module3/visuel-8-verification-avant-travaux.jpg\" alt=\"Vérifications préalables à effectuer avant le démarrage des travaux.\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;margin:0 auto;border-radius:8px\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifications préalables à effectuer avant le démarrage des travaux.</figcaption></figure>"
-      },
-      {
-        "title": "Évaluation du module 3 — Lecture de plan et implantation",
-        "html": "<h4>Épreuve pratique</h4><p>À partir d’un plan d’exercice fourni par le formateur :</p><ol><li>Identifier le plan de masse, le profil en long et la coupe transversale.</li><li>Repérer le tracé, les regards, les cotes et le sens d’écoulement.</li><li>Calculer une pente à partir d’une longueur et d’une différence de niveau.</li><li>Choisir les instruments adaptés et expliquer leur utilisation.</li><li>Implanter un tracé fictif, marquer les points caractéristiques et expliquer comment vérifier les réseaux existants avant excavation.</li></ol><p><strong>Critères d’évaluation :</strong> lecture correcte de la légende, exactitude des mesures et calculs, choix adapté des outils, qualité du piquetage, respect des procédures de sécurité et signalement des anomalies.</p><h4>Grille d’auto-contrôle</h4><ul><li>J’ai vérifié la version et la légende du plan.</li><li>J’ai identifié les distances et les cotes utiles.</li><li>J’ai contrôlé les unités et le sens d’écoulement.</li><li>J’ai choisi les instruments adaptés.</li><li>J’ai pris en compte les réseaux existants et les consignes avant excavation.</li></ul><h4>Glossaire professionnel — Module 3</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody><tr><td>Plan de masse</td><td>Plan situant le projet dans son environnement et montrant l’organisation générale du site.</td></tr><tr><td>Plan de réseau</td><td>Document indiquant le tracé des conduites, les ouvrages, les branchements et les caractéristiques prévues.</td></tr><tr><td>Profil en long</td><td>Représentation verticale du réseau le long de son parcours, avec distances et niveaux.</td></tr><tr><td>Coupe transversale</td><td>Vue en section perpendiculaire au tracé montrant notamment la disposition des conduites et la fouille.</td></tr><tr><td>Légende</td><td>Ensemble des symboles et conventions expliquant les éléments figurant sur un plan.</td></tr><tr><td>Cotation</td><td>Indication chiffrée d’une distance, d’une dimension ou d’une position.</td></tr><tr><td>Cote altimétrique</td><td>Altitude d’un point selon le référentiel indiqué sur le plan.</td></tr><tr><td>Fil d’eau</td><td>Niveau intérieur de référence pour l’écoulement dans une conduite gravitaire.</td></tr><tr><td>Pente</td><td>Rapport entre une différence de niveau et la distance horizontale correspondante, souvent exprimé en pourcentage.</td></tr><tr><td>Implantation</td><td>Transfert sur le terrain des positions et niveaux définis dans les documents du projet.</td></tr><tr><td>Piquetage</td><td>Matérialisation de points ou d’axes au moyen de piquets, jalons ou marquages.</td></tr><tr><td>Jalon</td><td>Tige ou repère vertical utilisé pour matérialiser un point ou aligner un tracé.</td></tr><tr><td>Niveau laser</td><td>Instrument projetant un plan ou une ligne de référence pour transférer ou contrôler des niveaux.</td></tr><tr><td>GPS/GNSS</td><td>Système de positionnement par satellites ; la précision dépend de l’appareil, de la méthode et des conditions de mesure.</td></tr><tr><td>Réseau enterré existant</td><td>Conduite ou câble déjà installé sous le sol, dont la présence et la position doivent être vérifiées avant excavation.</td></tr><tr><td>Gestionnaire de réseau</td><td>Organisme ou opérateur responsable de l’exploitation ou de la maintenance d’un réseau.</td></tr><tr><td>Repère de référence</td><td>Point connu servant de base aux mesures de position ou d’altitude.</td></tr></tbody></table>"
+        "title": "Outils de base",
+        "html": "\n          <ul>\n            <li>Mètre, décamètre, niveau à bulle</li>\n            <li>Niveau laser ou optique</li>\n            <li>Cordeau et piquets</li>\n            <li>Bombe de peinture de chantier</li>\n          </ul>\n        "
       }
     ],
     "quiz": [
       {
-        "q": "Quel document représente le réseau dans le sens de son parcours et indique notamment les niveaux et les pentes ?",
+        "q": "Quel document doit être consulté avant d’ouvrir le sol ?",
+        "answers": [
+          "Le plan de prévention uniquement",
+          "Le DIC (Déclaration d’Intention de Commencement de travaux)",
+          "Le registre du personnel",
+          "Le bon de commande des tuyaux"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Quel outil est particulièrement utile pour contrôler la pente ?",
+        "answers": [
+          "Un simple mètre ruban",
+          "Un niveau laser ou optique",
+          "Une équerre de maçon",
+          "Un dynamomètre"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Que signifie implanter un réseau ?",
+        "answers": [
+          "Le peindre en couleur",
+          "Repérer et tracer sa position au sol selon les plans",
+          "Le détruire",
+          "Le photographier uniquement"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Pourquoi vérifier la concordance plans / terrain ?",
+        "answers": [
+          "Par habitude",
+          "Pour éviter les erreurs d’implantation et les conflits de réseaux",
+          "Pour gagner du temps uniquement",
+          "Ce n’est pas nécessaire"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "Parmi ces documents, lequel décrit le profil en altitude du réseau ?",
         "answers": [
           "Le profil en long",
           "Le registre du personnel",
-          "Le bon de livraison",
-          "Le plan de congés"
+          "Le planning des congés",
+          "Le catalogue fournisseur"
         ],
         "correct": 0
-      },
-      {
-        "q": "Quelle est la formule de calcul de la pente en pourcentage ?",
-        "answers": [
-          "Longueur ÷ différence de niveau",
-          "Différence de niveau ÷ longueur × 100",
-          "Longueur × différence de niveau",
-          "Différence de niveau + longueur"
-        ],
-        "correct": 1
-      },
-      {
-        "q": "Quel instrument est conçu pour transférer ou contrôler des niveaux sur un chantier ?",
-        "answers": [
-          "Un niveau laser ou optique",
-          "Une pince universelle",
-          "Un marteau uniquement",
-          "Une clé à molette"
-        ],
-        "correct": 0
-      },
-      {
-        "q": "Que faut-il faire si le plan ne correspond pas aux éléments observés sur le terrain ?",
-        "answers": [
-          "Modifier le tracé de sa propre initiative",
-          "Continuer le terrassement",
-          "Suspendre l’opération concernée et demander confirmation au responsable",
-          "Ignorer l’écart"
-        ],
-        "correct": 2
-      },
-      {
-        "q": "Que faire avant de creuser à proximité de réseaux enterrés existants ?",
-        "answers": [
-          "Se fier uniquement à sa mémoire",
-          "Consulter les informations des gestionnaires et suivre les procédures applicables de repérage et de sécurité",
-          "Creuser rapidement",
-          "Supposer que les réseaux sont à la profondeur standard"
-        ],
-        "correct": 1
       }
     ]
   },
@@ -247,27 +219,23 @@ const MODULES = [
     "id": "m04",
     "title": "4. Préparation de chantier & Terrassement",
     "icon": "🚜",
-    "short": "Organiser le chantier, sécuriser les fouilles, contrôler le fond de fouille, le lit de pose, le remblai et le compactage",
+    "short": "Balisage, fouille, fond de fouille, blindage",
     "content": [
       {
-        "title": "Préparation du chantier et organisation des travaux",
-        "html": "<p><strong>Objectif :</strong> préparer une zone de travaux sûre, accessible et conforme aux plans et aux consignes du chantier.</p>\n<h4>Avant le démarrage</h4>\n<ol><li>Lire les plans, repérer le tracé, les niveaux et les points de raccordement.</li><li>Confirmer les autorisations, les consignes du maître d’ouvrage et les responsabilités de l’équipe.</li><li>Rechercher les réseaux existants à partir des plans et des procédures locales ; compléter par les repérages nécessaires avant toute excavation.</li><li>Installer la signalisation, le balisage et les protections pour les piétons, les véhicules et les riverains.</li><li>Organiser les accès, les circulations des engins, le stockage des matériaux et l’évacuation des déblais.</li><li>Prévoir les moyens de prévention : EPI, protections collectives, gestion de l’eau, moyens de communication et procédure d’urgence.</li></ol>\n<h4>Organisation de la zone</h4><ul class=\"checklist\"><li>Séparer autant que possible piétons, engins et stockage.</li><li>Maintenir les accès de secours et les cheminements utiles.</li><li>Placer les déblais et les matériaux à une distance sûre du bord de fouille, selon l’évaluation du chantier.</li><li>Vérifier quotidiennement le balisage et le remettre en état s’il est déplacé.</li></ul>\n<div class=\"tip\"><strong>Point de vigilance :</strong> l’AIPR est un dispositif français. Au Sénégal, vérifier les exigences du marché, du maître d’ouvrage et les règles locales ; ne pas supposer que ce dispositif s’applique automatiquement.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-1-preparation-chantier.jpg\" alt=\"Préparation et implantation du chantier de canalisation\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Préparer la zone, lire les plans, tracer l’axe et organiser les circulations.</figcaption></figure>"
+        "title": "Préparation du chantier",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Installer la signalisation et le balisage</li>\n            <li>Mettre en place les dispositifs de protection collective</li>\n            <li>Organiser les zones de stockage</li>\n            <li>Vérifier la présence des réseaux existants (AIPR)</li>\n            <li>Prévoir les accès et les circulations</li>\n          </ul>\n        "
       },
       {
-        "title": "Vidéo et observation d’une opération sur chantier",
-        "html": "<p>Cette séquence vidéo sert de support d’observation. Regardez-la en identifiant les opérations de préparation, de terrassement, de réalisation du lit de pose et de pose de canalisation.</p>\n<div class=\"video-wrapper\"><iframe src=\"https://www.youtube.com/embed/fcyFtpGs3_M\" title=\"Observation d’un chantier de canalisation\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>\n<h4>Questions d’observation</h4><ul><li>Quels éléments indiquent que la zone est balisée ?</li><li>Quels contrôles sont réalisés avant la pose ?</li><li>Quels risques nécessitent l’arrêt du travail et l’alerte du responsable ?</li></ul>\n<p class=\"video-caption\">Si la vidéo n’est pas disponible, utilisez les étapes décrites dans les autres leçons et discutez-les avec l’encadrement.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-2-terrassement-fouille.jpg\" alt=\"Terrassement et réalisation du fond de fouille\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Respecter les dimensions prévues et appliquer les mesures de sécurité adaptées à la fouille.</figcaption></figure>"
+        "title": "Vidéo : Pose de canalisation (vue terrain)",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/fcyFtpGs3_M\" title=\"Les bons gestes - Réseau de canalisations\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Séquence terrassement + lit de pose + pose</p>\n        "
       },
       {
-        "title": "Terrassement, sécurité de la fouille et fond de fouille",
-        "html": "<p><strong>Objectif :</strong> comprendre les contrôles à effectuer pendant l’excavation et avant de poser la canalisation.</p>\n<h4>Contrôles pendant le terrassement</h4><ul><li>Respecter le tracé, la largeur et la profondeur définis par les plans et les prescriptions techniques.</li><li>Surveiller les réseaux repérés, les abords des bâtiments, les circulations, les vibrations et les charges proches de la fouille.</li><li>Choisir une méthode de protection adaptée à la nature du terrain, à la géométrie, à l’eau et aux conditions réelles : blindage, soutènement ou talutage validé.</li><li>Maintenir les personnes hors de la zone de manœuvre des engins et utiliser des signaux de communication convenus avec le conducteur.</li><li>Prévoir un accès et une évacuation sûrs ; ne jamais entrer dans une fouille jugée instable ou non protégée.</li></ul>\n<h4>Réception du fond de fouille</h4><ol><li>Vérifier la profondeur, la largeur, l’alignement et, si le réseau est gravitaire, la pente prévue.</li><li>Retirer les matériaux meubles, blocs, débris ou éléments susceptibles d’endommager la canalisation.</li><li>Contrôler que le fond est stable et ne présente pas de zones détrempées ou remaniées ; faire corriger les anomalies selon les instructions techniques.</li><li>Mettre en place le lit de pose avec le matériau et l’épaisseur prescrits par le projet.</li></ol>\n<div class=\"tip\"><strong>Arrêt obligatoire :</strong> en présence de fissures, de mouvements de terrain, d’infiltrations inhabituelles, d’un réseau non identifié ou d’un défaut de protection, interrompre l’opération, éloigner les personnes et alerter le responsable.</div>\n<p>Il n’existe pas une profondeur unique garantissant la sécurité de toutes les fouilles : les protections dépendent des règles applicables et de l’évaluation technique du chantier.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-3-pose-fond-fouille.jpg\" alt=\"Pose d’une canalisation dans une tranchée\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Contrôler l’alignement, le calage, le lit de pose et les niveaux.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-4-assemblage-reseaux.jpg\" alt=\"Assemblage et raccordement de canalisations\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Utiliser les raccords et les méthodes d’assemblage compatibles avec le système de canalisation.</figcaption></figure>"
+        "title": "Terrassement et fond de fouille",
+        "html": "\n          <p>Le canalisateur guide l’engin et contrôle la qualité du fond de fouille :</p>\n          <ul>\n            <li>Profondeur et largeur conformes aux plans</li>\n            <li>Fond de fouille stable, non remanié</li>\n            <li>Pente correcte pour les réseaux gravitaires</li>\n            <li>Blindage ou talutage selon profondeur et nature du sol</li>\n          </ul>\n        "
       },
       {
-        "title": "Lit de pose, enrobage, remblai et compactage",
-        "html": "<p><strong>Objectif :</strong> protéger la canalisation et limiter les tassements après remise en état du terrain.</p>\n<h4>Lit de pose</h4><p>Utiliser le matériau prévu dans les documents techniques. Le répartir et le régler pour obtenir un support continu, régulier et conforme à la pente et au niveau demandés. Éviter les points durs sous le tuyau.</p>\n<h4>Pose et enrobage initial</h4><ul><li>Positionner la canalisation sans modifier son alignement ni sa pente.</li><li>Placer le matériau d’enrobage prescrit de façon homogène autour des flancs et au-dessus du tuyau.</li><li>Éviter les blocs, débris et matériaux agressifs qui pourraient endommager le réseau.</li><li>Employer une méthode de compactage compatible avec le type de canalisation et les prescriptions du fabricant et du projet.</li></ul>\n<h4>Remblai et compactage</h4><ol><li>Remblayer par couches d’épaisseur adaptée au matériau et au matériel utilisé.</li><li>Contrôler l’humidité du matériau si les spécifications l’exigent.</li><li>Compacter chaque couche selon la méthode et le niveau de qualité prescrits, sans déplacer ni écraser la canalisation.</li><li>Réaliser les contrôles requis et restaurer la surface selon les consignes du chantier.</li></ol>\n<div class=\"tip\"><strong>Erreur fréquente :</strong> un remblai mal compacté ou un matériau inadapté peut provoquer des tassements, une déformation ou une détérioration du réseau. Les épaisseurs de couche et les valeurs de compactage doivent suivre les prescriptions du projet, et non une valeur universelle.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-5-regards-ouvrages.jpg\" alt=\"Pose d’un regard et réalisation d’un ouvrage annexe\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier les raccordements, l’accessibilité et la conformité de l’ouvrage.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-6-remblai-compactage.jpg\" alt=\"Remblaiement et compactage autour d’une canalisation\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Remblayer par couches et compacter selon les prescriptions du projet.</figcaption></figure>"
-      },
-      {
-        "title": "Évaluation pratique et glossaire — Module 4",
-        "html": "<h4>Exercice pratique</h4><p>À partir d’un chantier fictif de pose de canalisation, présentez les étapes depuis la préparation de la zone jusqu’au remblaiement.</p><ol><li>Énumérez les contrôles à réaliser avant de creuser.</li><li>Indiquez les risques à vérifier pendant le terrassement et les conditions imposant l’arrêt.</li><li>Expliquez comment contrôler et préparer le fond de fouille.</li><li>Décrivez le rôle du lit de pose, de l’enrobage et du compactage.</li><li>Précisez les points à consigner dans le suivi de chantier.</li></ol>\n<h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>Balisage</td><td>Délimitation et signalisation d’une zone de travail ou de danger.</td></tr>\n<tr><td>Blindage</td><td>Dispositif de protection qui soutient les parois d’une fouille.</td></tr>\n<tr><td>Compactage</td><td>Action de densifier un matériau de remblai selon une méthode définie.</td></tr>\n<tr><td>Déblai</td><td>Terre ou matériau extrait pendant l’excavation.</td></tr>\n<tr><td>Enrobage</td><td>Matériau placé autour de la canalisation pour la protéger et la soutenir.</td></tr>\n<tr><td>Excavation</td><td>Opération consistant à retirer le terrain pour réaliser une fouille.</td></tr>\n<tr><td>Fond de fouille</td><td>Surface inférieure préparée pour recevoir le lit de pose.</td></tr>\n<tr><td>Fouille</td><td>Creusement réalisé dans le sol pour construire ou poser un ouvrage.</td></tr>\n<tr><td>Lit de pose</td><td>Couche préparée sur laquelle repose la canalisation.</td></tr>\n<tr><td>Matériau de remblai</td><td>Matériau utilisé pour remplir la fouille après la pose.</td></tr>\n<tr><td>Niveau</td><td>Hauteur d’un point par rapport à une référence définie.</td></tr>\n<tr><td>Pente</td><td>Variation de hauteur sur une distance donnée, importante pour l’écoulement gravitaire.</td></tr>\n<tr><td>Réseau existant</td><td>Canalisation ou autre infrastructure déjà présente dans le sous-sol.</td></tr>\n<tr><td>Remblai</td><td>Matériau remis dans la fouille après l’installation du réseau.</td></tr>\n<tr><td>Soutènement</td><td>Dispositif ou méthode destiné à stabiliser le terrain.</td></tr>\n<tr><td>Talutage</td><td>Réalisation de parois inclinées selon une méthode adaptée au terrain.</td></tr>\n<tr><td>Terrassement</td><td>Travaux de creusement, d’extraction, de déplacement et de réglage des terres.</td></tr>\n<tr><td>Tranchée</td><td>Fouille allongée destinée notamment à poser des réseaux.</td></tr>\n<tr><td>Compacteur</td><td>Matériel servant à densifier le matériau de remblai.</td></tr>\n<tr><td>Contrôle de conformité</td><td>Vérification que les travaux respectent les plans et prescriptions applicables.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez au quiz de cinq questions du module pour vérifier la compréhension de la préparation du chantier, de la sécurité des fouilles, du fond de fouille et du compactage.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-7-essais-controle.jpg\" alt=\"Essais et contrôles sur le réseau posé\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Effectuer les contrôles prévus avant la mise en service.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module4/visuel-8-controle-reception.jpg\" alt=\"Contrôle qualité et réception des travaux\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Consigner les vérifications et les réserves avant la réception.</figcaption></figure>"
+        "title": "Enrobage, remblai et compactage",
+        "html": "\n          <ul>\n            <li><strong>Lit de pose</strong> : sable ou gravier adapté</li>\n            <li><strong>Enrobage</strong> : recouvrir la canalisation sur au moins 10-15 cm</li>\n            <li><strong>Remblai</strong> : couches successives de 20-30 cm</li>\n            <li><strong>Compactage</strong> : à chaque couche</li>\n          </ul>\n          <div class=\"tip\"><strong>Erreur fréquente :</strong> Un compactage insuffisant provoque des tassements.</div>\n        "
       }
     ],
     "quiz": [
@@ -327,27 +295,23 @@ const MODULES = [
     "id": "m05",
     "title": "5. Pose de canalisations d’assainissement",
     "icon": "💧",
-    "short": "Préparer les conduites, réaliser les assemblages, contrôler la pente, l’alignement et l’étanchéité des réseaux gravitaires",
+    "short": "Collecteurs, joints, pente, alignement",
     "content": [
       {
-        "title": "Préparation et principes de pose des canalisations d’assainissement",
-        "html": "<p><strong>Objectif :</strong> comprendre la préparation et les gestes essentiels pour poser une canalisation d’assainissement conformément aux plans et aux prescriptions techniques du chantier.</p>\n<h4>Avant la pose</h4><ol><li>Vérifier les plans d’exécution, le tracé, les diamètres, les matériaux, les niveaux et les points de raccordement.</li><li>Confirmer que la fouille, le blindage ou le talutage, l’accès et le fond de fouille ont été contrôlés par la personne responsable.</li><li>Examiner les tuyaux et accessoires : rechercher fissures, déformations, éclats, ovalisation ou pièces manquantes.</li><li>Stocker les éléments sur un support stable, en évitant les chocs, la contamination et les dommages dus au soleil ou aux engins selon les consignes du fabricant.</li><li>Préparer les outils, les moyens de levage et les EPI adaptés ; exclure les personnes de la zone de manœuvre des charges.</li></ol>\n<h4>Pose des tuyaux</h4><ul class=\"checklist\"><li>Nettoyer la zone de pose et vérifier le lit de pose réceptionné.</li><li>Descendre les tuyaux avec des moyens adaptés, sans les jeter ni se placer sous une charge suspendue.</li><li>Respecter le sens de pose et la procédure du système d’assemblage, conformément aux indications du fabricant et du projet.</li><li>Contrôler progressivement l’alignement, le niveau et la pente, sans attendre la fin de la conduite.</li><li>Maintenir les extrémités propres et protéger les assemblages jusqu’à l’enrobage.</li></ul>\n<div class=\"tip\"><strong>À retenir :</strong> la pose d’un réseau gravitaire dépend de la continuité de la pente et de l’absence de contre-pentes. Les valeurs de pente et les tolérances proviennent des plans et prescriptions applicables, pas d’une règle universelle.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-1-lit-de-pose.jpg\" alt=\"Préparation du lit de pose\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier le niveau, la pente et la qualité du support avant la pose.</figcaption></figure>"
+        "title": "Principes de pose",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Vérifier le sens d’écoulement (emboîtement)</li>\n            <li>Contrôler l’alignement et la pente</li>\n            <li>Réaliser les joints selon le type de tuyau</li>\n            <li>Protéger les joints pendant le remblai</li>\n          </ul>\n        "
       },
       {
-        "title": "Vidéo et observation d’une opération sur chantier",
-        "html": "<p>Cette vidéo sert de support d’observation. Identifiez la préparation des tuyaux, la mise en place, l’assemblage, le contrôle de l’alignement et les précautions prises par l’équipe.</p>\n<div class=\"video-wrapper\"><iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Observation de la pose d’un réseau d’assainissement\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>\n<h4>Questions d’observation</h4><ul><li>Comment les tuyaux sont-ils manipulés et descendus dans la fouille ?</li><li>Quels contrôles sont effectués avant de raccorder deux éléments ?</li><li>Comment l’équipe vérifie-t-elle l’alignement et la pente ?</li><li>Quels risques doivent conduire à interrompre le travail et à prévenir le responsable ?</li></ul>\n<p class=\"video-caption\">Si la vidéo n’est pas disponible, utilisez les étapes décrites dans ce module et échangez avec l’encadrement sur les méthodes réellement prescrites pour le chantier.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-2-manutention-tuyaux.jpg\" alt=\"Manutention et mise en place des tuyaux\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Utiliser des moyens de levage adaptés et garder les personnes à distance des charges suspendues.</figcaption></figure>"
+        "title": "Vidéo : Mise en œuvre d’un réseau d’assainissement",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Réseau assainissement - Pose\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">PUM – Pose de tubes et regards</p>\n        "
       },
       {
-        "title": "Matériaux, tuyaux et assemblages courants",
-        "html": "<p>Le matériau est choisi selon l’usage, le diamètre, les charges, le terrain, l’effluent, les conditions de pose et les spécifications du projet.</p>\n<table><thead><tr><th>Matériau</th><th>Caractéristiques générales</th><th>Points de vigilance</th></tr></thead><tbody><tr><td>PVC</td><td>Léger, facile à manipuler et souvent utilisé pour des réseaux enterrés.</td><td>Protéger contre les chocs et respecter les limites et instructions du fabricant.</td></tr><tr><td>PEHD</td><td>Flexible, disponible en barres ou couronnes selon le diamètre et le système.</td><td>Utiliser la méthode d’assemblage spécifiée, par exemple soudage adapté par personnel formé.</td></tr><tr><td>Béton</td><td>Utilisé notamment pour certains collecteurs et ouvrages de grands diamètres.</td><td>Prévoir des moyens de levage adaptés et inspecter les éléments avant pose.</td></tr><tr><td>Grès vitrifié</td><td>Employé dans certains réseaux d’assainissement pour sa résistance chimique.</td><td>Éviter les chocs et vérifier les compatibilités des joints et raccords.</td></tr></tbody></table>\n<h4>Joints et raccords</h4><ul><li><strong>Joint à emboîtement :</strong> nettoyer l’emboîture, le bout mâle et le joint ; positionner le joint selon la notice ; utiliser uniquement le lubrifiant compatible prescrit.</li><li><strong>Assemblage mécanique ou à bride :</strong> contrôler les surfaces, le joint, l’ordre de serrage et les couples prescrits lorsqu’ils sont indiqués.</li><li><strong>Soudage :</strong> appliquer la procédure propre au matériau, à l’équipement et aux qualifications nécessaires ; protéger la zone de fusion des salissures.</li></ul>\n<div class=\"tip\"><strong>Important :</strong> ne pas mélanger les systèmes d’assemblage ni utiliser de graisse ou de lubrifiant non autorisé par le fabricant.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-3-assemblage-tuyaux.jpg\" alt=\"Assemblage des tuyaux\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Nettoyer les surfaces, préparer le joint et réaliser l’emboîtement selon la notice du fabricant.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-4-alignement-pente.jpg\" alt=\"Contrôle de l’alignement et de la pente\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Contrôler le fil d’eau, l’alignement et la pente aux points prévus.</figcaption></figure>"
+        "title": "Matériaux courants",
+        "html": "\n          <ul>\n            <li><strong>PVC</strong> — léger, économique</li>\n            <li><strong>Béton</strong> — robuste, réseaux principaux</li>\n            <li><strong>Grès</strong> — résistant aux agressions chimiques</li>\n          </ul>\n        "
       },
       {
-        "title": "Pente, alignement et écoulement gravitaire",
-        "html": "<p>Dans un réseau gravitaire, l’écoulement est assuré par la pente prévue au projet. La pente correspond à la différence de niveau rapportée à la distance horizontale ; elle est généralement exprimée en pourcentage ou en millimètres par mètre.</p>\n<h4>Contrôles pendant la pose</h4><ol><li>Utiliser les repères de niveau et instruments adaptés, selon la procédure de chantier.</li><li>Contrôler régulièrement le fil d’eau, l’alignement et la pente aux points prévus.</li><li>Éviter les contre-pentes, les déformations et les déplacements lors de l’assemblage ou de l’enrobage.</li><li>Vérifier la position des raccordements et des regards avant de poursuivre.</li><li>Enregistrer les mesures demandées dans les documents de suivi.</li></ol>\n<h4>Pourquoi la pente compte</h4><ul><li>Une pente insuffisante ou une contre-pente peut favoriser la stagnation et les dépôts.</li><li>Une pente excessive peut modifier les conditions d’écoulement et augmenter les contraintes selon la conception du réseau.</li><li>Une mauvaise assise ou un compactage inadapté peut déplacer ou déformer les tuyaux.</li></ul>\n<p>Ne choisissez pas une pente au jugé : utilisez les valeurs de conception et faites valider toute anomalie par le responsable technique.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-5-branchements-regards.jpg\" alt=\"Branchements et regards\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier la position des raccordements, l’accès et les niveaux des ouvrages.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-6-enrobage-protection.jpg\" alt=\"Enrobage et protection de la canalisation\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Mettre en place le matériau prescrit autour du tuyau sans l’endommager.</figcaption></figure>"
-      },
-      {
-        "title": "Contrôle des assemblages, essais et glossaire — Module 5",
-        "html": "<h4>Contrôles avant enrobage et remblai</h4><ul><li>Vérifier visuellement l’état des tuyaux, les joints, l’emboîtement et les raccords.</li><li>Contrôler l’alignement, les niveaux, la pente et les raccordements conformément au plan.</li><li>Confirmer que les appuis et l’enrobage sont réalisés avec le matériau et la méthode prescrits.</li><li>Réaliser les essais d’étanchéité ou autres contrôles prévus par le marché et les normes applicables, selon une procédure approuvée.</li><li>Consigner les résultats, défauts, corrections et validations dans les documents de chantier.</li></ul>\n<div class=\"tip\"><strong>Règle de sécurité :</strong> ne jamais entrer dans une fouille non sécurisée et ne pas effectuer d’essai sous pression sans procédure, zone d’exclusion et matériel appropriés. En cas de fuite, mouvement ou défaut d’assemblage, arrêter l’opération et alerter le responsable.</div>\n<h4>Exercice pratique</h4><p>À partir d’un tronçon fictif entre deux regards, expliquez les étapes de pose, les contrôles de pente et d’alignement, la vérification des joints et les informations à inscrire dans le suivi.</p>\n<h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>Assainissement</td><td>Collecte et évacuation des eaux usées ou pluviales selon la conception du réseau.</td></tr>\n<tr><td>Canalisation</td><td>Conduite destinée à transporter un fluide.</td></tr>\n<tr><td>Collecteur</td><td>Conduite qui rassemble les écoulements de conduites secondaires ou branchements.</td></tr>\n<tr><td>Contre-pente</td><td>Défaut de profil où le fond de conduite remonte dans le sens prévu de l’écoulement.</td></tr>\n<tr><td>Diamètre nominal</td><td>Désignation de dimension utilisée pour identifier une conduite ou un raccord.</td></tr>\n<tr><td>Emboîture</td><td>Extrémité élargie d’un tuyau recevant l’extrémité d’un autre élément.</td></tr>\n<tr><td>Fil d’eau</td><td>Niveau de référence du fond intérieur de la conduite au point considéré.</td></tr>\n<tr><td>Grès vitrifié</td><td>Matériau céramique utilisé pour certaines canalisations d’assainissement.</td></tr>\n<tr><td>Joint</td><td>Élément ou dispositif assurant la liaison et l’étanchéité entre deux pièces.</td></tr>\n<tr><td>Lubrifiant de pose</td><td>Produit compatible utilisé pour faciliter certains emboîtements selon la notice.</td></tr>\n<tr><td>PEHD</td><td>Polyéthylène haute densité, matériau utilisé pour certains réseaux.</td></tr>\n<tr><td>Pente</td><td>Variation de niveau rapportée à une distance horizontale.</td></tr>\n<tr><td>PVC</td><td>Polychlorure de vinyle, matériau utilisé pour certaines conduites et pièces.</td></tr>\n<tr><td>Regard</td><td>Ouvrage permettant l’accès au réseau pour contrôle, raccordement ou entretien.</td></tr>\n<tr><td>Réseau gravitaire</td><td>Réseau où l’écoulement se fait principalement grâce à la gravité.</td></tr>\n<tr><td>Raccord</td><td>Pièce servant à relier des conduites ou à modifier leur direction ou diamètre.</td></tr>\n<tr><td>Étanchéité</td><td>Capacité d’un assemblage ou d’un réseau à empêcher les fuites indésirables.</td></tr>\n<tr><td>Alignement</td><td>Positionnement des conduites sur l’axe défini par le projet.</td></tr>\n<tr><td>Enrobage</td><td>Matériau disposé autour de la conduite pour son appui et sa protection.</td></tr>\n<tr><td>Essai d’étanchéité</td><td>Contrôle visant à vérifier l’absence de fuite selon une procédure définie.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez aux cinq questions du quiz pour vérifier la compréhension de la pose, des matériaux, de la pente, des joints et des contrôles.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-7-remblai-compactage.jpg\" alt=\"Remblaiement et compactage\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Remblayer par couches successives et compacter selon les prescriptions du projet.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module5/visuel-8-controle-reception.jpg\" alt=\"Contrôle final et réception\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Consigner les contrôles, essais, défauts corrigés et validations de réception.</figcaption></figure>"
+        "title": "Pente et écoulement",
+        "html": "\n          <p>La pente est essentielle pour un bon fonctionnement gravitaire :</p>\n          <ul>\n            <li>Pente trop faible → dépôts et risques de bouchage</li>\n            <li>Pente trop forte → usure accélérée</li>\n          </ul>\n        "
       }
     ],
     "quiz": [
@@ -407,27 +371,23 @@ const MODULES = [
     "id": "m06",
     "title": "6. Regards, branchements & ouvrages",
     "icon": "🔲",
-    "short": "Réaliser les regards de visite, cunettes, branchements particuliers, avaloirs et ouvrages annexes",
+    "short": "Regards de visite, cunettes, avaloirs, branchements",
     "content": [
       {
-        "title": "Regards de visite : rôle, implantation et composants",
-        "html": "<p><strong>Objectif :</strong> comprendre le rôle des regards dans un réseau d’assainissement et les contrôles à effectuer avant, pendant et après leur réalisation.</p><p>Un regard permet l’accès au réseau pour l’inspection, le nettoyage, le curage et certaines interventions. Son emplacement est défini par les plans et les prescriptions du projet, notamment aux points de raccordement et lorsque la géométrie du réseau l’exige.</p><h4>Composants habituels</h4><ul><li>Fond ou radier, avec cunette adaptée à l’écoulement.</li><li>Éléments de fût et raccordements de conduites.</li><li>Dispositifs d’étanchéité entre les éléments.</li><li>Cadre et tampon adaptés à l’emplacement et aux charges de circulation.</li><li>Dispositifs d’accès prévus par la conception, lorsqu’ils sont nécessaires.</li></ul><h4>Contrôles de pose</h4><ol><li>Vérifier l’implantation, les cotes et les niveaux sur les plans.</li><li>Préparer un support stable et conforme aux prescriptions.</li><li>Positionner le regard et raccorder les conduites sans créer de contre-pente.</li><li>Vérifier les joints, les niveaux d’entrée et de sortie, et l’état de la cunette.</li><li>Contrôler l’altitude du cadre et du tampon selon l’aménagement final.</li></ol><div class=\"tip\"><strong>Attention :</strong> un regard est un espace potentiellement confiné. Ne jamais y pénétrer sans procédure, autorisation, contrôle d’atmosphère et moyens de sécurité adaptés.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-1-regards-visite.jpg\" alt=\"Regard de visite et ses composants\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Identifier le regard, son accès et les éléments de contrôle.</figcaption></figure>"
+        "title": "Regards de visite",
+        "html": "\n          <p>Les regards permettent l’accès pour inspection, curage et contrôle.</p>\n          <ul>\n            <li>Implantés aux changements de direction, de pente ou de diamètre</li>\n            <li>Fond de regard (cunette) façonné pour guider l’écoulement</li>\n            <li>Étanchéité soignée entre éléments</li>\n            <li>Tampon adapté à la classe de circulation</li>\n          </ul>\n        "
       },
       {
-        "title": "Vidéo : pose de regard et raccordements",
-        "html": "<p>Observez la vidéo et repérez les étapes de mise en place du regard, les raccordements et les contrôles de niveau. La vidéo existante du module est conservée.</p><div class=\"video-wrapper\"><iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Pose de regard et raccordements d’assainissement\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><h4>Questions d’observation</h4><ul><li>Comment le support et l’implantation sont-ils vérifiés ?</li><li>Comment les conduites sont-elles raccordées au regard ?</li><li>Quels contrôles permettent d’éviter les stagnations et les fuites ?</li><li>Quels risques faut-il prévenir autour d’un regard ouvert ?</li></ul><p class=\"video-caption\">Si la vidéo n’est pas disponible, utilisez la procédure écrite et demandez au responsable technique les détails spécifiques au chantier.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-2-branchements-particuliers.jpg\" alt=\"Branchement particulier au réseau d’assainissement\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Repérer le raccordement entre le branchement et le collecteur principal.</figcaption></figure>"
+        "title": "Vidéo : Pose de regard et raccordements",
+        "html": "\n          <div class=\"video-wrapper\">\n            <iframe src=\"https://www.youtube.com/embed/d5p4hgel4Kg\" title=\"Pose regard assainissement\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n          </div>\n          <p class=\"video-caption\">Démonstration pose de regard de visite</p>\n        "
       },
       {
-        "title": "Cunette, radier et raccordement des conduites",
-        "html": "<p>La cunette est la partie façonnée au fond du regard qui guide l’écoulement entre les conduites. Sa forme doit être compatible avec les diamètres, les directions et les niveaux prévus au projet.</p><h4>Bonnes pratiques</h4><ul><li>Respecter les niveaux d’entrée et de sortie ainsi que le fil d’eau prévu.</li><li>Façonner la cunette pour guider l’écoulement sans ressaut non prévu ni zone de stagnation.</li><li>Réaliser des raccordements étanches avec des pièces compatibles avec les matériaux.</li><li>Éviter les débris, les arêtes dangereuses et les matériaux qui pourraient gêner le passage.</li><li>Contrôler la stabilité de l’ouvrage et la protection des raccordements avant remblaiement.</li></ul><h4>Défauts possibles</h4><table><thead><tr><th>Défaut</th><th>Conséquence possible</th><th>Action</th></tr></thead><tbody><tr><td>Niveau incorrect</td><td>Stagnation ou écoulement perturbé</td><td>Faire vérifier les cotes et corriger avant réception.</td></tr><tr><td>Joint mal posé</td><td>Infiltration ou fuite</td><td>Reprendre l’assemblage selon la procédure du fabricant.</td></tr><tr><td>Cunette irrégulière</td><td>Dépôts et difficulté de curage</td><td>Rectifier le profil conformément au projet.</td></tr><tr><td>Cadre mal réglé</td><td>Inconfort, bruit ou risque pour les usagers</td><td>Régler l’altitude et l’assise selon les prescriptions.</td></tr></tbody></table>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-3-avaloirs-caniveaux.jpg\" alt=\"Avaloirs et caniveaux de collecte\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Observer la collecte des eaux de ruissellement et la protection des entrées.</figcaption></figure>"
+        "title": "Branchements particuliers",
+        "html": "\n          <ul class=\"checklist\">\n            <li>Respecter le diamètre minimal et la pente</li>\n            <li>Utiliser des pièces homologuées</li>\n            <li>Assurer l’étanchéité</li>\n            <li>Repérer et cartographier chaque branchement</li>\n          </ul>\n        "
       },
       {
-        "title": "Branchements particuliers, avaloirs et grilles",
-        "html": "<h4>Branchements particuliers</h4><p>Un branchement relie un bâtiment, un équipement ou un ouvrage au réseau collecteur. Son tracé, son diamètre, sa pente, ses raccords et son point de connexion doivent correspondre aux plans et aux règles locales applicables.</p><ul><li>Repérer l’origine et le point de raccordement.</li><li>Employer des pièces compatibles et autorisées pour les matériaux en présence.</li><li>Éviter les raccordements improvisés, les angles défavorables et les contre-pentes.</li><li>Vérifier l’étanchéité et consigner la position réelle du branchement pour le récolement.</li></ul><h4>Avaloirs et grilles</h4><p>Les avaloirs recueillent les eaux pluviales de surface et les conduisent vers un réseau prévu à cet effet. L’implantation, l’altitude de la grille et le raccordement doivent favoriser la collecte sans créer de danger pour les piétons ou la circulation.</p><ul><li>Vérifier les cotes de la chaussée et le niveau fini.</li><li>Positionner correctement la grille et assurer son assise.</li><li>Contrôler que le raccordement est libre et que les débris de chantier sont retirés.</li><li>Protéger l’ouverture jusqu’à la pose de la grille et baliser la zone de travail.</li></ul>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-4-stations-relevage.jpg\" alt=\"Station de relevage des eaux usées\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Comprendre le rôle d’un ouvrage de relevage lorsque l’écoulement gravitaire ne suffit pas.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-5-pretraitement.jpg\" alt=\"Ouvrage de prétraitement des eaux usées\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Reconnaître les ouvrages qui retiennent certains déchets avant les étapes suivantes du traitement.</figcaption></figure>"
-      },
-      {
-        "title": "Contrôle, réception et glossaire — Module 6",
-        "html": "<h4>Contrôles avant réception</h4><ul class=\"checklist\"><li>Implantation, dimensions et niveaux conformes aux plans.</li><li>Éléments, tampons, cadres et grilles adaptés à leur usage.</li><li>Raccordements, joints et cunettes visuellement contrôlés.</li><li>Écoulement et absence d’obstruction vérifiés selon la procédure du projet.</li><li>Réserves, corrections et plans de récolement consignés.</li></ul><p>Les critères d’acceptation sont ceux du projet et des prescriptions applicables. Toute anomalie doit être documentée et corrigée avant la réception définitive.</p><h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>Regard de visite</td><td>Ouvrage donnant accès au réseau pour inspection et entretien.</td></tr>\n<tr><td>Cunette</td><td>Fond façonné du regard qui guide l’écoulement entre les conduites.</td></tr>\n<tr><td>Radier</td><td>Partie de fond ou base de l’ouvrage qui supporte les éléments.</td></tr>\n<tr><td>Fût</td><td>Partie verticale du regard entre le fond et la partie supérieure.</td></tr>\n<tr><td>Tampon</td><td>Élément amovible fermant l’accès au regard.</td></tr>\n<tr><td>Cadre</td><td>Pièce supportant le tampon ou la grille.</td></tr>\n<tr><td>Branchement</td><td>Conduite reliant un usager ou un ouvrage au réseau collecteur.</td></tr>\n<tr><td>Avaloir</td><td>Ouvrage recueillant les eaux de ruissellement en surface.</td></tr>\n<tr><td>Grille</td><td>Élément ajouré permettant l’entrée des eaux tout en limitant le passage des objets.</td></tr>\n<tr><td>Fil d’eau</td><td>Niveau de référence du fond intérieur d’une conduite.</td></tr>\n<tr><td>Collecteur</td><td>Conduite recevant les écoulements des branchements ou conduites secondaires.</td></tr>\n<tr><td>Raccord</td><td>Pièce reliant des conduites ou modifiant leur direction ou diamètre.</td></tr>\n<tr><td>Joint</td><td>Dispositif de liaison contribuant à l’étanchéité entre deux éléments.</td></tr>\n<tr><td>Étanchéité</td><td>Capacité d’un ouvrage à limiter les infiltrations et les fuites.</td></tr>\n<tr><td>Pente</td><td>Variation de niveau rapportée à la distance horizontale.</td></tr>\n<tr><td>Contre-pente</td><td>Défaut de profil pouvant provoquer stagnation et dépôts.</td></tr>\n<tr><td>Récolement</td><td>Relevé de l’ouvrage réellement exécuté, avec sa position et ses caractéristiques.</td></tr>\n<tr><td>Classe de circulation</td><td>Classe définissant l’aptitude d’un tampon ou d’une grille aux charges prévues.</td></tr>\n<tr><td>Curage</td><td>Enlèvement des dépôts qui gênent le fonctionnement du réseau.</td></tr>\n<tr><td>Espace confiné</td><td>Volume fermé ou peu ventilé pouvant présenter des risques graves à l’entrée.</td></tr>\n</tbody></table><h4>Exercice pratique</h4><p>Sur un plan fictif comportant deux regards, un branchement et un avaloir, indiquez les points de contrôle, les niveaux à vérifier et les informations à inscrire sur le plan de récolement.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-6-reception-ouvrages.jpg\" alt=\"Réception et contrôle des ouvrages d’assainissement\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier la conformité, les niveaux, l’accessibilité et les documents de réception.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-7-exutoires-rejets.jpg\" alt=\"Exutoire et point de rejet\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Identifier le point de rejet et les protections prévues par le projet et les règles applicables.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module6/visuel-8-entretien-maintenance.jpg\" alt=\"Entretien et maintenance des ouvrages\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Prévoir les inspections, le nettoyage et le suivi selon les consignes d’exploitation.</figcaption></figure>"
+        "title": "Avaloirs et grilles",
+        "html": "\n          <p>Éléments de collecte des eaux pluviales de surface. Raccordement correct au collecteur et respect des cotes d’altitude.</p>\n        "
       }
     ],
     "quiz": [
@@ -487,27 +447,19 @@ const MODULES = [
     "id": "m07",
     "title": "7. Réseaux d’adduction d’eau potable",
     "icon": "🚰",
-    "short": "Comprendre les matériaux PVC, PEHD et fonte ductile, poser les accessoires de fontainerie et réaliser les branchements AEP en sécurité",
+    "short": "PVC, fonte, PeHD, fontainerie, branchements",
     "content": [
       {
-        "title": "Matériaux des réseaux d’adduction d’eau potable (AEP)",
-        "html": "<p><strong>Objectif :</strong> reconnaître les matériaux courants d’un réseau d’adduction d’eau potable et appliquer les règles de manutention, de pose et de contrôle prévues par les plans, les prescriptions du projet et les notices des fabricants.</p>\n<h4>Comparer les matériaux</h4><table><thead><tr><th>Matériau</th><th>Usages possibles</th><th>Points de vigilance</th></tr></thead><tbody><tr><td>PVC pression</td><td>Conduites de distribution et branchements selon la classe et le système.</td><td>Respecter la classe de pression, la compatibilité des raccords et la protection contre les chocs.</td></tr><tr><td>PEHD / PE</td><td>Conduites flexibles, traversées et réseaux selon le diamètre et la pression de service.</td><td>Préparer les extrémités et appliquer la procédure d’assemblage ou de soudage spécifiée.</td></tr><tr><td>Fonte ductile</td><td>Conduites de distribution et réseaux principaux selon la conception.</td><td>Employer un levage adapté, protéger les revêtements et vérifier les joints et butées.</td></tr></tbody></table>\n<h4>Réception et stockage</h4><ul><li>Vérifier le diamètre, la classe de pression, le marquage, les certificats et la compatibilité avec l’eau potable.</li><li>Inspecter les conduites et accessoires pour repérer fissures, ovalisations, dommages aux revêtements et pièces manquantes.</li><li>Stocker les éléments sur une surface stable, sans contact avec des produits contaminants, et protéger les extrémités.</li><li>Utiliser des élingues et accessoires de levage adaptés ; ne jamais rester sous une charge suspendue.</li><li>Garder les parties en contact avec l’eau propres et protégées contre toute contamination.</li></ul>\n<div class=\"tip\"><strong>À retenir :</strong> les profondeurs, l’enrobage, les distances de séparation et les classes de pression ne sont pas universels. Appliquer les plans et les exigences techniques et sanitaires applicables au chantier.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-1-materiaux-aep.jpg\" alt=\"Matériaux des conduites AEP\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Comparer le PVC pression, le PEHD et la fonte ductile selon les exigences du projet.</figcaption></figure>"
+        "title": "Matériaux AEP",
+        "html": "\n          <ul>\n            <li><strong>PVC</strong> — économique, réseaux secondaires</li>\n            <li><strong>Fonte ductile</strong> — très robuste, réseaux principaux</li>\n            <li><strong>PeHD</strong> — flexible, soudable, zones difficiles</li>\n          </ul>\n          <div class=\"tip\"><strong>Attention :</strong> Chaque matériau a ses règles de pose et de profondeur minimale.</div>\n        "
       },
       {
-        "title": "Fontainerie et accessoires du réseau",
-        "html": "<p>Les appareils de fontainerie permettent d’isoler, purger, ventiler, mesurer ou distribuer l’eau. Leur type et leur emplacement sont déterminés par les plans et les conditions d’exploitation.</p>\n<table><thead><tr><th>Appareil</th><th>Fonction principale</th><th>Contrôle à la pose</th></tr></thead><tbody><tr><td>Vanne d’isolement</td><td>Interrompre l’écoulement sur une portion du réseau.</td><td>Vérifier le sens si indiqué, l’accessibilité, l’orientation et le fonctionnement.</td></tr><tr><td>Ventouse</td><td>Évacuer ou admettre de l’air selon le type d’appareil.</td><td>Vérifier l’emplacement prescrit et la possibilité d’entretien.</td></tr><tr><td>Vidange / purge</td><td>Permettre la vidange d’une portion de conduite selon la conception.</td><td>Contrôler l’orientation et le point de rejet autorisé.</td></tr><tr><td>Bouche à clé</td><td>Permettre l’accès à la commande d’une vanne enterrée.</td><td>Aligner l’accès et maintenir le dispositif repérable et accessible.</td></tr><tr><td>Compteur</td><td>Mesurer le volume d’eau fourni.</td><td>Respecter le sens de circulation et les conditions de montage du fabricant.</td></tr><tr><td>Poteau ou bouche d’incendie</td><td>Fournir un point de prélèvement pour la lutte contre l’incendie.</td><td>Respecter l’emplacement, la stabilité et les prescriptions du service compétent.</td></tr></tbody></table>\n<h4>Bonnes pratiques</h4><ul><li>Vérifier la référence, le diamètre nominal, la pression admissible et les raccords compatibles.</li><li>Installer les accessoires sur un appui stable et éviter que les efforts de la conduite soient transmis à l’appareil.</li><li>Prévoir l’accès aux organes de manœuvre et l’entretien futur.</li><li>Ne pas appliquer une protection ou un lubrifiant qui n’est pas autorisé par le fabricant.</li><li>Après montage, vérifier le fonctionnement selon la procédure approuvée et consigner le résultat.</li></ul>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-2-fontainerie.jpg\" alt=\"Fontainerie et accessoires\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Identifier la vanne d’isolement et les appareils du réseau.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-6-acces-maintenance.jpg\" alt=\"Accessibilité des organes\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Maintenir les organes de commande repérables et accessibles.</figcaption></figure>"
+        "title": "Appareillages de fontainerie",
+        "html": "\n          <p>Vannes, ventouses, bouches à clé, poteaux d’incendie, etc.</p>\n          <ul class=\"checklist\">\n            <li>Positionner selon les plans</li>\n            <li>Assurer l’accessibilité pour la maintenance</li>\n            <li>Protéger contre le gel et les chocs</li>\n            <li>Vérifier le sens de montage</li>\n          </ul>\n        "
       },
       {
-        "title": "Réalisation des branchements AEP",
-        "html": "<p>Le branchement relie le réseau de distribution au point de livraison de l’abonné. Il peut comprendre une prise sur conduite, une conduite de branchement, un robinet d’arrêt, un compteur et les accessoires prévus par l’exploitant.</p>\n<h4>Étapes essentielles</h4><ol><li>Vérifier l’autorisation d’intervention, les plans, le point de raccordement et les réseaux enterrés existants.</li><li>Baliser la zone, appliquer les consignes de sécurité et confirmer les conditions d’isolement du réseau.</li><li>Identifier le matériau, le diamètre et la pression de la conduite principale ; choisir un dispositif de prise compatible.</li><li>Réaliser le raccordement selon la méthode approuvée. Toute intervention sur une conduite en service doit être confiée à du personnel habilité et suivre la procédure de l’exploitant.</li><li>Poser la conduite de branchement avec le tracé, la couverture, les protections et les distances prescrits.</li><li>Installer les organes de coupure et le compteur dans une position accessible, dans le sens indiqué par le fabricant.</li><li>Effectuer les contrôles d’étanchéité et les essais prévus, puis rincer et désinfecter si la procédure du réseau l’exige avant la mise en service.</li><li>Repérer le branchement et renseigner les plans de récolement et documents de suivi.</li></ol>\n<h4>Prévention de la contamination</h4><ul><li>Protéger les extrémités ouvertes contre la terre, les eaux de fouille, les animaux et les objets étrangers.</li><li>Employer uniquement des composants appropriés au contact avec l’eau potable.</li><li>Éviter tout raccordement croisé avec une eau non potable et respecter les dispositifs de protection contre les retours d’eau exigés.</li><li>Ne pas mettre en service avant la validation des contrôles sanitaires et techniques requis.</li></ul>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-3-branchement-aep.jpg\" alt=\"Branchement d’eau potable\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Repérer la liaison entre le réseau public, le robinet et le compteur.</figcaption></figure>"
-      },
-      {
-        "title": "Assemblages, pose et contrôles du réseau AEP",
-        "html": "<h4>Assemblages selon le matériau</h4><ul><li><strong>PVC :</strong> vérifier la compatibilité du joint, nettoyer les surfaces, lubrifier seulement si la notice le prévoit et respecter la profondeur d’emboîtement.</li><li><strong>PEHD :</strong> réaliser les assemblages par la méthode autorisée (par exemple électrosoudage ou soudage bout à bout) avec équipement adapté, paramètres prescrits et opérateur formé.</li><li><strong>Fonte ductile :</strong> contrôler le joint, nettoyer les emboîtements, appliquer la procédure du fabricant et installer les dispositifs de retenue ou butées nécessaires au projet.</li></ul>\n<h4>Contrôles avant remblai</h4><ol><li>Vérifier le tracé, les niveaux, la couverture, les supports et les raccordements.</li><li>Inspecter les assemblages, les joints, les revêtements et les accessoires.</li><li>Confirmer que les dispositifs d’ancrage, butées et protections sont installés selon le plan.</li><li>Réaliser l’épreuve de pression et les contrôles d’étanchéité conformément à la procédure du projet, avec zone de sécurité et matériel adapté.</li><li>Ne jamais resserrer ou réparer un raccord sous pression ; isoler et dépressuriser avant intervention selon la procédure.</li><li>Enregistrer les résultats et obtenir l’autorisation de poursuivre avant le remblaiement définitif.</li></ol>\n<div class=\"tip\"><strong>Sécurité :</strong> les essais sous pression comportent des risques importants. Personne ne doit se placer devant les bouchons, brides ou éléments susceptibles d’être projetés. Suivre la procédure approuvée et les consignes du responsable.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-4-assemblages.jpg\" alt=\"Assemblages et raccords\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Appliquer les méthodes d’assemblage prévues pour chaque matériau.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-5-essai-pression.jpg\" alt=\"Contrôle et épreuve de pression\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Suivre une procédure approuvée et baliser la zone d’essai.</figcaption></figure>"
-      },
-      {
-        "title": "Évaluation pratique et glossaire — Module 7",
-        "html": "<h4>Exercice pratique</h4><p>Sur un schéma de distribution d’eau potable, repérez la conduite principale, une vanne d’isolement, une ventouse, un point de vidange et un branchement abonné. Décrivez l’ordre de pose, les contrôles avant remblai, l’épreuve de pression et les mesures empêchant la contamination de l’eau.</p>\n<h4>Glossaire professionnel</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>AEP</td><td>Adduction d’eau potable : ouvrages et conduites qui transportent l’eau destinée à la consommation humaine.</td></tr>\n<tr><td>Conduite principale</td><td>Canalisation qui transporte l’eau dans le réseau de distribution.</td></tr>\n<tr><td>Branchement</td><td>Conduite et accessoires reliant le réseau de distribution au point de livraison d’un usager.</td></tr>\n<tr><td>PVC pression</td><td>Polychlorure de vinyle conçu pour des conduites fonctionnant sous pression.</td></tr>\n<tr><td>PEHD</td><td>Polyéthylène haute densité, matériau utilisé pour certaines conduites d’eau.</td></tr>\n<tr><td>Fonte ductile</td><td>Matériau métallique utilisé pour des conduites et accessoires de réseau.</td></tr>\n<tr><td>Fontainerie</td><td>Ensemble des appareils de commande et accessoires d’un réseau d’eau.</td></tr>\n<tr><td>Vanne d’isolement</td><td>Appareil qui permet de fermer une partie du réseau.</td></tr>\n<tr><td>Ventouse</td><td>Appareil destiné à évacuer ou admettre de l’air dans une conduite selon sa conception.</td></tr>\n<tr><td>Vidange</td><td>Dispositif permettant de vider une portion du réseau selon les prescriptions d’exploitation.</td></tr>\n<tr><td>Bouche à clé</td><td>Dispositif donnant accès à la commande d’une vanne enterrée.</td></tr>\n<tr><td>Compteur</td><td>Appareil mesurant le volume d’eau distribué.</td></tr>\n<tr><td>Pression nominale</td><td>Classe de pression définie pour caractériser un composant selon les normes applicables.</td></tr>\n<tr><td>Emboîtement</td><td>Assemblage où une extrémité de tuyau s’insère dans une emboîture compatible.</td></tr>\n<tr><td>Électrosoudage</td><td>Assemblage de pièces compatibles en PE au moyen d’un raccord chauffant électrique.</td></tr>\n<tr><td>Butée</td><td>Dispositif ou massif conçu pour reprendre certains efforts de poussée dans une conduite.</td></tr>\n<tr><td>Épreuve de pression</td><td>Essai réalisé selon une procédure afin de vérifier le comportement et l’étanchéité du réseau.</td></tr>\n<tr><td>Rinçage</td><td>Opération visant à évacuer les débris et l’eau de chantier avant la mise en service.</td></tr>\n<tr><td>Désinfection</td><td>Traitement réalisé selon une procédure sanitaire approuvée avant la distribution d’eau potable.</td></tr>\n<tr><td>Récolement</td><td>Documents et plans décrivant l’ouvrage réellement exécuté.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez aux cinq questions du quiz pour vérifier les matériaux, les appareils de fontainerie, les branchements et les contrôles d’un réseau AEP.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-7-hygiene-reseau.jpg\" alt=\"Préserver la qualité de l’eau\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Protéger les conduites et appliquer les procédures sanitaires requises.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module7/visuel-8-recolement.jpg\" alt=\"Repérage et récolement\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Consigner les contrôles et le réseau réellement posé.</figcaption></figure>"
+        "title": "Branchements AEP",
+        "html": "\n          <ul>\n            <li>Réaliser les différents types de branchements</li>\n            <li>Respecter distances et profondeurs</li>\n            <li>Assurer l’étanchéité parfaite</li>\n          </ul>\n        "
       }
     ],
     "quiz": [
@@ -567,27 +519,19 @@ const MODULES = [
     "id": "m08",
     "title": "8. Essais, mise en service & Qualité",
     "icon": "✅",
-    "short": "Réaliser les contrôles de conformité, les essais d’étanchéité et de pression, le rinçage, la désinfection et la réception des réseaux",
+    "short": "Rinçage, désinfection, essais de pression, contrôles",
     "content": [
       {
-        "title": "Préparer les essais et la mise en service",
-        "html": "<p><strong>Objectif :</strong> vérifier que le réseau construit est conforme au projet, sûr à exploiter et prêt à être réceptionné avant toute mise en service.</p>\n<h4>Contrôles préalables</h4><ol><li>Vérifier que les travaux sont terminés et que les conduites, raccords, vannes, regards et accessoires sont posés conformément aux plans.</li><li>Contrôler visuellement les assemblages, les supports, les butées et les protections prévues.</li><li>Confirmer que les documents de pose, fiches de contrôle et plans de récolement sont disponibles.</li><li>Définir la procédure d’essai, les équipements de mesure, les limites d’acceptation et les responsabilités.</li><li>Baliser la zone et informer les personnes concernées ; vérifier les ancrages et dispositifs de retenue avant tout essai sous pression.</li></ol>\n<h4>Préparer le réseau d’eau potable</h4><ul><li>Vérifier que les matériaux et composants sont adaptés au contact avec l’eau potable.</li><li>Rincer le réseau selon la procédure de l’exploitant afin d’évacuer les débris de chantier.</li><li>Réaliser la désinfection selon un protocole approuvé, puis le rinçage prévu.</li><li>Effectuer les prélèvements et analyses requis par les prescriptions sanitaires et l’exploitant.</li><li>Ne pas distribuer l’eau avant la validation formelle des contrôles requis.</li></ul>\n<div class=\"tip\"><strong>Important :</strong> les pressions, durées d’essai, concentrations, temps de contact et critères d’acceptation doivent provenir du projet, de la procédure approuvée et des exigences applicables. Ils ne doivent pas être improvisés.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-1-preparation-essais.jpg\" alt=\"Préparation des essais\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier les équipements, les obturations et les documents avant de commencer les essais.</figcaption></figure>"
+        "title": "Avant la mise en service",
+        "html": "\n          <p>Un réseau d’eau potable ne peut être mis en service qu’après :</p>\n          <ul class=\"checklist\">\n            <li>Rinçage abondant</li>\n            <li>Désinfection (chloration selon protocole)</li>\n            <li>Essai d’étanchéité / essai de pression</li>\n            <li>Contrôles et analyses d’eau si nécessaire</li>\n          </ul>\n          <div class=\"tip\"><strong>Règle d’or :</strong> Ne jamais mettre en service un réseau d’eau potable sans validation des essais.</div>\n        "
       },
       {
-        "title": "Essais des réseaux d’eau potable et d’assainissement",
-        "html": "<p>Les méthodes d’essai varient selon le type de réseau, le matériau, le diamètre et le cahier des charges. L’essai doit être conduit par du personnel compétent avec des instruments vérifiés.</p>\n<h4>Réseaux d’eau potable</h4><ul><li><strong>Épreuve de pression :</strong> contrôler le comportement de la conduite et rechercher les fuites selon une procédure définie.</li><li><strong>Inspection des raccords :</strong> examiner les assemblages, vannes, brides, bouchons et dispositifs de retenue.</li><li><strong>Rinçage et désinfection :</strong> appliquer les étapes validées par l’exploitant et les prescriptions sanitaires.</li><li><strong>Contrôle de qualité de l’eau :</strong> réaliser les analyses demandées avant autorisation de distribution.</li></ul>\n<h4>Réseaux d’assainissement</h4><ul><li><strong>Essai d’étanchéité à l’eau ou à l’air :</strong> utiliser la méthode autorisée pour le réseau concerné.</li><li><strong>Inspection télévisée (ITV) :</strong> observer l’intérieur de la conduite lorsque le marché ou le plan de contrôle le prévoit.</li><li><strong>Contrôle géométrique :</strong> vérifier pente, alignement, raccordements, absence d’obstruction et état des regards.</li><li><strong>Contrôle des écoulements :</strong> confirmer le fonctionnement selon le protocole de réception.</li></ul>\n<h4>Sécurité des essais</h4><ul><li>Délimiter une zone d’exclusion autour des bouchons, brides et équipements susceptibles d’être projetés.</li><li>Ne jamais serrer, démonter ou réparer un raccord sous pression ; isoler et dépressuriser avant intervention.</li><li>Arrêter l’essai en cas de mouvement, fuite importante, bruit anormal ou déformation.</li><li>Dépressuriser et évacuer l’eau de façon contrôlée avant toute intervention.</li></ul>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-2-essai-pression.jpg\" alt=\"Essai de pression\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Contrôler la pression selon la procédure approuvée et les critères du projet.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-3-controle-etancheite.jpg\" alt=\"Contrôle d’étanchéité\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Inspecter les joints et raccords et rechercher les fuites selon la méthode prescrite.</figcaption></figure>"
+        "title": "Essais sur réseaux d’assainissement",
+        "html": "\n          <ul>\n            <li>Contrôle d’étanchéité (air ou eau)</li>\n            <li>Inspection télévisée (ITV) sur certains marchés</li>\n            <li>Vérification des pentes et des raccordements</li>\n          </ul>\n        "
       },
       {
-        "title": "Contrôle qualité, non-conformités et traçabilité",
-        "html": "<p>La qualité se vérifie par des contrôles documentés pendant les travaux et lors de la réception. Toute anomalie doit être signalée et corrigée selon une décision validée.</p>\n<h4>Points de contrôle</h4><table><thead><tr><th>Contrôle</th><th>Éléments à vérifier</th><th>Preuve possible</th></tr></thead><tbody><tr><td>Conformité de pose</td><td>Tracé, niveaux, pente, matériaux et accessoires.</td><td>Fiche de contrôle, mesures et photos.</td></tr><tr><td>Assemblages</td><td>État des joints, emboîtements, brides ou soudures.</td><td>Fiche de pose et inspection visuelle.</td></tr><tr><td>Essais</td><td>Méthode, instruments, résultats et critères d’acceptation.</td><td>Procès-verbal d’essai signé.</td></tr><tr><td>Hygiène AEP</td><td>Rinçage, désinfection et analyses requises.</td><td>Fiche sanitaire et résultats d’analyse.</td></tr><tr><td>Récolement</td><td>Position réelle des conduites, vannes, regards et branchements.</td><td>Plans de récolement et repérage.</td></tr></tbody></table>\n<h4>Traiter une non-conformité</h4><ol><li>Identifier précisément le défaut et sécuriser la zone si nécessaire.</li><li>Informer le responsable et consigner le constat.</li><li>Définir une correction autorisée, sans masquer le défaut par le remblai ou la mise en service.</li><li>Réaliser la correction et répéter les contrôles concernés.</li><li>Archiver les résultats et obtenir la validation avant de poursuivre.</li></ol>\n<h4>Documents de réception</h4><ul><li>Fiches de contrôle et de pose.</li><li>Procès-verbaux des essais et mesures.</li><li>Résultats d’analyses d’eau, lorsqu’ils sont requis.</li><li>Photos des points singuliers avant remblai et plans de récolement.</li><li>Liste des réserves, corrections et validation finale.</li></ul>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-4-rincage-reseau.jpg\" alt=\"Rinçage du réseau\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Évacuer les impuretés avant les contrôles sanitaires et la mise en service.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-5-desinfection-reseau.jpg\" alt=\"Désinfection du réseau\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Appliquer uniquement un protocole sanitaire approuvé par l’exploitant.</figcaption></figure>"
-      },
-      {
-        "title": "Réception et mise en service : démarche pratique",
-        "html": "<h4>Étapes de réception</h4><ol><li>Vérifier la complétude des travaux et la conformité aux plans et prescriptions.</li><li>Examiner les résultats des essais et des contrôles de qualité.</li><li>Confirmer que les défauts et non-conformités ont été corrigés et contrôlés à nouveau.</li><li>Vérifier les plans de récolement, le repérage des vannes et la documentation destinée à l’exploitant.</li><li>Obtenir l’accord formel de la personne ou de l’organisme responsable avant la mise en service.</li><li>Informer l’équipe d’exploitation des particularités du réseau, des organes d’isolement et des opérations de maintenance prévues.</li></ol>\n<h4>Exercice pratique</h4><p>Sur un exemple de réseau neuf, établissez une liste de vérification avant réception : inspection visuelle, essai d’étanchéité ou de pression, rinçage et désinfection AEP si requis, résultats, correction des défauts et documents à remettre.</p>\n<div class=\"tip\"><strong>Règle d’or :</strong> aucun résultat ne doit être déclaré conforme sans mesure ou preuve adaptée, et aucun réseau d’eau potable ne doit être mis en service avant les validations requises.</div>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-6-controles-qualite.jpg\" alt=\"Contrôles de qualité de l’eau\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier les paramètres requis avant autorisation de distribution.</figcaption></figure>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-7-mise-en-service.jpg\" alt=\"Mise en service\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Ouvrir progressivement les organes selon la procédure validée.</figcaption></figure>"
-      },
-      {
-        "title": "Glossaire professionnel — Module 8",
-        "html": "<h4>Glossaire</h4><table><thead><tr><th>Terme</th><th>Définition</th></tr></thead><tbody>\n<tr><td>Essai de pression</td><td>Essai réalisé selon une procédure pour vérifier le comportement et l’étanchéité d’une conduite sous pression.</td></tr>\n<tr><td>Étanchéité</td><td>Capacité d’un réseau ou d’un assemblage à empêcher les fuites indésirables.</td></tr>\n<tr><td>Rinçage</td><td>Opération destinée à évacuer les débris et l’eau résiduelle de chantier.</td></tr>\n<tr><td>Désinfection</td><td>Traitement visant à réduire les microorganismes selon un protocole sanitaire approuvé.</td></tr>\n<tr><td>Prélèvement</td><td>Collecte d’un échantillon pour analyse selon une méthode définie.</td></tr>\n<tr><td>Analyse d’eau</td><td>Examen de paramètres de qualité de l’eau par une méthode adaptée.</td></tr>\n<tr><td>ITV</td><td>Inspection télévisée de l’intérieur d’une canalisation à l’aide d’un équipement vidéo.</td></tr>\n<tr><td>Non-conformité</td><td>Écart entre l’ouvrage ou le résultat observé et une exigence définie.</td></tr>\n<tr><td>Traçabilité</td><td>Capacité à retrouver les informations, contrôles et décisions liés à l’ouvrage.</td></tr>\n<tr><td>Procès-verbal d’essai</td><td>Document qui consigne la méthode, les conditions et les résultats d’un essai.</td></tr>\n<tr><td>Critère d’acceptation</td><td>Condition définie permettant de décider si un résultat est conforme.</td></tr>\n<tr><td>Instrument de mesure</td><td>Appareil utilisé pour mesurer une grandeur lors d’un contrôle ou d’un essai.</td></tr>\n<tr><td>Étalonnage</td><td>Opération qui établit la relation entre les indications d’un instrument et des références connues.</td></tr>\n<tr><td>Réception</td><td>Étape de vérification et d’acceptation de l’ouvrage selon les modalités du contrat.</td></tr>\n<tr><td>Réserve</td><td>Défaut ou point restant à corriger ou clarifier lors de la réception.</td></tr>\n<tr><td>Récolement</td><td>Plans et documents représentant l’ouvrage tel qu’il a réellement été exécuté.</td></tr>\n<tr><td>Mise en service</td><td>Autorisation et opérations nécessaires pour mettre un réseau en exploitation.</td></tr>\n<tr><td>Zone d’exclusion</td><td>Zone interdite aux personnes non concernées pendant une opération à risque.</td></tr>\n<tr><td>Rinçage final</td><td>Rinçage réalisé après traitement selon les exigences applicables avant validation.</td></tr>\n<tr><td>Contrôle qualité</td><td>Vérification documentée que les travaux et résultats respectent les exigences spécifiées.</td></tr>\n</tbody></table>\n<h4>QCM de validation</h4><p>Répondez aux cinq questions du quiz pour vérifier votre compréhension des essais, de l’hygiène, de la traçabilité et de la réception des réseaux.</p>\n<figure class=\"module-visual\" style=\"margin:18px 0;text-align:center\"><img src=\"assets/images/module8/visuel-8-reception-ouvrages.jpg\" alt=\"Réception des ouvrages\" loading=\"lazy\" style=\"display:block;width:100%;max-width:760px;height:auto;object-fit:contain;object-position:center;margin:0 auto;border-radius:8px;box-sizing:border-box\"><figcaption style=\"font-size:.9em;color:#536273;margin-top:7px\">Vérifier les documents, les résultats et la conformité avant réception.</figcaption></figure>"
+        "title": "Qualité et traçabilité",
+        "html": "\n          <ul>\n            <li>Renseigner les fiches de pose et les plans de récolement</li>\n            <li>Photographier les points particuliers avant remblai</li>\n            <li>Signaler tout écart par rapport aux plans</li>\n          </ul>\n        "
       }
     ],
     "quiz": [
@@ -647,168 +591,403 @@ const MODULES = [
 
 const QUIZ_QUESTIONS = [
   {
-    "q": "Quel est le rôle principal du canalisateur ?",
+    "q": "Dans quels types de réseaux intervient principalement le canalisateur ?",
     "answers": [
-      "Installer uniquement des équipements électriques",
-      "Poser, raccorder et entretenir des réseaux de canalisations",
-      "Construire uniquement des bâtiments",
-      "Effectuer uniquement des analyses en laboratoire"
+      "Uniquement plomberie intérieure",
+      "Assainissement et adduction d’eau potable",
+      "Uniquement électricité",
+      "Uniquement voirie sèche"
     ],
-    "correct": 1,
-    "explanation": "Le canalisateur réalise et entretient des réseaux d’eau potable et d’assainissement selon les plans et prescriptions du chantier."
+    "correct": 1
   },
   {
-    "q": "Quelle différence existe entre un danger et un risque ?",
+    "q": "Sous la responsabilité de qui travaille généralement le canalisateur ?",
     "answers": [
-      "Le danger peut provoquer un dommage ; le risque correspond à la possibilité que ce dommage survienne",
-      "Le danger et le risque sont toujours identiques",
-      "Le risque est un équipement de protection",
-      "Le danger ne concerne que les machines"
+      "Du maire",
+      "Du chef de chantier",
+      "Du client final uniquement",
+      "De l’architecte"
     ],
-    "correct": 0,
-    "explanation": "Un danger est une source potentielle de dommage. Le risque dépend notamment de l’exposition et de la possibilité que le dommage se produise."
+    "correct": 1
   },
   {
-    "q": "Que faut-il faire avant de creuser près de réseaux enterrés ?",
+    "q": "Combien de blocs de compétences composent le Titre Professionnel Canalisateur ?",
     "answers": [
-      "Commencer rapidement à la pelle mécanique",
-      "Se fier uniquement à son expérience",
-      "Consulter les informations disponibles, repérer les réseaux et appliquer la procédure de sécurité",
-      "Supposer que les réseaux sont toujours profonds"
+      "2",
+      "3",
+      "4",
+      "5"
     ],
-    "correct": 2,
-    "explanation": "Le repérage préalable et les procédures adaptées limitent les risques d’endommager les réseaux et de provoquer un accident."
+    "correct": 1
   },
   {
-    "q": "Quel document représente le profil du réseau avec les niveaux et les pentes ?",
+    "q": "Le métier de canalisateur s’exerce principalement :",
     "answers": [
-      "Le bon de livraison",
+      "En intérieur uniquement",
+      "En extérieur, sur chantier",
+      "Derrière un bureau",
+      "En laboratoire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel niveau correspond au Titre Professionnel Canalisateur ?",
+    "answers": [
+      "Niveau 2",
+      "Niveau 3 (CAP/BEP)",
+      "Niveau 5 (BTS)",
+      "Niveau 6"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie AIPR ?",
+    "answers": [
+      "Autorisation d’Intervention à Proximité des Réseaux",
+      "Attestation d’Installation de Protections Rapides",
+      "Autorisation Interne de Pose de Réseaux",
+      "Accréditation d’Intervention sur Parcelles Rurales"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "À partir de quelle profondeur un blindage de tranchée est-il généralement obligatoire ?",
+    "answers": [
+      "0,80 m",
+      "1,30 m",
+      "2,00 m",
+      "3,00 m"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie CACES ?",
+    "answers": [
+      "Certificat d’Aptitude à la Conduite En Sécurité",
+      "Contrôle Annuel de Conformité des Engins",
+      "Carte d’Aptitude à la Conduite des Engins de Sol",
+      "Certificat d’Autorisation de Conduite des Engins Spéciaux"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Quel est le danger n°1 en tranchée ?",
+    "answers": [
+      "Le bruit",
+      "L’éboulement",
+      "La pluie",
+      "La chaleur"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Parmi ces EPI, lequel est indispensable sur un chantier de canalisation ?",
+    "answers": [
+      "Casque et chaussures de sécurité",
+      "Cravate",
+      "Sandales",
+      "Short uniquement"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Quel document doit être consulté avant d’ouvrir le sol ?",
+    "answers": [
+      "Le plan de prévention uniquement",
+      "Le DIC (Déclaration d’Intention de Commencement de travaux)",
+      "Le registre du personnel",
+      "Le bon de commande des tuyaux"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel outil est particulièrement utile pour contrôler la pente ?",
+    "answers": [
+      "Un simple mètre ruban",
+      "Un niveau laser ou optique",
+      "Une équerre de maçon",
+      "Un dynamomètre"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie implanter un réseau ?",
+    "answers": [
+      "Le peindre en couleur",
+      "Repérer et tracer sa position au sol selon les plans",
+      "Le détruire",
+      "Le photographier uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi vérifier la concordance plans / terrain ?",
+    "answers": [
+      "Par habitude",
+      "Pour éviter les erreurs d’implantation et les conflits de réseaux",
+      "Pour gagner du temps uniquement",
+      "Ce n’est pas nécessaire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Parmi ces documents, lequel décrit le profil en altitude du réseau ?",
+    "answers": [
       "Le profil en long",
-      "Le registre des présences",
-      "Le plan de congés"
+      "Le registre du personnel",
+      "Le planning des congés",
+      "Le catalogue fournisseur"
     ],
-    "correct": 1,
-    "explanation": "Le profil en long représente l’évolution des altitudes du réseau et permet notamment de vérifier les pentes et les niveaux prévus."
+    "correct": 0
   },
   {
-    "q": "Comment calcule-t-on une pente en pourcentage ?",
+    "q": "Quelle couche se place directement sous et autour de la canalisation ?",
     "answers": [
-      "Longueur ÷ dénivelé × 100",
-      "Dénivelé × longueur",
-      "Dénivelé ÷ longueur × 100",
-      "Dénivelé + longueur"
+      "Le remblai final",
+      "Le lit de pose / enrobage",
+      "La couche de forme",
+      "Le géotextile seul"
     ],
-    "correct": 2,
-    "explanation": "La pente en pourcentage est égale à la différence de niveau divisée par la distance horizontale, multipliée par 100. Les unités doivent être identiques."
+    "correct": 1
   },
   {
-    "q": "Quel est le rôle du lit de pose sous une canalisation ?",
+    "q": "Quelle est une cause fréquente de tassements ultérieurs ?",
     "answers": [
-      "Soutenir la conduite de façon régulière conformément aux prescriptions",
-      "Remplacer tous les joints",
-      "Augmenter systématiquement le diamètre du tuyau",
-      "Servir uniquement de signalisation"
+      "Un compactage insuffisant du remblai",
+      "Une pente trop forte",
+      "L’utilisation de PVC",
+      "La présence d’un regard"
     ],
-    "correct": 0,
-    "explanation": "Un lit de pose correctement préparé soutient la conduite et contribue à éviter les appuis ponctuels et les déformations."
+    "correct": 0
   },
   {
-    "q": "Pourquoi compacter le remblai par couches successives ?",
+    "q": "Pourquoi organiser le balisage et la signalisation ?",
     "answers": [
-      "Pour éviter tout contrôle du chantier",
-      "Pour augmenter la profondeur de la tranchée",
-      "Pour supprimer le besoin de lit de pose",
-      "Pour obtenir une compacité adaptée et limiter les tassements ultérieurs"
+      "Pour faire joli",
+      "Pour la sécurité des travailleurs et des usagers",
+      "Ce n’est pas obligatoire",
+      "Uniquement pour les photos"
     ],
-    "correct": 3,
-    "explanation": "Le compactage par couches permet d’obtenir une densité plus régulière et de réduire le risque de tassement du terrain."
+    "correct": 1
   },
   {
-    "q": "Quel contrôle est essentiel lors de la pose d’une canalisation gravitaire d’assainissement ?",
+    "q": "Que doit-on contrôler sur le fond de fouille ?",
     "answers": [
-      "La couleur extérieure uniquement",
-      "L’alignement, la pente et les niveaux",
-      "La température de l’air uniquement",
-      "La marque des engins de chantier"
+      "Uniquement la couleur du sol",
+      "Stabilité, profondeur, largeur et pente",
+      "Uniquement la largeur",
+      "Rien de particulier"
     ],
-    "correct": 1,
-    "explanation": "L’alignement, la pente et les niveaux assurent l’écoulement prévu et limitent les contre-pentes et les dépôts."
+    "correct": 1
   },
   {
-    "q": "À quoi sert principalement un regard de visite ?",
+    "q": "Les couches de remblai doivent être compactées :",
     "answers": [
-      "À augmenter la pression de l’eau",
-      "À filtrer systématiquement toutes les eaux usées",
-      "À permettre l’inspection et l’entretien du réseau",
-      "À remplacer les canalisations"
+      "Une seule fois à la fin",
+      "À chaque couche successive",
+      "Jamais",
+      "Uniquement s’il pleut"
     ],
-    "correct": 2,
-    "explanation": "Le regard permet l’accès au réseau pour les inspections et les opérations d’entretien prévues."
+    "correct": 1
   },
   {
-    "q": "Que signifie l’abréviation AEP ?",
+    "q": "Que se passe-t-il si la pente d’un réseau gravitaire est trop faible ?",
     "answers": [
-      "Adduction d’eau potable",
-      "Aménagement électrique public",
-      "Assainissement des eaux pluviales",
-      "Appareil d’évacuation de pression"
+      "Le débit devient trop important",
+      "Des dépôts se forment dans la canalisation",
+      "La pression augmente dangereusement",
+      "Les joints se desserrent"
     ],
-    "correct": 0,
-    "explanation": "AEP signifie adduction d’eau potable : les ouvrages et conduites qui transportent l’eau destinée à la consommation humaine."
+    "correct": 1
   },
   {
-    "q": "Quel matériau est généralement flexible et utilisé pour certaines conduites d’eau potable ?",
+    "q": "Dans quel sens doit-on poser les tuyaux à emboîtement ?",
     "answers": [
-      "Le béton armé",
-      "La brique",
-      "Le bois brut",
-      "Le PEHD (polyéthylène haute densité)"
+      "Dans n’importe quel sens",
+      "Dans le sens de l’écoulement",
+      "Contre le sens de l’écoulement",
+      "Verticalement uniquement"
     ],
-    "correct": 3,
-    "explanation": "Le PEHD est un matériau thermoplastique flexible, utilisé dans certains réseaux d’eau potable selon le diamètre, la pression et les prescriptions du projet."
+    "correct": 1
   },
   {
-    "q": "Quel est le rôle d’une vanne d’isolement sur un réseau AEP ?",
+    "q": "Quel matériau est particulièrement léger et économique en assainissement ?",
     "answers": [
-      "Mesurer la pente de la conduite",
-      "Permettre de fermer une portion du réseau",
-      "Désinfecter automatiquement l’eau",
-      "Remplacer le compteur"
+      "Fonte",
+      "PVC",
+      "Béton armé uniquement",
+      "Acier"
     ],
-    "correct": 1,
-    "explanation": "La vanne permet d’interrompre l’écoulement sur une partie du réseau pour une intervention ou une opération d’exploitation."
+    "correct": 1
   },
   {
-    "q": "Pourquoi effectuer un essai de pression sur une conduite d’eau potable ?",
+    "q": "Pourquoi contrôler l’alignement et la pente pendant la pose ?",
     "answers": [
-      "Pour déterminer la couleur du tuyau",
-      "Pour nettoyer les outils",
-      "Pour vérifier le comportement et l’étanchéité selon une procédure approuvée",
-      "Pour remplacer le contrôle des assemblages"
+      "Pour l’esthétique",
+      "Pour assurer un bon écoulement et éviter les contre-pentes",
+      "Ce n’est pas important",
+      "Uniquement pour les photos"
     ],
-    "correct": 2,
-    "explanation": "L’essai vérifie le comportement du réseau selon des critères définis. Il doit être conduit avec du matériel adapté et une zone de sécurité."
+    "correct": 1
   },
   {
-    "q": "Pourquoi rincer et, lorsque la procédure l’exige, désinfecter un réseau d’eau potable avant sa mise en service ?",
+    "q": "Les joints doivent être protégés pendant :",
     "answers": [
-      "Pour éliminer les débris et satisfaire aux exigences sanitaires",
-      "Pour augmenter le diamètre des conduites",
-      "Pour éviter de contrôler la qualité de l’eau",
-      "Pour remplacer tous les essais de pression"
+      "Le transport uniquement",
+      "Le remblai",
+      "La peinture",
+      "Le stockage en magasin uniquement"
     ],
-    "correct": 0,
-    "explanation": "Le rinçage évacue les débris. La désinfection et les contrôles sanitaires doivent suivre le protocole applicable ; la mise en service attend les validations requises."
+    "correct": 1
   },
   {
-    "q": "À quoi servent les plans de récolement ?",
+    "q": "Quel est le rôle principal d’un regard de visite ?",
     "answers": [
-      "À remplacer les consignes de sécurité",
-      "À prévoir les congés du personnel",
-      "À commander automatiquement les matériaux",
-      "À documenter l’emplacement et la configuration de l’ouvrage réellement exécuté"
+      "Augmenter la pression",
+      "Permettre l’accès pour inspection et curage",
+      "Filtrer les eaux usées",
+      "Mesurer le débit en continu"
     ],
-    "correct": 3,
-    "explanation": "Les plans de récolement décrivent l’ouvrage tel qu’il a été construit et facilitent son exploitation et son entretien."
+    "correct": 1
+  },
+  {
+    "q": "Que désigne la « cunette » dans un regard ?",
+    "answers": [
+      "Le tampon de fermeture",
+      "Le fond façonné pour guider l’écoulement",
+      "La paroi latérale",
+      "Le système de ventilation"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Où place-t-on généralement les regards de visite ?",
+    "answers": [
+      "Uniquement en bout de réseau",
+      "Aux changements de direction, de pente ou de diamètre",
+      "Au hasard",
+      "Uniquement sous les maisons"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi cartographier les branchements particuliers ?",
+    "answers": [
+      "Pour la décoration",
+      "Pour faciliter l’entretien et les interventions futures",
+      "Ce n’est pas utile",
+      "Uniquement pour la facturation"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Le tampon de regard doit être choisi selon :",
+    "answers": [
+      "La couleur du sol",
+      "La classe de circulation (voiture, poids lourd…)",
+      "Le goût du client uniquement",
+      "La météo"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Quel matériau est particulièrement adapté aux zones difficiles grâce à sa flexibilité ?",
+    "answers": [
+      "PVC",
+      "Fonte ductile",
+      "PeHD",
+      "Béton"
+    ],
+    "correct": 2
+  },
+  {
+    "q": "Que signifie AEP ?",
+    "answers": [
+      "Assainissement des Eaux Pluviales",
+      "Adduction d’Eau Potable",
+      "Association des Entreprises de Plomberie",
+      "Appareillage Électrique de Protection"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi protéger les appareillages de fontainerie contre le gel ?",
+    "answers": [
+      "Pour l’esthétique",
+      "Pour éviter les ruptures et dysfonctionnements",
+      "Ce n’est pas nécessaire au Sénégal",
+      "Uniquement en hiver en Europe"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "La fonte ductile est surtout utilisée pour :",
+    "answers": [
+      "Les réseaux secondaires uniquement",
+      "Les réseaux principaux (robustesse)",
+      "Les branchements intérieurs uniquement",
+      "Les regards uniquement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Sur un branchement AEP, l’étanchéité doit être :",
+    "answers": [
+      "Approximative",
+      "Parfaite",
+      "Optionnelle",
+      "Vérifiée uniquement après 1 an"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Avant la mise en service d’un réseau d’eau potable, que doit-on faire ?",
+    "answers": [
+      "Uniquement un rinçage",
+      "Rinçage, désinfection et essais de pression",
+      "Un simple contrôle visuel",
+      "Ouvrir toutes les vannes immédiatement"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Pourquoi réaliser un essai de pression ?",
+    "answers": [
+      "Pour décorer le chantier",
+      "Pour vérifier l’étanchéité du réseau",
+      "Pour mesurer la température de l’eau",
+      "Ce n’est jamais obligatoire"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Que signifie ITV dans le contexte des réseaux ?",
+    "answers": [
+      "Inspection Télévisée",
+      "Intervention Technique Visuelle",
+      "Institut Technique de la Voirie",
+      "Installation de Tuyaux Verticaux"
+    ],
+    "correct": 0
+  },
+  {
+    "q": "Les plans de récolement servent à :",
+    "answers": [
+      "Planifier les congés",
+      "Documenter l’ouvrage tel qu’il a été réalisé",
+      "Commander les matériaux",
+      "Remplacer les plans d’exécution dès le début"
+    ],
+    "correct": 1
+  },
+  {
+    "q": "Peut-on mettre en service un réseau d’eau potable sans essais validés ?",
+    "answers": [
+      "Oui, toujours",
+      "Non, jamais",
+      "Seulement le week-end",
+      "Uniquement pour les petits diamètres"
+    ],
+    "correct": 1
   }
 ];

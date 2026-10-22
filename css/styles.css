@@ -902,3 +902,84 @@ body {
   border-radius: 4px;
   vertical-align: middle;
 }
+
+
+/* Attestation — N° et cachet président */
+.cert-num {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary, #1b5e20);
+  letter-spacing: 0.03em;
+}
+.cert-birth {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+.cert-signatures {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem 0.5rem;
+}
+.cert-sign-block {
+  text-align: center;
+  min-width: 160px;
+}
+.cert-stamp {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 0.5rem;
+  border: 3px solid #c62828;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c62828;
+  transform: rotate(-8deg);
+  opacity: 0.9;
+  background: rgba(198, 40, 40, 0.04);
+}
+.stamp-org {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.stamp-line {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 0.25rem;
+  max-width: 90px;
+}
+.sign-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.sign-org {
+  font-size: 0.8rem;
+  color: #546e7a;
+  margin: 0.15rem 0 0;
+}
+@media print {
+  .cert-stamp { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+
+.cert-stamp-img {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 0.35rem;
+  object-fit: contain;
+}
+@media print {
+  .cert-stamp-img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
