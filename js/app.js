@@ -757,9 +757,10 @@ function updateAttestationScreen() {
 
 function buildCertNumber() {
   const y = new Date().getFullYear();
-  const uid = (state.userId || "0000").replace(/-/g, "").slice(0, 6).toUpperCase();
+  const uid = (state.userId || state.email || "GUEST").toString().replace(/-/g, "").replace(/@.*/g, "").slice(0, 6).toUpperCase() || "GUEST";
   const score = String(state.bestScore || 0).padStart(2, "0");
-  return "ECO-SUD-" + y + "-" + uid + "-" + score;
+  const mods = String((state.completedModules || []).length).padStart(1, "0");
+  return "ECO-SUD-" + y + "-" + uid + "-M" + mods + "-Q" + score;
 }
 
 function fillCertificateFields() {
@@ -779,6 +780,8 @@ function fillCertificateFields() {
   if (bd) bd.textContent = birthDateFmt;
   const bp = document.getElementById("cert-birth-place");
   if (bp) bp.textContent = birthPlace || "—";
+  const modEl = document.getElementById("cert-modules");
+  if (modEl) modEl.textContent = String((state.completedModules || []).length);
   const scoreEl = document.getElementById("cert-score");
   if (scoreEl) scoreEl.textContent = state.bestScore + " / " + QUIZ_TOTAL;
   const dateEl = document.getElementById("cert-date");
