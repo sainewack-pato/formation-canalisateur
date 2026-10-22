@@ -682,7 +682,19 @@ function updateAttestationScreen() {
     const name = state.userName || "";
     const nameInput = document.getElementById("user-name");
     if (nameInput) nameInput.value = name;
+    const profile = getCertificateProfile();
+    const birthDateInput = document.getElementById("user-birth-date");
+    const birthPlaceInput = document.getElementById("user-birth-place");
+    const issuePlaceInput = document.getElementById("user-issue-place");
+    if (birthDateInput && !birthDateInput.value) birthDateInput.value = profile.birthDate || "";
+    if (birthPlaceInput && !birthPlaceInput.value) birthPlaceInput.value = profile.birthPlace || "";
+    if (issuePlaceInput && profile.issuePlace) issuePlaceInput.value = profile.issuePlace;
     document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
+    document.getElementById("cert-modules").textContent = state.completedModules.length;
+    document.getElementById("cert-number").textContent = getCertificateNumber();
+    document.getElementById("cert-birth-date").textContent = formatBirthDate(profile.birthDate);
+    document.getElementById("cert-birth-place").textContent = profile.birthPlace || "—";
+    document.getElementById("cert-issue-place").textContent = profile.issuePlace || "Ziguinchor";
     document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
       day: "numeric", month: "long", year: "numeric"
     });
@@ -700,13 +712,51 @@ function updateAttestationScreen() {
   }
 }
 
+function certificateStorageKey() {
+  return "i2ds_certificate_profile_" + (state.userId || state.email || "local");
+}
+function getCertificateProfile() {
+  try { return JSON.parse(localStorage.getItem(certificateStorageKey()) || "{}"); }
+  catch (_) { return {}; }
+}
+function getCertificateNumber() {
+  const key = "i2ds_certificate_number_" + (state.userId || state.email || "local");
+  let number = "";
+  try { number = localStorage.getItem(key) || ""; } catch (_) {}
+  if (!number) {
+    const identity = String(state.userId || state.email || "apprenant").replace(/[^a-z0-9]/gi, "").toUpperCase();
+    const suffix = identity.slice(-8).padStart(8, "0");
+    number = "I2DS-" + new Date().getFullYear() + "-" + suffix;
+    try { localStorage.setItem(key, number); } catch (_) {}
+  }
+  return number;
+}
+function formatBirthDate(value) {
+  if (!value) return "—";
+  const d = new Date(value + "T12:00:00");
+  return Number.isNaN(d.getTime()) ? value : d.toLocaleDateString("fr-FR", {day:"numeric",month:"long",year:"numeric"});
+}
 async function generateCertificate() {
   const name = document.getElementById("user-name").value.trim();
-  if (!name) { alert("Veuillez saisir votre prénom et nom."); return; }
+  const birthDate = document.getElementById("user-birth-date").value;
+  const birthPlace = document.getElementById("user-birth-place").value.trim();
+  const issuePlace = document.getElementById("user-issue-place").value.trim() || "Ziguinchor";
+  if (!name) { alert("Veuillez saisir le prénom et le nom de l’apprenant."); return; }
+  if (!birthDate || !birthPlace) { alert("Veuillez saisir la date et le lieu de naissance."); return; }
+  if (state.completedModules.length < TOTAL_MODULES || state.bestScore < QUIZ_PASS) {
+    alert("L’attestation est disponible après validation des 8 modules et obtention d’au moins 12/15 au quiz final."); return;
+  }
   state.userName = name;
+  const profile = {birthDate, birthPlace, issuePlace};
+  try { localStorage.setItem(certificateStorageKey(), JSON.stringify(profile)); } catch (_) {}
   await saveProgressToCloud();
   document.getElementById("cert-name").textContent = name;
+  document.getElementById("cert-number").textContent = getCertificateNumber();
+  document.getElementById("cert-birth-date").textContent = formatBirthDate(birthDate);
+  document.getElementById("cert-birth-place").textContent = birthPlace;
+  document.getElementById("cert-modules").textContent = state.completedModules.length;
   document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
+  document.getElementById("cert-issue-place").textContent = issuePlace;
   document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
     day: "numeric", month: "long", year: "numeric"
   });
