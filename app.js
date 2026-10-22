@@ -399,7 +399,7 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
 });
 
 function updateHomeProgress() {
-  const done = state.completedModules.length;
+  const done = getCompletedModuleCount();
   const pct = Math.round((done / TOTAL_MODULES) * 100);
   const bar = document.getElementById("global-progress");
   const text = document.getElementById("progress-text");
@@ -427,7 +427,7 @@ function updateHomeProgress() {
 }
 
 function isFormationComplete() {
-  return state.completedModules.length >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
+  return getCompletedModuleCount() >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
 }
 
 function renderModules() {
@@ -668,12 +668,19 @@ async function finishQuiz() {
 
 function resetQuiz() { resetQuizUI(); }
 
+function getCompletedModuleCount() {
+  // Count only known module IDs, once each; ignore stale/duplicate progress entries.
+  if (!Array.isArray(state.completedModules) || !Array.isArray(MODULES)) return 0;
+  const completed = new Set(state.completedModules);
+  return MODULES.filter(module => completed.has(module.id)).length;
+}
+
 // ---------- Attestation ----------
 function updateAttestationScreen() {
   const locked = document.getElementById("attestation-locked");
   const ready = document.getElementById("attestation-ready");
   const status = document.getElementById("attestation-status");
-  const modulesOk = state.completedModules.length >= TOTAL_MODULES;
+  const modulesOk = getCompletedModuleCount() >= TOTAL_MODULES;
   const quizOk = state.bestScore >= QUIZ_PASS;
 
   if (modulesOk && quizOk) {
@@ -690,7 +697,7 @@ function updateAttestationScreen() {
     if (birthPlaceInput && !birthPlaceInput.value) birthPlaceInput.value = profile.birthPlace || "";
     if (issuePlaceInput && profile.issuePlace) issuePlaceInput.value = profile.issuePlace;
     document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-    document.getElementById("cert-modules").textContent = state.completedModules.length;
+    document.getElementById("cert-modules").textContent = getCompletedModuleCount();
     document.getElementById("cert-number").textContent = getCertificateNumber();
     document.getElementById("cert-birth-date").textContent = formatBirthDate(profile.birthDate);
     document.getElementById("cert-birth-place").textContent = profile.birthPlace || "—";
@@ -704,7 +711,7 @@ function updateAttestationScreen() {
     ready?.classList.add("hidden");
     let msg = modulesOk
       ? "✓ 8 modules validés<br>"
-      : `✗ Modules : ${state.completedModules.length}/${TOTAL_MODULES}<br>`;
+      : `✗ Modules : ${getCompletedModuleCount()}/${TOTAL_MODULES}<br>`;
     msg += quizOk
       ? `✓ Quiz final : ${state.bestScore}/15`
       : `✗ Quiz final : ${state.bestScore}/15 (min. 12)`;
@@ -743,7 +750,7 @@ async function generateCertificate() {
   const issuePlace = document.getElementById("user-issue-place").value.trim() || "Ziguinchor";
   if (!name) { alert("Veuillez saisir le prénom et le nom de l’apprenant."); return; }
   if (!birthDate || !birthPlace) { alert("Veuillez saisir la date et le lieu de naissance."); return; }
-  if (state.completedModules.length < TOTAL_MODULES || state.bestScore < QUIZ_PASS) {
+  if (getCompletedModuleCount() < TOTAL_MODULES || state.bestScore < QUIZ_PASS) {
     alert("L’attestation est disponible après validation des 8 modules et obtention d’au moins 12/15 au quiz final."); return;
   }
   state.userName = name;
@@ -754,7 +761,7 @@ async function generateCertificate() {
   document.getElementById("cert-number").textContent = getCertificateNumber();
   document.getElementById("cert-birth-date").textContent = formatBirthDate(birthDate);
   document.getElementById("cert-birth-place").textContent = birthPlace;
-  document.getElementById("cert-modules").textContent = state.completedModules.length;
+  document.getElementById("cert-modules").textContent = getCompletedModuleCount();
   document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
   document.getElementById("cert-issue-place").textContent = issuePlace;
   document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
