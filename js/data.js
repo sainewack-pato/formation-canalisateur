@@ -644,3 +644,171 @@ const MODULES = [
     ]
   }
 ];
+
+const QUIZ_QUESTIONS = [
+  {
+    "q": "Quel est le rôle principal du canalisateur ?",
+    "answers": [
+      "Installer uniquement des équipements électriques",
+      "Poser, raccorder et entretenir des réseaux de canalisations",
+      "Construire uniquement des bâtiments",
+      "Effectuer uniquement des analyses en laboratoire"
+    ],
+    "correct": 1,
+    "explanation": "Le canalisateur réalise et entretient des réseaux d’eau potable et d’assainissement selon les plans et prescriptions du chantier."
+  },
+  {
+    "q": "Quelle différence existe entre un danger et un risque ?",
+    "answers": [
+      "Le danger peut provoquer un dommage ; le risque correspond à la possibilité que ce dommage survienne",
+      "Le danger et le risque sont toujours identiques",
+      "Le risque est un équipement de protection",
+      "Le danger ne concerne que les machines"
+    ],
+    "correct": 0,
+    "explanation": "Un danger est une source potentielle de dommage. Le risque dépend notamment de l’exposition et de la possibilité que le dommage se produise."
+  },
+  {
+    "q": "Que faut-il faire avant de creuser près de réseaux enterrés ?",
+    "answers": [
+      "Commencer rapidement à la pelle mécanique",
+      "Se fier uniquement à son expérience",
+      "Consulter les informations disponibles, repérer les réseaux et appliquer la procédure de sécurité",
+      "Supposer que les réseaux sont toujours profonds"
+    ],
+    "correct": 2,
+    "explanation": "Le repérage préalable et les procédures adaptées limitent les risques d’endommager les réseaux et de provoquer un accident."
+  },
+  {
+    "q": "Quel document représente le profil du réseau avec les niveaux et les pentes ?",
+    "answers": [
+      "Le bon de livraison",
+      "Le profil en long",
+      "Le registre des présences",
+      "Le plan de congés"
+    ],
+    "correct": 1,
+    "explanation": "Le profil en long représente l’évolution des altitudes du réseau et permet notamment de vérifier les pentes et les niveaux prévus."
+  },
+  {
+    "q": "Comment calcule-t-on une pente en pourcentage ?",
+    "answers": [
+      "Longueur ÷ dénivelé × 100",
+      "Dénivelé × longueur",
+      "Dénivelé ÷ longueur × 100",
+      "Dénivelé + longueur"
+    ],
+    "correct": 2,
+    "explanation": "La pente en pourcentage est égale à la différence de niveau divisée par la distance horizontale, multipliée par 100. Les unités doivent être identiques."
+  },
+  {
+    "q": "Quel est le rôle du lit de pose sous une canalisation ?",
+    "answers": [
+      "Soutenir la conduite de façon régulière conformément aux prescriptions",
+      "Remplacer tous les joints",
+      "Augmenter systématiquement le diamètre du tuyau",
+      "Servir uniquement de signalisation"
+    ],
+    "correct": 0,
+    "explanation": "Un lit de pose correctement préparé soutient la conduite et contribue à éviter les appuis ponctuels et les déformations."
+  },
+  {
+    "q": "Pourquoi compacter le remblai par couches successives ?",
+    "answers": [
+      "Pour éviter tout contrôle du chantier",
+      "Pour augmenter la profondeur de la tranchée",
+      "Pour supprimer le besoin de lit de pose",
+      "Pour obtenir une compacité adaptée et limiter les tassements ultérieurs"
+    ],
+    "correct": 3,
+    "explanation": "Le compactage par couches permet d’obtenir une densité plus régulière et de réduire le risque de tassement du terrain."
+  },
+  {
+    "q": "Quel contrôle est essentiel lors de la pose d’une canalisation gravitaire d’assainissement ?",
+    "answers": [
+      "La couleur extérieure uniquement",
+      "L’alignement, la pente et les niveaux",
+      "La température de l’air uniquement",
+      "La marque des engins de chantier"
+    ],
+    "correct": 1,
+    "explanation": "L’alignement, la pente et les niveaux assurent l’écoulement prévu et limitent les contre-pentes et les dépôts."
+  },
+  {
+    "q": "À quoi sert principalement un regard de visite ?",
+    "answers": [
+      "À augmenter la pression de l’eau",
+      "À filtrer systématiquement toutes les eaux usées",
+      "À permettre l’inspection et l’entretien du réseau",
+      "À remplacer les canalisations"
+    ],
+    "correct": 2,
+    "explanation": "Le regard permet l’accès au réseau pour les inspections et les opérations d’entretien prévues."
+  },
+  {
+    "q": "Que signifie l’abréviation AEP ?",
+    "answers": [
+      "Adduction d’eau potable",
+      "Aménagement électrique public",
+      "Assainissement des eaux pluviales",
+      "Appareil d’évacuation de pression"
+    ],
+    "correct": 0,
+    "explanation": "AEP signifie adduction d’eau potable : les ouvrages et conduites qui transportent l’eau destinée à la consommation humaine."
+  },
+  {
+    "q": "Quel matériau est généralement flexible et utilisé pour certaines conduites d’eau potable ?",
+    "answers": [
+      "Le béton armé",
+      "La brique",
+      "Le bois brut",
+      "Le PEHD (polyéthylène haute densité)"
+    ],
+    "correct": 3,
+    "explanation": "Le PEHD est un matériau thermoplastique flexible, utilisé dans certains réseaux d’eau potable selon le diamètre, la pression et les prescriptions du projet."
+  },
+  {
+    "q": "Quel est le rôle d’une vanne d’isolement sur un réseau AEP ?",
+    "answers": [
+      "Mesurer la pente de la conduite",
+      "Permettre de fermer une portion du réseau",
+      "Désinfecter automatiquement l’eau",
+      "Remplacer le compteur"
+    ],
+    "correct": 1,
+    "explanation": "La vanne permet d’interrompre l’écoulement sur une partie du réseau pour une intervention ou une opération d’exploitation."
+  },
+  {
+    "q": "Pourquoi effectuer un essai de pression sur une conduite d’eau potable ?",
+    "answers": [
+      "Pour déterminer la couleur du tuyau",
+      "Pour nettoyer les outils",
+      "Pour vérifier le comportement et l’étanchéité selon une procédure approuvée",
+      "Pour remplacer le contrôle des assemblages"
+    ],
+    "correct": 2,
+    "explanation": "L’essai vérifie le comportement du réseau selon des critères définis. Il doit être conduit avec du matériel adapté et une zone de sécurité."
+  },
+  {
+    "q": "Pourquoi rincer et, lorsque la procédure l’exige, désinfecter un réseau d’eau potable avant sa mise en service ?",
+    "answers": [
+      "Pour éliminer les débris et satisfaire aux exigences sanitaires",
+      "Pour augmenter le diamètre des conduites",
+      "Pour éviter de contrôler la qualité de l’eau",
+      "Pour remplacer tous les essais de pression"
+    ],
+    "correct": 0,
+    "explanation": "Le rinçage évacue les débris. La désinfection et les contrôles sanitaires doivent suivre le protocole applicable ; la mise en service attend les validations requises."
+  },
+  {
+    "q": "À quoi servent les plans de récolement ?",
+    "answers": [
+      "À remplacer les consignes de sécurité",
+      "À prévoir les congés du personnel",
+      "À commander automatiquement les matériaux",
+      "À documenter l’emplacement et la configuration de l’ouvrage réellement exécuté"
+    ],
+    "correct": 3,
+    "explanation": "Les plans de récolement décrivent l’ouvrage tel qu’il a été construit et facilitent son exploitation et son entretien."
+  }
+];

@@ -684,6 +684,7 @@ function selectAnswer(index) {
   if (state.selectedAnswer !== null) return;
   state.selectedAnswer = index;
   const q = state.currentQuiz[state.currentQ];
+  q._selected = index;
   document.querySelectorAll("#answers .answer-btn").forEach((btn, i) => {
     btn.disabled = true;
     if (i === q.correct) btn.classList.add("correct");
@@ -717,6 +718,18 @@ async function finishQuiz() {
   document.getElementById("result-title").textContent = title;
   document.getElementById("result-score").textContent = `Vous avez obtenu ${score} / ${QUIZ_TOTAL}`;
   document.getElementById("result-message").textContent = message;
+  const correctionArea = document.getElementById("quiz-corrections");
+  if (correctionArea) {
+    correctionArea.innerHTML = '<h3 style="margin:1rem 0 0.5rem;">Corrections et bonnes réponses</h3>' + state.currentQuiz.map((q, i) => {
+      const selected = q.answers[state.currentQuiz[i]._selected];
+      const good = q.answers[q.correct];
+      return '<div class="card" style="margin:0.75rem 0;padding:0.9rem;">' +
+        '<p><strong>' + (i + 1) + '. ' + q.q + '</strong></p>' +
+        '<p style="margin-top:0.4rem;">Bonne réponse : <strong>' + good + '</strong></p>' +
+        '<p style="margin-top:0.35rem;font-size:0.92rem;">' + (q.explanation || '') + '</p>' +
+        '</div>';
+    }).join('');
+  }
 
   if (score > state.bestScore) {
     state.bestScore = score;
