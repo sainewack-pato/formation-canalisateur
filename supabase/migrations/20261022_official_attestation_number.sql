@@ -42,8 +42,8 @@ begin
 
   if (
     select count(distinct module_id)
-    from unnest(coalesce(v_modules, array[]::text[])) as module_id
-    where module_id = any(array['m01','m02','m03','m04','m05','m06','m07','m08']::text[])
+    from unnest(coalesce(v_modules, array[]::text[])) as completed(module_id)
+    where completed.module_id = any(array['m01','m02','m03','m04','m05','m06','m07','m08']::text[])
   ) < 8 then
     raise exception 'Les huit modules doivent être validés';
   end if;
