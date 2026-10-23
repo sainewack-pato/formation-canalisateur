@@ -780,9 +780,7 @@ function fillCertificateFields() {
   if (bd) bd.textContent = birthDateFmt;
   const bp = document.getElementById("cert-birth-place");
   if (bp) bp.textContent = birthPlace || "—";
-  const modEl = document.getElementById("cert-modules");
-  if (modEl) modEl.textContent = String((state.completedModules || []).length);
-  const scoreEl = document.getElementById("cert-score");
+const scoreEl = document.getElementById("cert-score");
   if (scoreEl) scoreEl.textContent = state.bestScore + " / " + QUIZ_TOTAL;
   const dateEl = document.getElementById("cert-date");
   if (dateEl) dateEl.textContent = new Date().toLocaleDateString("fr-FR", {
