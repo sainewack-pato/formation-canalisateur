@@ -349,13 +349,13 @@
       tbody.innerHTML = list.map(l => {
         const email = l.email || "";
         const payBtn = l.is_paid
-          ? `<button type="button" class="btn-lock" onclick="lockLearner(${JSON.stringify(email)})">Verrouiller</button>`
-          : `<button type="button" class="btn-unlock" onclick="unlockLearner(${JSON.stringify(email)})">Déverrouiller</button>`;
+          ? `<button type="button" class="btn-lock" data-email="${escapeAttr(email)}" data-action="lock">Verrouiller</button>`
+          : `<button type="button" class="btn-unlock" data-email="${escapeAttr(email)}" data-action="unlock">Déverrouiller</button>`;
         const editBtn = email
-          ? `<button type="button" class="btn-edit" onclick="editLearnerEmail(${JSON.stringify(email)})">Corriger email</button>`
+          ? `<button type="button" class="btn-edit" data-email="${escapeAttr(email)}" data-action="edit">Corriger email</button>`
           : "";
         const delBtn = email
-          ? `<button type="button" class="btn-delete" onclick="deleteLearner(${JSON.stringify(email)}, ${JSON.stringify(l.user_name || "")})">Supprimer</button>`
+          ? `<button type="button" class="btn-delete" data-email="${escapeAttr(email)}" data-name="${escapeAttr(l.user_name || "")}" data-action="delete">Supprimer</button>`
           : "";
         const action = email
           ? `<div class="actions-cell">${payBtn}${editBtn}${delBtn}</div>`
@@ -388,13 +388,34 @@
       return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
     }
 
+    function escapeAttr(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/</g, "&lt;");
+    }
+
+    // Délégation d'événements (boutons toujours actifs)
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-action]");
+      if (!btn) return;
+      const action = btn.getAttribute("data-action");
+      const email = btn.getAttribute("data-email") || "";
+      const name = btn.getAttribute("data-name") || "";
+      if (action === "unlock") unlockLearner(email);
+      else if (action === "lock") lockLearner(email);
+      else if (action === "edit") editLearnerEmail(email);
+      else if (action === "delete") deleteLearner(email, name);
+    });
+
 
     async function unlockLearner(email) {
       if (!email) { alert("Email manquant"); return; }
       if (!confirm("Déverrouiller les modules 2–8 pour\n" + email + " ?\n\nConfirmez que le paiement a été validé.")) return;
       const { error } = await sbClient
         .from("learner_progress")
-        .update({ is_paid: true, paid_at: new Date().toISOString(), updated_at: new Date().toISOString() })
+        .update({ is_paid: true, updated_at: new Date().toISOString() })
         .eq("email", email);
       if (error) {
         alert("Erreur : " + error.message);
@@ -409,7 +430,7 @@
       if (!confirm("Reverrouiller les modules 2–8 pour\n" + email + " ?")) return;
       const { error } = await sbClient
         .from("learner_progress")
-        .update({ is_paid: false, paid_at: null, updated_at: new Date().toISOString() })
+        .update({ is_paid: false, updated_at: new Date().toISOString() })
         .eq("email", email);
       if (error) {
         alert("Erreur : " + error.message);
