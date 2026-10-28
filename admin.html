@@ -133,6 +133,13 @@
       white-space: nowrap; margin-left: 0.25rem;
     }
     .btn-edit:hover { background: #bbdefb; }
+    .btn-delete {
+      background: #ffebee; color: #c62828; border: 1px solid #ef9a9a;
+      padding: 0.35rem 0.6rem; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-delete:hover { background: #ffcdd2; }
     .actions-cell { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
     @media (max-width: 600px) {
       table { font-size: 0.8rem; }
@@ -347,8 +354,11 @@
         const editBtn = email
           ? `<button type="button" class="btn-edit" onclick="editLearnerEmail(${JSON.stringify(email)})">Corriger email</button>`
           : "";
+        const delBtn = email
+          ? `<button type="button" class="btn-delete" onclick="deleteLearner(${JSON.stringify(email)}, ${JSON.stringify(l.user_name || "")})">Supprimer</button>`
+          : "";
         const action = email
-          ? `<div class="actions-cell">${payBtn}${editBtn}</div>`
+          ? `<div class="actions-cell">${payBtn}${editBtn}${delBtn}</div>`
           : "—";
         return `
         <tr>
@@ -459,6 +469,30 @@
         "\n\nImportant : l'email de connexion (Supabase Auth) n'est pas modifié automatiquement. " +
         "Si l'apprenant ne peut plus se connecter, il utilisera l'email de son compte Auth, ou vous corrigez aussi dans Authentication → Users."
       );
+      loadLearners();
+    }
+
+    async function deleteLearner(email, name) {
+      if (!email) { alert("Email manquant"); return; }
+      const label = (name ? name + " — " : "") + email;
+      if (!confirm(
+        "Supprimer définitivement cet apprenant du suivi ?\n\n" + label +
+        "\n\n• Supprime la ligne dans learner_progress (progression, paiement)." +
+        "\n• Ne supprime PAS automatiquement le compte Auth (connexion)." +
+        "\n\nCette action est irréversible."
+      )) return;
+      if (!confirm("Confirmez une seconde fois la suppression de :\n" + email)) return;
+
+      const { error } = await sbClient
+        .from("learner_progress")
+        .delete()
+        .eq("email", email);
+      if (error) {
+        alert("Erreur : " + error.message);
+        return;
+      }
+      alert("Apprenant supprimé du suivi :\n" + email +
+        "\n\nPour supprimer aussi le compte de connexion : Supabase → Authentication → Users.");
       loadLearners();
     }
 
