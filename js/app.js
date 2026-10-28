@@ -88,7 +88,30 @@ async function saveProgressToCloud() {
 }
 
 async function ensureProgressRow(user) {
-  const existing = await loadProgressFromCloud(user.id);
+  // 1) Ligne liée à ce user_id
+  let existing = await loadProgressFromCloud(user.id);
+  // 2) Sinon, chercher une ligne existante pour le même email (évite doublons)
+  if (!existing && user.email) {
+    const { data: byEmail } = await sbClient
+      .from("learner_progress")
+      .select("*")
+      .eq("email", user.email.toLowerCase())
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (byEmail) {
+      // Rattacher la progression à ce compte (même email)
+      await sbClient
+        .from("learner_progress")
+        .update({
+          user_id: user.id,
+          email: user.email.toLowerCase(),
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", byEmail.id);
+      existing = { ...byEmail, user_id: user.id, email: user.email.toLowerCase() };
+    }
+  }
   if (existing) {
     state.completedModules = existing.completed_modules || [];
     state.bestScore = existing.best_score || 0;
@@ -99,14 +122,15 @@ async function ensureProgressRow(user) {
     return;
   }
   const name = user.user_metadata?.name || state.userName || "";
-  const { error } = await sbClient.from("learner_progress").insert({
+  const { error } = await sbClient.from("learner_progress").upsert({
     user_id: user.id,
-    email: user.email,
+    email: (user.email || "").toLowerCase(),
     user_name: name,
     completed_modules: [],
     best_score: 0,
-    is_paid: false
-  });
+    is_paid: false,
+    updated_at: new Date().toISOString()
+  }, { onConflict: "user_id" });
   if (error) console.warn("insert progress:", error.message);
   state.userName = name;
   state.email = user.email;
