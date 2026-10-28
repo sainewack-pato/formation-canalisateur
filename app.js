@@ -88,7 +88,30 @@ async function saveProgressToCloud() {
 }
 
 async function ensureProgressRow(user) {
-  const existing = await loadProgressFromCloud(user.id);
+  // 1) Ligne liée à ce user_id
+  let existing = await loadProgressFromCloud(user.id);
+  // 2) Sinon, chercher une ligne existante pour le même email (évite doublons)
+  if (!existing && user.email) {
+    const { data: byEmail } = await sbClient
+      .from("learner_progress")
+      .select("*")
+      .eq("email", user.email.toLowerCase())
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    if (byEmail) {
+      // Rattacher la progression à ce compte (même email)
+      await sbClient
+        .from("learner_progress")
+        .update({
+          user_id: user.id,
+          email: user.email.toLowerCase(),
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", byEmail.id);
+      existing = { ...byEmail, user_id: user.id, email: user.email.toLowerCase() };
+    }
+  }
   if (existing) {
     state.completedModules = existing.completed_modules || [];
     state.bestScore = existing.best_score || 0;
@@ -99,14 +122,15 @@ async function ensureProgressRow(user) {
     return;
   }
   const name = user.user_metadata?.name || state.userName || "";
-  const { error } = await sbClient.from("learner_progress").insert({
+  const { error } = await sbClient.from("learner_progress").upsert({
     user_id: user.id,
-    email: user.email,
+    email: (user.email || "").toLowerCase(),
     user_name: name,
     completed_modules: [],
     best_score: 0,
-    is_paid: false
-  });
+    is_paid: false,
+    updated_at: new Date().toISOString()
+  }, { onConflict: "user_id" });
   if (error) console.warn("insert progress:", error.message);
   state.userName = name;
   state.email = user.email;
@@ -122,19 +146,22 @@ function switchAuthTab(tab) {
     t.classList.toggle("active", t.dataset.tab === tab);
   });
   const tabs = document.querySelector(".auth-tabs");
-  if (tabs) tabs.style.display = tab === "forgot" ? "none" : "flex";
+  const hideTabs = (tab === "forgot" || tab === "new-password");
+  if (tabs) tabs.style.display = hideTabs ? "none" : "flex";
 
   const login = document.getElementById("form-login");
   const reg = document.getElementById("form-register");
   const forgot = document.getElementById("form-forgot");
+  const newPass = document.getElementById("form-new-password");
   const success = document.getElementById("auth-success");
 
   if (login) login.classList.toggle("hidden", tab !== "login");
   if (reg) reg.classList.toggle("hidden", tab !== "register");
   if (forgot) forgot.classList.toggle("hidden", tab !== "forgot");
+  if (newPass) newPass.classList.toggle("hidden", tab !== "new-password");
   if (success) success.classList.add("hidden");
 
-  ["login-error", "register-error", "forgot-error"].forEach(id => {
+  ["login-error", "register-error", "forgot-error", "newpass-error"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });
@@ -144,6 +171,7 @@ function showSuccess(title, message, thenLogin) {
   document.getElementById("form-login")?.classList.add("hidden");
   document.getElementById("form-register")?.classList.add("hidden");
   document.getElementById("form-forgot")?.classList.add("hidden");
+  document.getElementById("form-new-password")?.classList.add("hidden");
   const tabs = document.querySelector(".auth-tabs");
   if (tabs) tabs.style.display = "none";
 
@@ -313,31 +341,86 @@ async function handleLogin(e) {
 
 async function handleForgot(e) {
   e.preventDefault();
-  await ensureSupabase();
-
-  const email = document.getElementById("forgot-email").value.trim().toLowerCase();
   const errEl = document.getElementById("forgot-error");
-  // For Supabase we use reset password email, ignore new password fields for cloud flow
-  const password = document.getElementById("forgot-password")?.value;
+  const btn = e.target.querySelector('button[type="submit"]');
+  try {
+    await ensureSupabase();
+    const email = document.getElementById("forgot-email").value.trim().toLowerCase();
+    if (!email) {
+      errEl.textContent = "Saisissez votre email.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    errEl.classList.add("hidden");
+    if (btn) { btn.disabled = true; btn.textContent = "Envoi..."; }
 
-  errEl.classList.add("hidden");
+    // Lien de retour vers l'app (GitHub Pages)
+    const redirectTo = window.location.origin + window.location.pathname.replace(/index\.html$/, "");
 
-  // Send reset email via Supabase
-  const { error } = await sbClient.auth.resetPasswordForEmail(email, {
-    redirectTo: window.location.origin + window.location.pathname
-  });
+    const { error } = await sbClient.auth.resetPasswordForEmail(email, { redirectTo });
 
-  if (error) {
-    errEl.textContent = error.message;
+    if (btn) { btn.disabled = false; btn.textContent = "Envoyer le lien"; }
+
+    if (error) {
+      errEl.textContent = error.message || "Impossible d'envoyer l'email.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+
+    showSuccess(
+      "Email envoyé !",
+      "Vérifiez votre boîte mail (et les spams). Cliquez sur le lien reçu pour choisir un nouveau mot de passe.",
+      true
+    );
+  } catch (err) {
+    if (btn) { btn.disabled = false; btn.textContent = "Envoyer le lien"; }
+    errEl.textContent = err.message || "Erreur réseau.";
     errEl.classList.remove("hidden");
-    return false;
   }
+  return false;
+}
 
-  showSuccess(
-    "Email envoyé !",
-    "Si un compte existe avec cet email, vous recevrez un lien pour réinitialiser votre mot de passe.",
-    true
-  );
+async function handleUpdatePassword(e) {
+  e.preventDefault();
+  const errEl = document.getElementById("newpass-error");
+  const btn = e.target.querySelector('button[type="submit"]');
+  try {
+    await ensureSupabase();
+    const p1 = document.getElementById("new-password").value;
+    const p2 = document.getElementById("new-password2").value;
+    if (p1.length < 6) {
+      errEl.textContent = "Minimum 6 caractères.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    if (p1 !== p2) {
+      errEl.textContent = "Les mots de passe ne correspondent pas.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+    errEl.classList.add("hidden");
+    if (btn) { btn.disabled = true; btn.textContent = "Enregistrement..."; }
+
+    const { error } = await sbClient.auth.updateUser({ password: p1 });
+
+    if (btn) { btn.disabled = false; btn.textContent = "Enregistrer le mot de passe"; }
+
+    if (error) {
+      errEl.textContent = error.message || "Échec de la mise à jour.";
+      errEl.classList.remove("hidden");
+      return false;
+    }
+
+    showSuccess(
+      "Mot de passe mis à jour !",
+      "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      true
+    );
+  } catch (err) {
+    if (btn) { btn.disabled = false; btn.textContent = "Enregistrer le mot de passe"; }
+    errEl.textContent = err.message || "Erreur réseau.";
+    errEl.classList.remove("hidden");
+  }
   return false;
 }
 
@@ -399,7 +482,7 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
 });
 
 function updateHomeProgress() {
-  const done = getCompletedModuleCount();
+  const done = state.completedModules.length;
   const pct = Math.round((done / TOTAL_MODULES) * 100);
   const bar = document.getElementById("global-progress");
   const text = document.getElementById("progress-text");
@@ -427,7 +510,7 @@ function updateHomeProgress() {
 }
 
 function isFormationComplete() {
-  return getCompletedModuleCount() >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
+  return state.completedModules.length >= TOTAL_MODULES && state.bestScore >= QUIZ_PASS;
 }
 
 function renderModules() {
@@ -668,19 +751,12 @@ async function finishQuiz() {
 
 function resetQuiz() { resetQuizUI(); }
 
-function getCompletedModuleCount() {
-  // Count only real module IDs, once each; ignore stale or duplicate progress entries.
-  if (!Array.isArray(state.completedModules) || !Array.isArray(MODULES)) return 0;
-  const completed = new Set(state.completedModules);
-  return MODULES.filter(module => completed.has(module.id)).length;
-}
-
 // ---------- Attestation ----------
 function updateAttestationScreen() {
   const locked = document.getElementById("attestation-locked");
   const ready = document.getElementById("attestation-ready");
   const status = document.getElementById("attestation-status");
-  const modulesOk = getCompletedModuleCount() >= TOTAL_MODULES;
+  const modulesOk = state.completedModules.length >= TOTAL_MODULES;
   const quizOk = state.bestScore >= QUIZ_PASS;
 
   if (modulesOk && quizOk) {
@@ -688,30 +764,14 @@ function updateAttestationScreen() {
     ready?.classList.remove("hidden");
     const name = state.userName || "";
     const nameInput = document.getElementById("user-name");
-    if (nameInput) nameInput.value = name;
-    const profile = getCertificateProfile();
-    const birthDateInput = document.getElementById("user-birth-date");
-    const birthPlaceInput = document.getElementById("user-birth-place");
-    const issuePlaceInput = document.getElementById("user-issue-place");
-    if (birthDateInput && !birthDateInput.value) birthDateInput.value = profile.birthDate || "";
-    if (birthPlaceInput && !birthPlaceInput.value) birthPlaceInput.value = profile.birthPlace || "";
-    if (issuePlaceInput && profile.issuePlace) issuePlaceInput.value = profile.issuePlace;
-    document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-    document.getElementById("cert-modules").textContent = getCompletedModuleCount();
-    document.getElementById("cert-number").textContent = getCertificateNumber();
-    document.getElementById("cert-birth-date").textContent = formatBirthDate(profile.birthDate);
-    document.getElementById("cert-birth-place").textContent = profile.birthPlace || "—";
-    document.getElementById("cert-issue-place").textContent = profile.issuePlace || "Ziguinchor";
-    document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
-      day: "numeric", month: "long", year: "numeric"
-    });
-    if (name) document.getElementById("cert-name").textContent = name;
+    if (nameInput && name) nameInput.value = name;
+    fillCertificateFields();
   } else {
     locked?.classList.remove("hidden");
     ready?.classList.add("hidden");
     let msg = modulesOk
       ? "✓ 8 modules validés<br>"
-      : `✗ Modules : ${getCompletedModuleCount()}/${TOTAL_MODULES}<br>`;
+      : `✗ Modules : ${state.completedModules.length}/${TOTAL_MODULES}<br>`;
     msg += quizOk
       ? `✓ Quiz final : ${state.bestScore}/15`
       : `✗ Quiz final : ${state.bestScore}/15 (min. 12)`;
@@ -719,61 +779,84 @@ function updateAttestationScreen() {
   }
 }
 
-function certificateStorageKey() {
-  return "i2ds_certificate_profile_" + (state.userId || state.email || "local");
+function buildCertNumber() {
+  const y = new Date().getFullYear();
+  const uid = (state.userId || state.email || "GUEST").toString().replace(/-/g, "").replace(/@.*/g, "").slice(0, 6).toUpperCase() || "GUEST";
+  const score = String(state.bestScore || 0).padStart(2, "0");
+  const mods = String((state.completedModules || []).length).padStart(1, "0");
+  return "ECO-SUD-" + y + "-" + uid + "-M" + mods + "-Q" + score;
 }
-function getCertificateProfile() {
-  try { return JSON.parse(localStorage.getItem(certificateStorageKey()) || "{}"); }
-  catch (_) { return {}; }
-}
-function getCertificateNumber() {
-  const key = "i2ds_certificate_number_" + (state.userId || state.email || "local");
-  let number = "";
-  try { number = localStorage.getItem(key) || ""; } catch (_) {}
-  if (!number) {
-    const identity = String(state.userId || state.email || "apprenant").replace(/[^a-z0-9]/gi, "").toUpperCase();
-    const suffix = identity.slice(-8).padStart(8, "0");
-    number = "I2DS-" + new Date().getFullYear() + "-" + suffix;
-    try { localStorage.setItem(key, number); } catch (_) {}
+
+function fillCertificateFields() {
+  const name = (document.getElementById("user-name")?.value || state.userName || "").trim();
+  const birthDateRaw = document.getElementById("user-birth-date")?.value || "";
+  const birthPlace = (document.getElementById("user-birth-place")?.value || "").trim();
+
+  let birthDateFmt = "—";
+  if (birthDateRaw) {
+    const d = new Date(birthDateRaw + "T12:00:00");
+    birthDateFmt = d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
   }
-  return number;
-}
-function formatBirthDate(value) {
-  if (!value) return "—";
-  const d = new Date(value + "T12:00:00");
-  return Number.isNaN(d.getTime()) ? value : d.toLocaleDateString("fr-FR", {day:"numeric",month:"long",year:"numeric"});
-}
-async function generateCertificate() {
-  const name = document.getElementById("user-name").value.trim();
-  const birthDate = document.getElementById("user-birth-date").value;
-  const birthPlace = document.getElementById("user-birth-place").value.trim();
-  const issuePlace = document.getElementById("user-issue-place").value.trim() || "Ziguinchor";
-  if (!name) { alert("Veuillez saisir le prénom et le nom de l’apprenant."); return; }
-  if (!birthDate || !birthPlace) { alert("Veuillez saisir la date et le lieu de naissance."); return; }
-  if (getCompletedModuleCount() < TOTAL_MODULES || state.bestScore < QUIZ_PASS) {
-    alert("L’attestation est disponible après validation des 8 modules et obtention d’au moins 12/15 au quiz final."); return;
-  }
-  state.userName = name;
-  const profile = {birthDate, birthPlace, issuePlace};
-  try { localStorage.setItem(certificateStorageKey(), JSON.stringify(profile)); } catch (_) {}
-  await saveProgressToCloud();
-  document.getElementById("cert-name").textContent = name;
-  document.getElementById("cert-number").textContent = getCertificateNumber();
-  document.getElementById("cert-birth-date").textContent = formatBirthDate(birthDate);
-  document.getElementById("cert-birth-place").textContent = birthPlace;
-  document.getElementById("cert-modules").textContent = getCompletedModuleCount();
-  document.getElementById("cert-score").textContent = state.bestScore + " / " + QUIZ_TOTAL;
-  document.getElementById("cert-issue-place").textContent = issuePlace;
-  document.getElementById("cert-date").textContent = new Date().toLocaleDateString("fr-FR", {
+
+  const nameEl = document.getElementById("cert-name");
+  if (nameEl) nameEl.textContent = name || "________________";
+  const bd = document.getElementById("cert-birth-date");
+  if (bd) bd.textContent = birthDateFmt;
+  const bp = document.getElementById("cert-birth-place");
+  if (bp) bp.textContent = birthPlace || "—";
+const scoreEl = document.getElementById("cert-score");
+  if (scoreEl) scoreEl.textContent = state.bestScore + " / " + QUIZ_TOTAL;
+  const dateEl = document.getElementById("cert-date");
+  if (dateEl) dateEl.textContent = new Date().toLocaleDateString("fr-FR", {
     day: "numeric", month: "long", year: "numeric"
   });
+  const numEl = document.getElementById("cert-number");
+  if (numEl) numEl.textContent = buildCertNumber();
+}
+
+async function generateCertificate() {
+  const name = document.getElementById("user-name").value.trim();
+  const birthDate = document.getElementById("user-birth-date")?.value || "";
+  const birthPlace = document.getElementById("user-birth-place")?.value.trim() || "";
+  if (!name) { alert("Veuillez saisir votre prénom et nom."); return; }
+  if (!birthDate) { alert("Veuillez saisir votre date de naissance."); return; }
+  if (!birthPlace) { alert("Veuillez saisir votre lieu de naissance."); return; }
+  state.userName = name;
+  await saveProgressToCloud();
+  fillCertificateFields();
 }
 
 // ---------- Init ----------
 (async function init() {
   await ensureSupabase();
+
+  // Détection du lien "réinitialiser le mot de passe"
+  sbClient.auth.onAuthStateChange(async (event, session) => {
+    if (event === "PASSWORD_RECOVERY") {
+      showScreen("auth");
+      switchAuthTab("new-password");
+      return;
+    }
+  });
+
+  // Hash recovery tokens (Supabase met les tokens dans l'URL)
+  const hash = window.location.hash || "";
+  if (hash.includes("type=recovery") || hash.includes("type%3Drecovery")) {
+    showScreen("auth");
+    switchAuthTab("new-password");
+    // Laisser Supabase parser le hash
+    await new Promise(r => setTimeout(r, 500));
+  }
+
   const { data: { session } } = await sbClient.auth.getSession();
   if (session?.user) {
+    // Si on est en recovery, ne pas entrer dans l'app tout de suite
+    const isRecovery = hash.includes("type=recovery") || hash.includes("type%3Drecovery");
+    if (isRecovery) {
+      showScreen("auth");
+      switchAuthTab("new-password");
+      return;
+    }
     state.userId = session.user.id;
     state.email = session.user.email;
     await ensureProgressRow(session.user);
