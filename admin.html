@@ -126,6 +126,14 @@
       white-space: nowrap;
     }
     .btn-lock:hover { background: #e0e0e0; }
+    .btn-edit {
+      background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9;
+      padding: 0.35rem 0.6rem; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; cursor: pointer;
+      white-space: nowrap; margin-left: 0.25rem;
+    }
+    .btn-edit:hover { background: #bbdefb; }
+    .actions-cell { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
     @media (max-width: 600px) {
       table { font-size: 0.8rem; }
       th:nth-child(4), td:nth-child(4) { display: none; }
@@ -205,7 +213,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js?v=4"></script>
+  <script src="js/supabase-config.js?v=8"></script>
   <script>
     let allLearners = [];
 
@@ -333,9 +341,15 @@
       }
       tbody.innerHTML = list.map(l => {
         const email = l.email || "";
-        const action = l.is_paid
-          ? `<button type="button" class="btn-lock" onclick="lockLearner('${escapeHtml(email)}')">Verrouiller</button>`
-          : `<button type="button" class="btn-unlock" onclick="unlockLearner('${escapeHtml(email)}')">Déverrouiller</button>`;
+        const payBtn = l.is_paid
+          ? `<button type="button" class="btn-lock" onclick="lockLearner(${JSON.stringify(email)})">Verrouiller</button>`
+          : `<button type="button" class="btn-unlock" onclick="unlockLearner(${JSON.stringify(email)})">Déverrouiller</button>`;
+        const editBtn = email
+          ? `<button type="button" class="btn-edit" onclick="editLearnerEmail(${JSON.stringify(email)})">Corriger email</button>`
+          : "";
+        const action = email
+          ? `<div class="actions-cell">${payBtn}${editBtn}</div>`
+          : "—";
         return `
         <tr>
           <td>${escapeHtml(l.user_name || "—")}${l.is_admin ? " 🔑" : ""}</td>
@@ -345,7 +359,7 @@
           <td>${l.is_paid ? '<span class="badge badge-ok">Payé</span>' : '<span class="badge badge-progress">Non payé</span>'}</td>
           <td>${statusBadge(l)}</td>
           <td>${formatDate(l.updated_at || l.created_at)}</td>
-          <td>${email ? action : "—"}</td>
+          <td>${action}</td>
         </tr>`;
       }).join("");
     }
@@ -392,6 +406,59 @@
         return;
       }
       alert("Verrouillé : " + email);
+      loadLearners();
+    }
+
+    async function editLearnerEmail(oldEmail) {
+      if (!oldEmail) { alert("Email manquant"); return; }
+      const raw = prompt(
+        "Corriger l'email de l'apprenant\n\nEmail actuel :\n" + oldEmail + "\n\nNouvel email :",
+        oldEmail
+      );
+      if (raw === null) return;
+      const newEmail = String(raw).trim().toLowerCase();
+      if (!newEmail) { alert("Email vide."); return; }
+      if (newEmail === String(oldEmail).trim().toLowerCase()) {
+        alert("Aucun changement.");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
+        alert("Format d'email invalide.");
+        return;
+      }
+      // Vérifier si le nouvel email existe déjà
+      const { data: existing, error: errCheck } = await sbClient
+        .from("learner_progress")
+        .select("id, email, user_name")
+        .eq("email", newEmail)
+        .maybeSingle();
+      if (errCheck) {
+        alert("Erreur vérification : " + errCheck.message);
+        return;
+      }
+      if (existing) {
+        alert(
+          "Impossible : cet email existe déjà pour\n" +
+          (existing.user_name || existing.email) +
+          "\n\nChoisissez une autre adresse ou fusionnez manuellement dans Supabase."
+        );
+        return;
+      }
+      if (!confirm("Confirmer la correction ?\n\n" + oldEmail + "\n→\n" + newEmail)) return;
+
+      const { error } = await sbClient
+        .from("learner_progress")
+        .update({ email: newEmail, updated_at: new Date().toISOString() })
+        .eq("email", oldEmail);
+      if (error) {
+        alert("Erreur : " + error.message + "\n\nNote : le compte de connexion (Auth) garde l'ancien email. L'apprenant doit se connecter avec l'email de son compte Auth.");
+        return;
+      }
+      alert(
+        "Email mis à jour dans le suivi :\n" + newEmail +
+        "\n\nImportant : l'email de connexion (Supabase Auth) n'est pas modifié automatiquement. " +
+        "Si l'apprenant ne peut plus se connecter, il utilisera l'email de son compte Auth, ou vous corrigez aussi dans Authentication → Users."
+      );
       loadLearners();
     }
 
